@@ -50,7 +50,7 @@ function Index() {
       <Navigation />
       <ScrollProgress />
 
-      <main className="relative">
+      <main className="relative" style={{ zIndex: 2 }}>
         <HeroOverlay />
         <VideoTransition />
         <div style={{ background: "linear-gradient(180deg, var(--night) 0%, var(--page) 30%, var(--page) 70%, var(--night) 100%)" }}>
