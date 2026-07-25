@@ -31,14 +31,21 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const [mounted, setMounted] = useState(false);
   useEffect(() => {
     initScrollManager();
+    setMounted(true);
     return () => destroyScrollManager();
   }, []);
 
   return (
     <div className="relative mobile-bg min-h-screen text-[var(--cream)]">
       <LoadingScreen />
+      {mounted && (
+        <Suspense fallback={null}>
+          <ThreeScene />
+        </Suspense>
+      )}
       <div className="grain-overlay" />
       <Navigation />
       <ScrollProgress />
