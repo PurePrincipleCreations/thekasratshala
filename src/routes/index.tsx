@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense, useState } from "react";
 import LoadingScreen from "@/components/LoadingScreen";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -13,6 +13,8 @@ import GallerySection from "@/components/GallerySection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import { initScrollManager, destroyScrollManager } from "@/utils/ScrollManager";
+
+const ThreeScene = lazy(() => import("@/components/three/ThreeScene"));
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -29,19 +31,26 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const [mounted, setMounted] = useState(false);
   useEffect(() => {
     initScrollManager();
+    setMounted(true);
     return () => destroyScrollManager();
   }, []);
 
   return (
     <div className="relative mobile-bg min-h-screen text-[var(--cream)]">
       <LoadingScreen />
+      {mounted && (
+        <Suspense fallback={null}>
+          <ThreeScene />
+        </Suspense>
+      )}
       <div className="grain-overlay" />
       <Navigation />
       <ScrollProgress />
 
-      <main className="relative">
+      <main className="relative" style={{ zIndex: 2 }}>
         <HeroOverlay />
         <VideoTransition />
         <div style={{ background: "linear-gradient(180deg, var(--night) 0%, var(--page) 30%, var(--page) 70%, var(--night) 100%)" }}>
