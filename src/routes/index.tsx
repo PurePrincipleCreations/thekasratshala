@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense, useState } from "react";
 import LoadingScreen from "@/components/LoadingScreen";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -13,6 +13,8 @@ import GallerySection from "@/components/GallerySection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import { initScrollManager, destroyScrollManager } from "@/utils/ScrollManager";
+
+const ThreeScene = lazy(() => import("@/components/three/ThreeScene"));
 
 export const Route = createFileRoute("/")({
   component: Index,
