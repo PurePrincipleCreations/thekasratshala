@@ -20,14 +20,15 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Kasratshala — Movement Arts Dojo · Bir, Himachal" },
-      { name: "description", content: "A movement arts dojo rooted in the Gurukul tradition. Courses, workshops, and online practice from under the sacred tree in Bir, Himachal Pradesh." },
+      { title: "Kasratshala — Movement Arts Dojo · Naggar, Himachal" },
+      { name: "description", content: "Ancient tools, yoga and modern movement science in one living practice. 10 online courses, residential camps in Naggar, and the One Flow Gathering." },
       { property: "og:title", content: "Kasratshala — Movement Arts Dojo" },
-      { property: "og:description", content: "Rooted in the Gurukul tradition. Under the sacred tree, in the Dhauladhar range." },
+      { property: "og:description", content: "Ancient tools. Modern movement science. One body. Online courses and residential camps in Naggar, Himachal Pradesh." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
+
 });
 
 function Index() {
