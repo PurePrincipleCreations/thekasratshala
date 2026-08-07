@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 const pillars = [
-  { sk: "Sthira", en: "Steadiness", body: "The stillness the body finds in effort." },
-  { sk: "Sukha", en: "Ease", body: "Grace threaded through every rep, every breath." },
-  { sk: "Sadhana", en: "Practice", body: "The daily returning. The unglamorous devotion." },
-  { sk: "Seva", en: "Service", body: "Movement offered — to self, teacher, and lineage." },
+  { sk: "Force", en: "Steel & load", body: "Mace, kettlebells and rope from the akhara lineage." },
+  { sk: "Breath", en: "Pranayama", body: "Regulation, capacity and attention, trained deliberately." },
+  { sk: "Structure", en: "Mechanics", body: "Levers, angles and sequencing you can actually apply." },
+  { sk: "Rhythm", en: "Flow", body: "Yoga, locomotion and play woven into one practice." },
 ];
 
 const reveal = {
@@ -17,25 +17,30 @@ export default function AboutSection() {
     <section id="about" className="relative py-32">
       <div className="section-inner">
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={reveal} className="flex flex-col items-center text-center mb-16">
-          <div className="root-badge mb-6">मूल — The Root</div>
-          <h2 className="section-title text-5xl md:text-6xl max-w-3xl">A dojo built the old way — under a tree.</h2>
+          <div className="root-badge mb-6">The Dojo</div>
+          <h2 className="section-title text-5xl md:text-6xl max-w-3xl">A different relationship with strength.</h2>
           <div className="gold-line mt-6" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-16 items-start">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={reveal}>
-            <p className="section-sub text-lg mb-6">The ancient akhara, remembered.</p>
-            <p className="text-[var(--cream)]/80 leading-relaxed mb-6">
-              Long before glass-fronted gyms and mirrored studios, movement was taught in open earth — beneath a wide-crowned tree, on a mandala of stone, under the eye of a teacher who ate, slept, and trained with his students. Kasratshala is our attempt to remember that room.
+            <p className="section-sub text-lg mb-6">
+              Not fitness as repetition. Practice as intelligence.
             </p>
             <p className="text-[var(--cream)]/80 leading-relaxed mb-6">
-              A stone mandala platform. Modern equipment carefully chosen — parallettes, rings, mace, gada, clubs. A canopy of leaves overhead. The Himalayas as the fourth wall. Everything the body needs, nothing the mind must decode.
+              Understanding force, breath, structure, rhythm — and where to apply them.
+            </p>
+            <p className="text-[var(--cream)]/80 leading-relaxed mb-6">
+              We blend the akhara lineage of steel mace, kettlebells and rope with yoga, pranayama and
+              movement mechanics. The result is a precise, adaptable practice for real bodies — whether
+              you train from home or join us in Naggar.
             </p>
             <p className="text-[var(--cream)]/80 leading-relaxed">
-              This is Gurukul: living, cooking, and training in the same rhythm as the mountains that hold us.
+              Our online courses make this work accessible across India and beyond. Residential practice
+              is available through direct enquiry.
             </p>
             <div className="flex flex-wrap gap-2 mt-8">
-              {["Bir · Kangra Valley", "Himachal Pradesh", "1400m elevation"].map((t) => (
+              {["Naggar · Kullu District", "Himachal Pradesh", "Rooted, online"].map((t) => (
                 <span key={t} className="text-xs tracking-widest uppercase text-[var(--muted)] border border-[var(--cream)]/10 rounded-full px-3 py-1">{t}</span>
               ))}
             </div>
@@ -43,11 +48,10 @@ export default function AboutSection() {
 
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={reveal} className="relative">
             <div className="rounded-sm border border-[var(--gold)]/20 p-10 bg-[var(--alt)]/50 mb-8">
-              <p className="text-2xl leading-relaxed text-[var(--heading)]" style={{ fontFamily: "var(--font-deva)" }}>
-                स्थिरसुखमासनम्
+              <p className="section-title text-3xl leading-snug text-[var(--heading)]">
+                Ancient tools. Modern movement science. One body.
               </p>
-              <p className="section-sub mt-3">Sthira-sukham āsanam</p>
-              <p className="text-sm text-[var(--muted)] mt-2 italic">"The posture is steady and easeful." — Yoga Sūtra 2.46</p>
+              <p className="section-sub mt-3">Movement, made fun</p>
             </div>
 
             <div className="grid grid-cols-2 gap-4">

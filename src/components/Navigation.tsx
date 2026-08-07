@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import ksLogo from "@/assets/ks-logo.png.asset.json";
 
 const links = [
   { label: "The Dojo", id: "about" },
   { label: "Courses", id: "courses" },
-  { label: "Workshops", id: "workshops" },
-  { label: "Online", id: "online" },
+  { label: "Camps", id: "camps" },
+  { label: "One Flow", id: "gathering" },
   { label: "Connect", id: "contact" },
 ];
 
@@ -45,12 +46,9 @@ export default function Navigation() {
       }`}
       style={{ background: scrolled ? "rgba(8,10,12,0.85)" : "transparent" }}
     >
-      <div className="section-inner flex items-center justify-between py-5">
-        <button onClick={() => scrollTo("hero")} className="flex items-center gap-3">
-          <span className="w-10 h-10 rounded-full border border-[var(--gold)]/50 flex items-center justify-center font-[var(--font-deva)] text-[var(--gold)]" style={{ fontFamily: "var(--font-deva)" }}>
-            क
-          </span>
-          <span className="hand-title text-2xl text-[var(--heading)]">Kasratshala</span>
+      <div className="section-inner flex items-center justify-between py-4">
+        <button onClick={() => scrollTo("hero")} className="flex items-center" aria-label="Kasratshala home">
+          <img src={ksLogo.url} alt="The Kasrat Shala logo" className="h-10 w-auto" />
         </button>
         <ul className="hidden md:flex items-center gap-8">
           {links.map((l) => (

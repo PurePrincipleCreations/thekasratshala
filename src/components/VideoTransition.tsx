@@ -31,8 +31,9 @@ export default function VideoTransition() {
 
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
             <p className="section-title text-3xl md:text-5xl max-w-3xl italic text-[var(--heading)]">
-              "The mountains are not just a backdrop.<br/>They are the practice."
+              "Ancient tools. Modern movement science.<br/>One body."
             </p>
+
             <div className="gold-line mt-8" />
           </div>
 

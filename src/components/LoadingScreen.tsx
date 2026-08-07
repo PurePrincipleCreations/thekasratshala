@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ksLogo from "@/assets/ks-logo.png.asset.json";
 
 export default function LoadingScreen() {
   const [show, setShow] = useState(true);
@@ -16,10 +17,7 @@ export default function LoadingScreen() {
           className="fixed inset-0 z-[200] flex flex-col items-center justify-center"
           style={{ background: "#080A0C" }}
         >
-          <div className="w-20 h-20 rounded-full border border-[var(--gold)]/60 flex items-center justify-center animate-pulse-soft mb-6">
-            <span className="text-3xl text-[var(--gold-bright)]" style={{ fontFamily: "var(--font-deva)" }}>क</span>
-          </div>
-          <h1 className="hand-title text-5xl text-[var(--heading)] mb-1">Kasratshala</h1>
+          <img src={ksLogo.url} alt="The Kasrat Shala logo" className="w-[min(320px,70vw)] mb-4 animate-pulse-soft" />
           <p className="text-[10px] tracking-[0.35em] uppercase text-[var(--muted)] mb-8">Movement Arts Dojo</p>
           <div className="w-40 h-px bg-[var(--cream)]/10 overflow-hidden">
             <div className="w-full h-full shimmer" />

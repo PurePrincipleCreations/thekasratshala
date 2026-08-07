@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 
 const sections = [
-  { id: "hero", label: "The Tree" },
-  { id: "descent", label: "Descent" },
-  { id: "about", label: "Roots" },
-  { id: "courses", label: "Practice" },
-  { id: "workshops", label: "Immerse" },
-  { id: "online", label: "Beyond" },
+  { id: "hero", label: "Home" },
+  { id: "descent", label: "The Field" },
+  { id: "about", label: "The Dojo" },
+  { id: "courses", label: "Courses" },
+  { id: "camps", label: "Camps" },
+  { id: "gathering", label: "One Flow" },
+  { id: "gallery", label: "Practice" },
   { id: "contact", label: "Connect" },
 ];
+
 
 export default function ScrollProgress() {
   const [progress, setProgress] = useState(0);
