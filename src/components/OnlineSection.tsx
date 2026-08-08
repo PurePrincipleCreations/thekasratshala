@@ -55,23 +55,6 @@ export default function OnlineSection() {
           {circles.map((c, i) => (
             <ConvergingCircle key={c.label} label={c.label} cx={c.x} cy={c.y} index={i} converge={converge} />
           ))}
-          {false && (
-            <motion.div
-              className="absolute left-1/2 top-1/2 flex items-center justify-center rounded-full border border-[var(--teal)]/35"
-              style={{
-                width: "min(58vw, 250px)",
-                height: "min(58vw, 250px)",
-                x: useTransform(converge, (v) => c.x * v - 125),
-                y: useTransform(converge, (v) => c.y * v - 125),
-              }}
-              initial={{ opacity: 0, scale: 0.96 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={inViewOnce}
-              transition={{ duration: 1.1, delay: i * 0.12, ease: EASE as unknown as number[] }}
-            >
-              <span className="label-caps text-[10px] text-[var(--teal)] translate-y-[-40%]">{c.label}</span>
-            </motion.div>
-          ))}
 
           <motion.div
             style={{ opacity: centreOpacity }}
