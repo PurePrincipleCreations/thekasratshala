@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion, type MotionValue } from "framer-motion";
 import { EASE, reveal, inViewOnce } from "@/lib/motion";
 
 const panels = [
@@ -29,6 +29,25 @@ const circles = [
   { label: "Breath", x: -120, y: 80 },
   { label: "Play", x: 120, y: 80 },
 ];
+
+function ConvergingCircle({
+  label, cx, cy, index, converge,
+}: { label: string; cx: number; cy: number; index: number; converge: MotionValue<number> }) {
+  const x = useTransform(converge, (v) => cx * v - 125);
+  const y = useTransform(converge, (v) => cy * v - 125);
+  return (
+    <motion.div
+      className="absolute left-1/2 top-1/2 flex items-center justify-center rounded-full border border-[var(--teal)]/35"
+      style={{ width: "min(58vw, 250px)", height: "min(58vw, 250px)", x, y }}
+      initial={{ opacity: 0, scale: 0.96 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={inViewOnce}
+      transition={{ duration: 1.1, delay: index * 0.12, ease: EASE as unknown as number[] }}
+    >
+      <span className="label-caps text-[10px] text-[var(--teal)] -translate-y-[40%]">{label}</span>
+    </motion.div>
+  );
+}
 
 export default function OnlineSection() {
   const ref = useRef<HTMLDivElement>(null);
