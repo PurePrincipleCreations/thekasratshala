@@ -65,7 +65,7 @@ export default function WhatStaysSection() {
                 <div className="relative min-h-[240px]">
                   <span
                     key={`n-${index}`}
-                    className="section-title absolute -top-10 left-0 text-[9rem] leading-none text-[var(--cream)]/[0.07] select-none"
+                    className="section-title absolute -top-16 right-0 md:right-8 text-[9rem] leading-none text-[var(--cream)]/[0.05] select-none pointer-events-none"
                     aria-hidden="true"
                   >
                     {stages[index].n}
