@@ -44,7 +44,7 @@ export default function Navigation() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled ? "backdrop-blur-md" : ""
       }`}
-      style={{ background: scrolled ? "rgba(8,10,12,0.85)" : "transparent" }}
+      style={{ background: scrolled ? "color-mix(in oklab, var(--page) 88%, transparent)" : "transparent" }}
     >
       <div className="section-inner flex items-center justify-between py-4">
         <button onClick={() => scrollTo("hero")} className="flex items-center" aria-label="Kasratshala home">
@@ -73,7 +73,7 @@ export default function Navigation() {
         {open && (
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-[var(--night)] flex flex-col items-center justify-center gap-8 z-50"
+            className="fixed inset-0 bg-[var(--page)] flex flex-col items-center justify-center gap-8 z-50"
           >
             <button className="absolute top-6 right-6 text-[var(--cream)]" onClick={() => setOpen(false)} aria-label="Close">
               <X size={28} />

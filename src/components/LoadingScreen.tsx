@@ -15,11 +15,11 @@ export default function LoadingScreen() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8 }}
           className="fixed inset-0 z-[200] flex flex-col items-center justify-center"
-          style={{ background: "#080A0C" }}
+          style={{ background: "var(--page)" }}
         >
           <img src={ksLogo.url} alt="The Kasrat Shala logo" className="w-[min(320px,70vw)] mb-4 animate-pulse-soft" />
           <p className="text-[10px] tracking-[0.35em] uppercase text-[var(--muted)] mb-8">Movement Arts Dojo</p>
-          <div className="w-40 h-px bg-[var(--cream)]/10 overflow-hidden">
+          <div className="w-40 h-px bg-[var(--cream)]/15 overflow-hidden">
             <div className="w-full h-full shimmer" />
           </div>
         </motion.div>

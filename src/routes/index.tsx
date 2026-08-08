@@ -1,9 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, lazy, Suspense, useState } from "react";
+import { useEffect } from "react";
 import LoadingScreen from "@/components/LoadingScreen";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
 import HeroOverlay from "@/components/HeroOverlay";
+import SmoothScroll from "@/components/SmoothScroll";
+import WhatStaysSection from "@/components/WhatStaysSection";
 import VideoTransition from "@/components/VideoTransition";
 import AboutSection from "@/components/AboutSection";
 import CoursesSection from "@/components/CoursesSection";
@@ -13,8 +15,6 @@ import GallerySection from "@/components/GallerySection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import { initScrollManager, destroyScrollManager } from "@/utils/ScrollManager";
-
-const ThreeScene = lazy(() => import("@/components/three/ThreeScene"));
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -32,21 +32,15 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const [mounted, setMounted] = useState(false);
   useEffect(() => {
     initScrollManager();
-    setMounted(true);
     return () => destroyScrollManager();
   }, []);
 
   return (
     <div className="relative mobile-bg min-h-screen text-[var(--cream)]">
       <LoadingScreen />
-      {mounted && (
-        <Suspense fallback={null}>
-          <ThreeScene />
-        </Suspense>
-      )}
+      <SmoothScroll />
       <div className="grain-overlay" />
       <Navigation />
       <ScrollProgress />
@@ -54,8 +48,9 @@ function Index() {
       <main className="relative" style={{ zIndex: 2 }}>
         <HeroOverlay />
         <VideoTransition />
-        <div style={{ background: "linear-gradient(180deg, var(--night) 0%, var(--page) 30%, var(--page) 70%, var(--night) 100%)" }}>
+        <div className="bg-[var(--page)]">
           <AboutSection />
+          <WhatStaysSection />
           <CoursesSection />
           <WorkshopsSection />
           <OnlineSection />

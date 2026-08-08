@@ -16,7 +16,7 @@ export default function VideoTransition() {
   };
 
   return (
-    <section id="descent" ref={ref} className="relative min-h-screen flex items-center justify-center py-24 bg-[var(--night)]">
+    <section id="descent" ref={ref} className="relative min-h-screen flex items-center justify-center py-24 bg-[var(--page)]">
       <motion.div style={{ opacity }} className="relative w-full h-full flex items-center justify-center">
         <div className="relative w-full md:mx-[8%] md:w-[84%] aspect-video overflow-hidden rounded-sm">
           <video
@@ -30,7 +30,7 @@ export default function VideoTransition() {
           <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(8,10,12,0.4), rgba(8,10,12,0.7))" }} />
 
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
-            <p className="section-title text-3xl md:text-5xl max-w-3xl italic text-[var(--heading)]">
+            <p className="section-title text-3xl md:text-5xl max-w-3xl italic text-white">
               "Ancient tools. Modern movement science.<br/>One body."
             </p>
 
@@ -39,7 +39,7 @@ export default function VideoTransition() {
 
           <button
             onClick={toggle}
-            className="absolute bottom-6 right-6 w-11 h-11 rounded-full border border-[var(--cream)]/30 bg-[var(--night)]/40 backdrop-blur flex items-center justify-center text-[var(--cream)] hover:border-[var(--gold)]"
+            className="absolute bottom-6 right-6 w-11 h-11 rounded-full border border-white/40 bg-black/30 backdrop-blur flex items-center justify-center text-white hover:border-[var(--lime)]"
             aria-label="Play/pause"
           >
             {playing ? <Pause size={16} /> : <Play size={16} />}
