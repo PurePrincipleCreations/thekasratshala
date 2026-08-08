@@ -33,15 +33,14 @@ export default function ScrollProgress() {
   }, []);
 
   return (
-    <div className="hidden lg:block fixed left-8 top-1/2 -translate-y-1/2 z-40">
+    <div className="hidden xl:block fixed left-6 top-1/2 -translate-y-1/2 z-40">
       <div className="relative flex flex-col items-start gap-8">
         <div className="absolute left-[5px] top-0 bottom-0 w-px bg-[var(--cream)]/10" />
         <div
           className="absolute left-[5px] top-0 w-px"
           style={{
             height: `${progress * 100}%`,
-            background: "linear-gradient(180deg, var(--gold), var(--teal-glow))",
-            boxShadow: "0 0 8px var(--teal-glow)",
+            background: "linear-gradient(180deg, var(--gold), var(--teal))",
           }}
         />
         {sections.map((s) => (
@@ -51,20 +50,17 @@ export default function ScrollProgress() {
             className="group flex items-center gap-3"
           >
             <span
-              className={`w-3 h-3 rounded-full border transition-all ${
+              className={`w-2.5 h-2.5 rounded-full border transition-all ${
                 active === s.id ? "scale-125" : ""
               }`}
               style={{
-                borderColor: active === s.id ? "var(--teal-glow)" : "var(--stone)",
-                background: active === s.id ? "var(--teal-glow)" : "transparent",
-                boxShadow: active === s.id ? "0 0 8px var(--teal-glow)" : "none",
+                borderColor: active === s.id ? "var(--teal)" : "var(--stone)",
+                background: active === s.id ? "var(--teal)" : "transparent",
               }}
             />
             <span
-              className={`text-xs tracking-[0.2em] uppercase transition-opacity ${
-                active === s.id ? "opacity-100" : "opacity-40 group-hover:opacity-80"
-              }`}
-              style={{ color: active === s.id ? "#6AD0D8" : "var(--muted)" }}
+              className="text-[10px] tracking-[0.2em] uppercase opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-90 group-hover:translate-x-0 whitespace-nowrap"
+              style={{ color: active === s.id ? "var(--teal)" : "var(--muted)" }}
             >
               {s.label}
             </span>
