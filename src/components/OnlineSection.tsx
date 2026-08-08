@@ -1,4 +1,6 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { EASE, reveal, inViewOnce } from "@/lib/motion";
 
 const panels = [
   {
@@ -21,11 +23,24 @@ const panels = [
   },
 ];
 
+const circles = [
+  { label: "Tools", x: -120, y: -80 },
+  { label: "Yoga", x: 120, y: -80 },
+  { label: "Breath", x: -120, y: 80 },
+  { label: "Play", x: 120, y: 80 },
+];
+
 export default function OnlineSection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "center center"] });
+  const converge = useTransform(scrollYProgress, [0, 1], [1, reduce ? 1 : 0.28]);
+  const centreOpacity = useTransform(scrollYProgress, [0.55, 0.95], [0, 1]);
+
   return (
-    <section id="gathering" className="relative py-32 bg-[var(--night)]/50">
+    <section id="gathering" className="relative py-32 bg-[var(--night)]/60">
       <div className="section-inner">
-        <div className="text-center mb-16">
+        <motion.div initial="hidden" whileInView="show" viewport={inViewOnce} variants={reveal} className="text-center mb-16">
           <div className="root-badge mb-6">Gathering · One day, one field</div>
           <h2 className="section-title text-5xl md:text-6xl">One Flow Gathering.</h2>
           <p className="section-sub mt-3 max-w-2xl mx-auto">
@@ -33,10 +48,40 @@ export default function OnlineSection() {
             yoga and play — without separating the body into disciplines.
           </p>
           <div className="gold-line mt-6 mx-auto" />
+        </motion.div>
+
+        {/* Converging circles centrepiece */}
+        <div ref={ref} className="relative mx-auto mb-16 h-[380px] md:h-[460px] max-w-2xl">
+          {circles.map((c, i) => (
+            <motion.div
+              key={c.label}
+              className="absolute left-1/2 top-1/2 flex items-center justify-center rounded-full border border-[var(--teal)]/35"
+              style={{
+                width: "min(58vw, 250px)",
+                height: "min(58vw, 250px)",
+                x: useTransform(converge, (v) => c.x * v - 125),
+                y: useTransform(converge, (v) => c.y * v - 125),
+              }}
+              initial={{ opacity: 0, scale: 0.96 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={inViewOnce}
+              transition={{ duration: 1.1, delay: i * 0.12, ease: EASE as unknown as number[] }}
+            >
+              <span className="label-caps text-[10px] text-[var(--teal)] translate-y-[-40%]">{c.label}</span>
+            </motion.div>
+          ))}
+
+          <motion.div
+            style={{ opacity: centreOpacity }}
+            className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none"
+          >
+            <p className="label-caps text-[var(--gold-bright)]">One Flow</p>
+            <p className="section-sub mt-2 text-base">One day. One field. A shared practice.</p>
+          </motion.div>
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          initial="hidden" whileInView="show" viewport={inViewOnce} variants={reveal}
           className="max-w-3xl mx-auto text-center mb-14"
         >
           <p className="section-title text-2xl md:text-3xl text-[var(--heading)] italic">
@@ -54,7 +99,7 @@ export default function OnlineSection() {
           </p>
           <a
             href="mailto:namaste@kasratshala.in"
-            className="inline-block mt-8 px-7 py-3 bg-[var(--gold)] text-[var(--night)] text-xs tracking-[0.25em] uppercase hover:bg-[var(--gold-bright)] transition"
+            className="inline-block mt-8 px-7 py-3 border border-[var(--gold)]/50 text-[var(--gold-bright)] text-xs tracking-[0.25em] uppercase hover:bg-[var(--gold)] hover:text-[var(--page)] transition-colors duration-500"
           >
             Ask about the next gathering
           </a>
@@ -64,11 +109,11 @@ export default function OnlineSection() {
           {panels.map((p, i) => (
             <motion.div
               key={p.title}
-              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="relative border border-[var(--teal)]/30 rounded-sm p-8 bg-[var(--page)] hover:border-[var(--teal-glow)] transition"
+              initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={inViewOnce} transition={{ duration: 0.9, delay: i * 0.08, ease: EASE as unknown as number[] }}
+              className="relative border border-[var(--teal)]/25 rounded-sm p-8 bg-[var(--page)] hover:border-[var(--teal)]/60 transition-colors duration-500"
             >
-              <p className="text-[10px] tracking-[0.3em] uppercase text-[var(--teal-glow)] mb-4">{p.kind}</p>
+              <p className="label-caps mb-4 text-[var(--teal)]">{p.kind}</p>
               <h3 className="section-title text-2xl mb-4">{p.title}</h3>
               <p className="text-[var(--cream)]/70 text-sm leading-relaxed mb-6">{p.body}</p>
               <p className="text-xs text-[var(--muted)]">{p.meta}</p>
