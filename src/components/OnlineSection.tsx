@@ -53,8 +53,10 @@ export default function OnlineSection() {
         {/* Converging circles centrepiece */}
         <div ref={ref} className="relative mx-auto mb-16 h-[380px] md:h-[460px] max-w-2xl">
           {circles.map((c, i) => (
+            <ConvergingCircle key={c.label} label={c.label} cx={c.x} cy={c.y} index={i} converge={converge} />
+          ))}
+          {false && (
             <motion.div
-              key={c.label}
               className="absolute left-1/2 top-1/2 flex items-center justify-center rounded-full border border-[var(--teal)]/35"
               style={{
                 width: "min(58vw, 250px)",
