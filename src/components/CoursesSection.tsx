@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
+import feetDetail from "@/assets/feet_detail.png.asset.json";
+import stickDrill from "@/assets/stick_drill.png.asset.json";
+import handMudra from "@/assets/hand_mudra.png.asset.json";
+import prayerBreath from "@/assets/prayer_breath.png.asset.json";
 import MovementPath, { type MovementPathType } from "./MovementPath";
 import { EASE, reveal, inViewOnce } from "@/lib/motion";
 
@@ -104,11 +108,15 @@ export default function CoursesSection() {
                             Join online
                           </button>
                         </div>
-                        {c.path && (
-                          <div className="flex md:justify-end">
+                        <div className="flex md:justify-end gap-4 items-center">
+                          {c.title === "RECODE" && <img src={feetDetail.url} className="w-32 h-40 object-cover rounded-sm shadow-lg" alt="Feet detail" />}
+                          {c.title === "Steel Mace Flow" && <img src={stickDrill.url} className="w-32 h-40 object-cover rounded-sm shadow-lg" alt="Stick drill" />}
+                          {c.title === "Pranayama" && <img src={prayerBreath.url} className="w-32 h-40 object-cover rounded-sm shadow-lg" alt="Prayer breath" />}
+                          {c.title === "Yoga for Strength" && <img src={handMudra.url} className="w-32 h-40 object-cover rounded-sm shadow-lg" alt="Hand mudra" />}
+                          {c.path && (
                             <MovementPath type={c.path} size={220} tone={c.path === "mace" ? "clay" : "moss"} />
-                          </div>
-                        )}
+                          )}
+                        </div>
                       </div>
                     </motion.div>
                   )}

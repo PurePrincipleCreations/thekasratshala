@@ -2,27 +2,31 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { EASE, reveal, inViewOnce } from "@/lib/motion";
 
+import yogaPose from "@/assets/yoga_pose.png.asset.json";
+import outdoorMace1 from "@/assets/outdoor_mace_1.png.asset.json";
+import outdoorMace2 from "@/assets/outdoor_mace_2.png.asset.json";
+
 const camps = [
   {
     title: "Yoga for Strength Camp",
     kind: "Residential immersion · Naggar",
     body: "A focused exploration of yoga as a system for usable strength: intelligent load, breath, mobility, balance and recovery.",
     meta: "Naggar · Dates on enquiry",
-    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1200&q=80",
+    image: yogaPose.url,
   },
   {
     title: "Kasrat Camp",
     kind: "Residential immersion · Naggar",
     body: "Our broadest immersion: steel mace, kettlebells, rope, yoga, breathwork and movement science woven into a full daily practice.",
     meta: "Naggar · Dates on enquiry",
-    image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&q=80",
+    image: outdoorMace2.url,
   },
   {
     title: "Steel Mace Flow Camp",
     kind: "Residential immersion · Naggar",
     body: "Spend dedicated time with the mace: fundamental patterns, progressive flows, rotational mechanics and coaching feedback.",
     meta: "Naggar · Dates on enquiry",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200&q=80",
+    image: outdoorMace1.url,
   },
 ];
 
@@ -36,8 +40,8 @@ export default function WorkshopsSection() {
           <div className="root-badge mb-6">Camps</div>
           <h2 className="section-title text-5xl md:text-6xl">Come practise in the field.</h2>
           <p className="section-sub mt-3 max-w-2xl mx-auto">
-            Kasratshala camps are in-person immersions for people who want more time, more attention and
-            a shared rhythm of practice. Accommodation and formats are confirmed directly by email.
+            Kasratshala camps are in-person immersions for previous students who have shared their time training with us.
+            Accommodation and formats are confirmed directly by email.
           </p>
           <div className="gold-line mt-6 mx-auto" />
         </motion.div>
