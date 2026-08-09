@@ -2,6 +2,9 @@ import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import ksLogo from "@/assets/ks-logo.png.asset.json";
+import yogaPose from "@/assets/yoga_pose.png.asset.json";
+import macePose from "@/assets/mace_pose.png.asset.json";
+import handsContact from "@/assets/hands_contact.png.asset.json";
 import { EASE } from "@/lib/motion";
 
 const markers = [
@@ -111,14 +114,27 @@ export default function HeroOverlay() {
 
       {/* Foreground */}
       <motion.div className="relative z-10 text-center px-6 py-28" style={{ ...layer(4), scale, opacity: fade }}>
-        <motion.img
-          src={ksLogo.url}
-          alt="The Kasrat Shala logo — a tree with a monkey"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, ease: EASE as unknown as number[] }}
-          className="mx-auto mb-6 w-[min(420px,80vw)]"
-        />
+        <div className="relative mb-16 h-64 md:h-80 w-full max-w-xl mx-auto">
+          {[
+            { src: yogaPose, delay: 0, x: -60, y: -20, rotate: -5 },
+            { src: macePose, delay: 0.2, x: 60, y: 0, rotate: 5 },
+            { src: handsContact, delay: 0.4, x: 0, y: 40, rotate: 0 },
+          ].map((img, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.8, y: 40, rotate: img.rotate }}
+              animate={{ opacity: 1, scale: 1, y: img.y, x: img.x }}
+              transition={{ duration: 1.2, delay: img.delay, ease: EASE as unknown as number[] }}
+              className="absolute inset-0 flex items-center justify-center"
+            >
+              <img
+                src={img.src.url}
+                className="w-48 md:w-64 h-auto object-cover rounded-sm shadow-2xl border-4 border-[var(--page)]"
+                alt="Movement practice"
+              />
+            </motion.div>
+          ))}
+        </div>
 
         <motion.p
           initial={{ opacity: 0 }} animate={{ opacity: 1 }}

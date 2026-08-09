@@ -64,7 +64,7 @@ export default function OnlineSection() {
           <h2 className="section-title text-5xl md:text-6xl">One Flow Gathering.</h2>
           <p className="section-sub mt-3 max-w-2xl mx-auto">
             A shared field for movement. One Flow gathers practitioners around breath, strength, tools,
-            yoga and play — without separating the body into disciplines.
+            yoga and play. We welcome multi-disciplinary artists to come and share their skills with us.
           </p>
           <div className="gold-line mt-6 mx-auto" />
         </motion.div>
