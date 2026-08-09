@@ -18,15 +18,15 @@ type Course = {
 };
 
 const courses: Course[] = [
-  { title: "RECODE", tag: "Foundational", duration: "4 weeks", price: "₹12,000", body: "Rewrite movement patterns from the ground up: breath, alignment, locomotion and flow. The essential starting point." },
-  { title: "Steel Mace Flow", tag: "Strength & Movement Arts · Online", duration: "6 weeks", price: "₹18,000", body: "The ancient gada meets modern flow: rotational power, shoulder stability and multi-planar coordination.", path: "mace" },
-  { title: "Kettlebell", tag: "Strength", duration: "6 weeks", price: "₹15,000", body: "Build ballistic power through the swing, clean, press and snatch — with timing, force and control." },
+  { title: "RECODE", tag: "Foundational", duration: "4 weeks", price: "₹12,000", body: "Rewrite movement patterns from the ground up: breath, alignment, locomotion and flow. The essential starting point. RECODE is about identifying movement blind spots and building a foundation that doesn't crumble under load." },
+  { title: "Steel Mace Flow", tag: "Strength & Movement Arts · Online", duration: "6 weeks", price: "₹15,000", body: "The ancient gada meets modern flow: rotational power, shoulder stability and multi-planar coordination. (Online certification version available for ₹25,000).", path: "mace" },
+  { title: "Steel Mace Gathering", tag: "Movement Immersion · Offline", duration: "Naggar Immersion", price: "₹35,000", body: "Steel Mace Flow offline, also called SMF gathering. Dedicated time with the mace in the field. (Gathering + certification version available for ₹45,000).", path: "mace" },
+  { title: "Kettlebell", tag: "Strength", duration: "6 weeks", price: "₹15,000", body: "Build ballistic power through the swing, clean, press and snatch — with timing, force and control. Focused on functional strength that carries over to daily life and high-performance arts alike." },
+  { title: "Yoga for Strength", tag: "Yoga Arts · Online", duration: "6 weeks", price: "₹40,000", body: "Yoga shaped around progressive strength, structure, mobility and resilient movement. If you want offline you can join live from the Naggar dojo.", path: "yoga" },
+  { title: "Pranayama", tag: "Advanced Breathwork · Online", duration: "4 weeks", price: "₹25,000 + GST", body: "Use breath to train attention, regulation and capacity — then integrate it into movement. Focus on expanding respiratory capacity and nervous system control.", path: "breath" },
   { title: "Movement Mechanics", tag: "Biomechanics", duration: "8 weeks", price: "₹22,000", body: "Understand levers, angles, force and sequencing; then apply that knowledge to the way you move." },
-  { title: "Landmines", tag: "Rotational", duration: "4 weeks", price: "₹10,000", body: "Press, pivot, lunge and transfer force through practical rotational training." },
   { title: "Rope Flow", tag: "Fluidity", duration: "4 weeks", price: "₹10,000", body: "Continuous wave-like movement for shoulder integrity, grip strength and meditative rhythm." },
-  { title: "Bosu", tag: "Balance", duration: "4 weeks", price: "₹10,000", body: "Develop proprioception, reactive stability and intelligent control under changing conditions." },
-  { title: "Pranayama", tag: "Advanced Breathwork · Online", duration: "4 weeks", price: "Price on enquiry", body: "Use breath to train attention, regulation and capacity — then integrate it into movement.", path: "breath" },
-  { title: "Yoga for Strength", tag: "Yoga Arts · Online", duration: "6 weeks", price: "Price on enquiry", body: "Yoga shaped around progressive strength, structure, mobility and resilient movement.", path: "yoga" },
+  { title: "Landmines", tag: "Rotational", duration: "4 weeks", price: "₹10,000", body: "Press, pivot, lunge and transfer force through practical rotational training." },
   { title: "SSS", tag: "Integrated practice", duration: "8 weeks", price: "Price on enquiry", body: "Strength · Skill · Stability. A complete movement practice connecting capacity, coordination and control." },
 ];
 
