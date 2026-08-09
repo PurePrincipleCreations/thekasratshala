@@ -47,7 +47,7 @@ export default function Navigation() {
       style={{ background: scrolled ? "color-mix(in oklab, var(--page) 88%, transparent)" : "transparent" }}
     >
       <div className="section-inner flex items-center justify-between py-4">
-        <button onClick={() => scrollTo("hero")} className="flex items-center opacity-0 pointer-events-none md:opacity-100 md:pointer-events-auto" aria-label="Kasratshala home">
+        <button onClick={() => scrollTo("hero")} className={`flex items-center transition-opacity duration-500 ${scrolled ? "opacity-100" : "opacity-0 pointer-events-none md:opacity-100 md:pointer-events-auto"}`} aria-label="Kasratshala home">
           <img src={ksLogo.url} alt="The Kasrat Shala logo" className="h-10 w-auto" />
         </button>
         <ul className="hidden md:flex items-center gap-8">
