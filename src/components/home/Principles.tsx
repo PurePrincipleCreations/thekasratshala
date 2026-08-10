@@ -126,8 +126,8 @@ export default function Principles() {
         {principles.map((p) => (
           <div key={p.n} className="space-y-6">
             <div className="relative aspect-square border border-[var(--bone)] rounded-sm overflow-hidden">
-              <img src={p.image.url} className="w-full h-full object-cover grayscale opacity-50" alt={p.title} />
-              <BiomechanicalOverlay {...p.overlay} />
+              <img src={p.image.url} className="w-full h-full object-cover grayscale opacity-50 mix-blend-screen" alt={p.title} />
+              <BiomechanicalOverlay {...p.overlay} opacity={0.6} />
             </div>
             <div className="space-y-2">
               <p className="editorial-heading text-4xl text-[var(--bone)]">{p.n}</p>
