@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import yogaPose from "@/assets/yoga_pose.png.asset.json";
+import droneFootage from "@/assets/drone-footage.mp4.asset.json";
 import BiomechanicalOverlay from "../biomechanical/BiomechanicalOverlay";
 
 export default function Hero() {
@@ -48,7 +49,7 @@ export default function Hero() {
           playsInline 
           className="w-full h-full object-cover grayscale mix-blend-luminosity scale-110"
         >
-          <source src={require("@/assets/drone-footage.mp4.asset.json").url} type="video/mp4" />
+          <source src={droneFootage.url} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-[var(--night)]/60" />
       </div>

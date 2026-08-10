@@ -4,9 +4,12 @@ import MovementMarquee from "@/components/home/MovementMarquee";
 import Principles from "@/components/home/Principles";
 import ScrollGallery from "@/components/home/ScrollGallery";
 import HomeStats from "@/components/home/HomeStats";
+import StackedCards from "@/components/home/StackedCards";
+import BeforeAfterScrub from "@/components/home/BeforeAfterScrub";
 import FeaturedCourses from "@/components/home/FeaturedCourses";
 import HomeEvents from "@/components/home/HomeEvents";
 import HomeFinalCTA from "@/components/home/HomeFinalCTA";
+
 
 import Layout from "@/components/Layout";
 
@@ -31,9 +34,12 @@ function Index() {
       <MovementMarquee />
       <Principles />
       <ScrollGallery />
+      <StackedCards />
+      <BeforeAfterScrub />
       <HomeStats />
       <FeaturedCourses />
       <HomeEvents />
+
       <HomeFinalCTA />
     </Layout>
   );
