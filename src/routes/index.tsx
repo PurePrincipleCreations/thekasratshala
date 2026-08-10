@@ -37,8 +37,9 @@ function Index() {
       <StackedCards />
       <BeforeAfterScrub />
       <HomeStats />
-
+      <FeaturedCourses />
       <HomeEvents />
+
       <HomeFinalCTA />
     </Layout>
   );
