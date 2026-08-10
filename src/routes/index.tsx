@@ -34,8 +34,10 @@ function Index() {
       <MovementMarquee />
       <Principles />
       <ScrollGallery />
+      <StackedCards />
+      <BeforeAfterScrub />
       <HomeStats />
-      <FeaturedCourses />
+
       <HomeEvents />
       <HomeFinalCTA />
     </Layout>
