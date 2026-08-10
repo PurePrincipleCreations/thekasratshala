@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import Layout from "@/components/Layout";
 import ContactContent from "@/components/ContactContent";
 
-export const Route = createFileRoute("/connect" as any)({
+export const Route = createFileRoute("/connect")({
   component: ConnectPage,
   head: () => ({
     meta: [

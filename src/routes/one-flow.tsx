@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import Layout from "@/components/Layout";
 import OneFlowContent from "@/components/OneFlowContent";
 
-export const Route = createFileRoute("/one-flow" as any)({
+export const Route = createFileRoute("/one-flow")({
   component: OneFlowPage,
   head: () => ({
     meta: [

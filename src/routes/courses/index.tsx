@@ -4,7 +4,7 @@ import CoursesHero from "@/components/courses/CoursesHero";
 import CourseJourney from "@/components/courses/CourseJourney";
 import CoursesContact from "@/components/courses/CoursesContact";
 
-export const Route = createFileRoute("/courses" as any)({
+export const Route = createFileRoute("/courses/")({
   component: CoursesIndex,
   head: () => ({
     meta: [

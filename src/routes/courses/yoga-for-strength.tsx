@@ -13,7 +13,7 @@ const sections = [
   { title: "Progressive control", desc: "Systematic advancement through increasing complexity and demand." }
 ];
 
-export const Route = createFileRoute("/courses/yoga-for-strength" as any)({
+export const Route = createFileRoute("/courses/yoga-for-strength")({
   component: YogaDetail,
   head: () => ({
     meta: [

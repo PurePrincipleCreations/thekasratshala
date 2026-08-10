@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import Layout from "@/components/Layout";
 import RecodeContent from "@/components/courses/RecodeContent";
 
-export const Route = createFileRoute("/courses/recode" as any)({
+export const Route = createFileRoute("/courses/recode")({
   component: RecodeDetail,
   head: () => ({
     meta: [

@@ -27,7 +27,7 @@ const camps = [
   }
 ];
 
-export const Route = createFileRoute("/camps" as any)({
+export const Route = createFileRoute("/camps")({
   component: CampsPage,
   head: () => ({
     meta: [

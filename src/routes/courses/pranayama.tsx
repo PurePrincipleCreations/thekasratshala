@@ -5,7 +5,7 @@ import handMudra from "@/assets/hand_mudra.png.asset.json";
 import BiomechanicalOverlay from "@/components/biomechanical/BiomechanicalOverlay";
 import MovementGeometry from "@/components/biomechanical/MovementGeometry";
 
-export const Route = createFileRoute("/courses/pranayama" as any)({
+export const Route = createFileRoute("/courses/pranayama")({
   component: PranayamaDetail,
   head: () => ({
     meta: [

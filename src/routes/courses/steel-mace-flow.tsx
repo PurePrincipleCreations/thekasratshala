@@ -5,7 +5,7 @@ import macePose from "@/assets/mace_pose.png.asset.json";
 import BiomechanicalOverlay from "@/components/biomechanical/BiomechanicalOverlay";
 import MovementGeometry from "@/components/biomechanical/MovementGeometry";
 
-export const Route = createFileRoute("/courses/steel-mace-flow" as any)({
+export const Route = createFileRoute("/courses/steel-mace-flow")({
   component: MaceDetail,
   head: () => ({
     meta: [
