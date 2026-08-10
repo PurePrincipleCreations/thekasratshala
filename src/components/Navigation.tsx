@@ -5,11 +5,11 @@ import { Menu, X } from "lucide-react";
 import ksLogo from "@/assets/ks-logo.png.asset.json";
 
 const links = [
-  { label: "Home", to: "/" },
-  { label: "Courses", to: "/courses" },
-  { label: "Camps", to: "/camps" },
-  { label: "One Flow", to: "/one-flow" },
-  { label: "Connect", to: "/connect" },
+  { label: "Home", to: "/" as const },
+  { label: "Courses", to: "/courses" as any },
+  { label: "Camps", to: "/camps" as any },
+  { label: "One Flow", to: "/one-flow" as any },
+  { label: "Connect", to: "/connect" as any },
 ];
 
 export default function Navigation() {
@@ -56,7 +56,7 @@ export default function Navigation() {
           ))}
           <li>
             <Link
-              to="/connect"
+              to={"/connect" as any}
               className="ml-4 px-5 py-2 border border-[var(--gold)] text-[var(--gold)] text-[10px] label-caps hover:bg-[var(--gold)] hover:text-[var(--night)] transition-colors duration-300"
             >
               Enquire
@@ -113,7 +113,7 @@ export default function Navigation() {
                 className="mt-8"
               >
                 <Link
-                  to="/connect"
+                  to={"/connect" as any}
                   onClick={() => setOpen(false)}
                   className="px-8 py-3 bg-[var(--gold)] text-[var(--night)] label-caps"
                 >
