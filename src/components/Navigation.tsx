@@ -28,7 +28,7 @@ export default function Navigation() {
   }, [open]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-[var(--bone)] backdrop-blur-md bg-[var(--night)]/80">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-[var(--bone)] backdrop-blur-md bg-[var(--night)]/80 transition-all duration-500">
       <div className="section-inner flex items-center justify-between py-4">
         <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
           <img src={ksLogo.url} alt="Kasratshala" className="h-10 w-auto" />
@@ -57,7 +57,7 @@ export default function Navigation() {
           <li>
             <Link
               to={"/connect" as any}
-              className="ml-4 px-5 py-2 border border-[var(--gold)] text-[var(--gold)] text-[10px] label-caps hover:bg-[var(--gold)] hover:text-[var(--night)] transition-colors duration-300"
+              className="ml-4 px-5 py-2 border border-[var(--gold)] text-[var(--gold)] text-xs font-hand hover:bg-[var(--gold)] hover:text-[var(--night)] transition-colors duration-300"
             >
               Enquire
             </Link>

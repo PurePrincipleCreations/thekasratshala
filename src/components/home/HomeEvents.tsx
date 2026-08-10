@@ -8,7 +8,7 @@ import BiomechanicalOverlay from "../biomechanical/BiomechanicalOverlay";
 const events = [
   {
     title: "Yoga for Strength Camp",
-    category: "Residential immersion · Naggar",
+    category: "Residential immersion",
     description: "Build strong foundations through movement, breath and patient practice.",
     image: yogaPose,
     cta: "Explore the camp",
@@ -16,7 +16,7 @@ const events = [
   },
   {
     title: "Kasrat Camp",
-    category: "Residential immersion · Naggar",
+    category: "Residential immersion",
     description: "A full-spectrum immersion in tools, yoga, breathwork and movement science.",
     image: macePose,
     cta: "Explore the camp",

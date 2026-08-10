@@ -43,13 +43,18 @@
   --page: #090a09;
   --alt: #11130f;
   --surface: #182017;
-  --paper: #e9e3d5;
+  --paper: #c9c3b5;
   --cream: #f3f0e8;
   --heading: #f3f0e8;
   --muted: #aaa89f;
   --teal: #83976d;
   --bone: rgba(243, 240, 232, 0.18);
   --gold: #b28a4a;
+  
+  /* Retro Futuristic Additions */
+  --earth-brown: #3d2b1f;
+  --vintage-green: #4a5d4e;
+  --paper-dark: #b5ad9a;
 }
 
 @layer base {

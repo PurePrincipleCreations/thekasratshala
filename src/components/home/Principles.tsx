@@ -1,7 +1,8 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import macePose from "@/assets/mace_pose.png.asset.json";
 import handsContact from "@/assets/hands_contact.png.asset.json";
+import workshopDiagram from "@/assets/mace-workshop.png.asset.json";
 import BiomechanicalOverlay from "../biomechanical/BiomechanicalOverlay";
 
 const principles = [
@@ -9,7 +10,7 @@ const principles = [
     n: "01",
     title: "Force",
     subtitle: "Steel and load",
-    image: macePose,
+    image: workshopDiagram,
     overlay: { circles: [{ cx: 200, cy: 300, r: 80 }], points: [{ x: 200, y: 300, label: "LOAD" }] }
   },
   {
@@ -42,7 +43,20 @@ export default function Principles() {
     offset: ["start start", "end end"]
   });
 
-  const activeIndex = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], [0, 0, 1, 2, 3]);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const springX = useSpring(0, { damping: 30, stiffness: 200 });
+  const springY = useSpring(0, { damping: 30, stiffness: 200 });
+
+  useEffect(() => {
+    const handleMove = (e: MouseEvent) => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      springX.set((e.clientX - rect.left - rect.width / 2) * 0.05);
+      springY.set((e.clientY - rect.top - rect.height / 2) * 0.05);
+    };
+    window.addEventListener("mousemove", handleMove);
+    return () => window.removeEventListener("mousemove", handleMove);
+  }, [springX, springY]);
 
   return (
     <section ref={containerRef} className="relative h-[400vh] bg-[var(--night)]">
@@ -53,7 +67,7 @@ export default function Principles() {
             <div className="space-y-4">
               <p className="label-caps text-[var(--gold)]">The Kasratshala Way</p>
               <h2 className="editorial-heading text-6xl">A different relationship with strength.</h2>
-              <p className="text-[var(--muted)] text-xl italic">Not fitness as repetition. Practice as intelligence.</p>
+              <p className="text-[var(--muted)] text-xl italic font-serif">Not fitness as repetition. Practice as intelligence.</p>
             </div>
             
             <div className="relative h-64">
@@ -66,7 +80,7 @@ export default function Principles() {
                   <motion.div key={p.n} style={{ opacity }} className="absolute inset-0 space-y-4">
                     <p className="editorial-heading text-8xl text-[var(--bone)]">{p.n}</p>
                     <h3 className="editorial-heading text-5xl">{p.title}</h3>
-                    <p className="label-caps text-[var(--muted)]">{p.subtitle}</p>
+                    <p className="label-caps text-[var(--muted)] font-serif italic text-sm normal-case tracking-normal">{p.subtitle}</p>
                   </motion.div>
                 );
               })}
@@ -81,8 +95,12 @@ export default function Principles() {
                   [0, 1, 1, 0]
                 );
                 return (
-                  <motion.div key={p.n} style={{ opacity }} className="absolute inset-0">
-                    <img src={p.image.url} className="w-full h-full object-cover grayscale opacity-50" alt={p.title} />
+                  <motion.div 
+                    key={p.n} 
+                    style={{ opacity, x: springX, y: springY }} 
+                    className="absolute inset-0"
+                  >
+                    <img src={p.image.url} className="w-full h-full object-cover grayscale opacity-50 mix-blend-screen" alt={p.title} />
                     <BiomechanicalOverlay {...p.overlay} />
                   </motion.div>
                 );
@@ -108,13 +126,13 @@ export default function Principles() {
         {principles.map((p) => (
           <div key={p.n} className="space-y-6">
             <div className="relative aspect-square border border-[var(--bone)] rounded-sm overflow-hidden">
-              <img src={p.image.url} className="w-full h-full object-cover grayscale opacity-50" alt={p.title} />
-              <BiomechanicalOverlay {...p.overlay} />
+              <img src={p.image.url} className="w-full h-full object-cover grayscale opacity-50 mix-blend-screen" alt={p.title} />
+              <BiomechanicalOverlay {...p.overlay} opacity={0.6} />
             </div>
             <div className="space-y-2">
               <p className="editorial-heading text-4xl text-[var(--bone)]">{p.n}</p>
               <h3 className="editorial-heading text-3xl">{p.title}</h3>
-              <p className="label-caps text-[var(--muted)]">{p.subtitle}</p>
+              <p className="label-caps text-[var(--muted)] font-serif italic text-xs normal-case tracking-normal">{p.subtitle}</p>
             </div>
           </div>
         ))}
