@@ -114,14 +114,19 @@ export default function CourseJourney() {
                     </div>
                   </div>
 
-                  <div className="w-1/2 relative aspect-square border border-[var(--bone)] rounded-sm overflow-hidden">
-                    <img src={item.image.url} className="w-full h-full object-cover grayscale opacity-40" alt={item.title} />
+                  <div className="relative aspect-square border border-[var(--bone)] rounded-sm overflow-hidden group/img">
+                    <img 
+                      src={item.image.url} 
+                      className="w-full h-full object-cover grayscale opacity-40 group-hover/img:scale-110 group-hover/img:opacity-60 transition-all duration-[2000ms]" 
+                      alt={item.title} 
+                    />
                     <div className="absolute inset-0 flex items-center justify-center">
                        <MovementGeometry type={item.type} className="w-1/2 h-1/2 opacity-20" />
                     </div>
                   </div>
                 </div>
               </motion.div>
+
             ))}
           </motion.div>
           {/* Progress system */}
