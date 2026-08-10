@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { motion } from "framer-motion";
+
 import Layout from "@/components/Layout";
 import CoursesHero from "@/components/courses/CoursesHero";
 import CourseJourney from "@/components/courses/CourseJourney";
@@ -17,7 +19,7 @@ export const Route = createFileRoute("/courses/")({
 function CoursesIndex() {
   return (
     <Layout>
-      <CoursesHero />
+      
       {/* Hero Header */}
       <section className="pt-48 pb-20 px-6 border-b border-[var(--bone)]">
         <div className="section-inner text-center space-y-8">
