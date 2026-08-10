@@ -78,7 +78,7 @@ export default function FeaturedCourses() {
         <div className="mt-20 text-center">
           <Link 
             to={"/courses" as any}
-            className="inline-block px-10 py-4 border border-[var(--bone)] text-[var(--cream)] label-caps hover:bg-[var(--bone)] transition-all"
+            className="inline-block px-10 py-4 border border-[var(--bone)] text-[var(--cream)] font-hand text-xl hover:bg-[var(--bone)] transition-all"
           >
             View all courses
           </Link>
