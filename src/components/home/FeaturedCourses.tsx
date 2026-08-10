@@ -67,10 +67,16 @@ export default function FeaturedCourses() {
               </div>
               <div className="space-y-4">
                 <p className="text-[var(--muted)] text-sm leading-relaxed">{item.description}</p>
-                <span className="inline-block label-caps text-[10px] text-[var(--gold)] border-b border-[var(--gold)]/30 group-hover:border-[var(--gold)] transition-colors">
-                  {item.cta}
-                </span>
+                <div className="flex items-center gap-2 group-hover:gap-4 transition-all duration-300">
+                  <span className="inline-block label-caps text-[10px] text-[var(--gold)] border-b border-[var(--gold)]/30 group-hover:border-[var(--gold)] transition-colors">
+                    {item.cta}
+                  </span>
+                  <div className="w-8 h-8 rounded-full border border-[var(--gold)]/20 flex items-center justify-center group-hover:bg-[var(--gold)] group-hover:text-[var(--night)] transition-all">
+                    <svg viewBox="0 0 24 24" className="w-3 h-3 fill-none stroke-current stroke-2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                  </div>
+                </div>
               </div>
+
             </Link>
           ))}
         </div>

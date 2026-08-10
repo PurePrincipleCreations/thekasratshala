@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import handsContact from "@/assets/hands_contact.png.asset.json";
 import BiomechanicalOverlay from "../biomechanical/BiomechanicalOverlay";
+import { useAtom } from "jotai";
+import { cartAtom, isCartOpenAtom } from "@/lib/store";
+import { toast } from "sonner";
+
 
 const sections = [
   { id: "01", title: "Upper Body", role: "Primary structure and load distribution", desc: "Realigning shoulder girdle mechanics, thoracic mobility and cervical stability." },
@@ -10,6 +14,19 @@ const sections = [
 ];
 
 export default function RecodeContent() {
+  const [cart, setCart] = useAtom(cartAtom);
+  const [, setIsCartOpen] = useAtom(isCartOpenAtom);
+
+  const addToCart = (id: string, name: string, price: number) => {
+    if (cart.find(item => item.id === id)) {
+      setIsCartOpen(true);
+      return;
+    }
+    setCart([...cart, { id, name, price }]);
+    toast.success(`${name} added to cart`);
+    setIsCartOpen(true);
+  };
+
   return (
     <div className="bg-[var(--night)]">
       <section className="py-32 px-6">
@@ -48,38 +65,64 @@ export default function RecodeContent() {
       <section className="py-32 px-6 border-t border-[var(--bone)]">
         <div className="section-inner max-w-4xl space-y-12 bg-[var(--alt)] p-12 rounded-sm border border-[var(--bone)]">
           <div className="space-y-4">
-            <h2 className="editorial-heading text-4xl">Investment</h2>
+            <h2 className="editorial-heading text-4xl">Program Options</h2>
             <div className="space-y-2 text-[var(--muted)]">
-              <div className="flex justify-between items-center border-b border-[var(--bone)] py-4">
-                <p className="label-caps text-[var(--cream)]">RECODE Individual Module</p>
-                <p className="editorial-heading text-2xl text-[var(--gold)]">₹5,000</p>
+              <div className="flex justify-between items-center border-b border-[var(--bone)] py-6">
+                <div>
+                  <p className="label-caps text-[var(--cream)]">RECODE Individual Module</p>
+                  <p className="text-[10px] italic opacity-60">Focus on one movement area</p>
+                </div>
+                <div className="flex items-center gap-6">
+                  <p className="editorial-heading text-2xl text-[var(--gold)]">₹5,000</p>
+                  <button 
+                    onClick={() => addToCart('recode-individual', 'RECODE Individual Module', 5000)}
+                    className="px-6 py-2 bg-[var(--teal)] text-[var(--night)] label-caps text-[10px] hover:bg-[var(--gold)] transition-all"
+                  >
+                    Add to Shop
+                  </button>
+                </div>
               </div>
-              <div className="flex justify-between items-center border-b border-[var(--bone)] py-4">
-                <p className="label-caps text-[var(--cream)]">RECODE Complete (4 Modules)</p>
-                <p className="editorial-heading text-2xl text-[var(--gold)]">₹15,000</p>
+              <div className="flex justify-between items-center border-b border-[var(--bone)] py-6">
+                <div>
+                  <p className="label-caps text-[var(--cream)]">RECODE Complete (4 Modules)</p>
+                  <p className="text-[10px] italic opacity-60">Comprehensive realignment process</p>
+                </div>
+                <div className="flex items-center gap-6">
+                  <p className="editorial-heading text-2xl text-[var(--gold)]">₹15,000</p>
+                  <button 
+                    onClick={() => addToCart('recode-complete', 'RECODE Complete (4 Modules)', 15000)}
+                    className="px-6 py-2 bg-[var(--teal)] text-[var(--night)] label-caps text-[10px] hover:bg-[var(--gold)] transition-all"
+                  >
+                    Add to Shop
+                  </button>
+                </div>
               </div>
-              <div className="flex justify-between items-center py-4">
-                <p className="label-caps text-[var(--cream)]">Complete + Certification</p>
-                <p className="editorial-heading text-2xl text-[var(--gold)]">₹25,000</p>
+              <div className="flex justify-between items-center py-6">
+                <div>
+                  <p className="label-caps text-[var(--cream)]">Complete + Certification</p>
+                  <p className="text-[10px] italic opacity-60">Professional path for movement educators</p>
+                </div>
+                <div className="flex items-center gap-6">
+                  <p className="editorial-heading text-2xl text-[var(--gold)]">₹25,000</p>
+                  <button 
+                    onClick={() => addToCart('recode-cert', 'RECODE + Certification', 25000)}
+                    className="px-6 py-2 bg-[var(--teal)] text-[var(--night)] label-caps text-[10px] hover:bg-[var(--gold)] transition-all"
+                  >
+                    Add to Shop
+                  </button>
+                </div>
               </div>
             </div>
           </div>
           
-          <div className="space-y-6">
+          <div className="space-y-6 pt-12 border-t border-[var(--bone)]">
             <p className="text-[var(--muted)] text-sm italic opacity-60">
               Important note: Level 1 is intentionally limited. Workshops go further, with more context, practice and movement exploration.
             </p>
-            <div className="flex flex-wrap gap-6 pt-4">
-               <button className="px-8 py-4 bg-[var(--teal)] text-[var(--night)] label-caps hover:bg-[var(--gold)] transition-all">
-                  Request RECODE details
-               </button>
-               <button className="px-8 py-4 border border-[var(--bone)] text-[var(--cream)] label-caps hover:bg-[var(--bone)] transition-all">
-                  Ask about upcoming workshop
-               </button>
-            </div>
           </div>
         </div>
       </section>
+
     </div>
   );
 }

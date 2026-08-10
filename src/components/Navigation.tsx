@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "@tanstack/react-router";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, ShoppingBag } from "lucide-react";
+import { useAtom } from "jotai";
+import { cartAtom, isCartOpenAtom } from "@/lib/store";
+
 import ksLogo from "@/assets/ks-logo.png.asset.json";
 
 const links = [
@@ -14,6 +17,9 @@ const links = [
 export default function Navigation() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const [cart] = useAtom(cartAtom);
+  const [, setIsCartOpen] = useAtom(isCartOpenAtom);
+
 
   useEffect(() => {
     setOpen(false);
@@ -39,22 +45,48 @@ export default function Navigation() {
               {l.label}
             </Link>
           ))}
+          <button
+            onClick={() => setIsCartOpen(true)}
+            className="relative p-2 text-[var(--muted)] hover:text-[var(--gold)] transition-colors"
+          >
+            <ShoppingBag size={20} />
+            {cart.length > 0 && (
+              <span className="absolute -top-1 -right-1 w-4 h-4 bg-[var(--gold)] text-[var(--night)] text-[8px] flex items-center justify-center rounded-full font-bold">
+                {cart.length}
+              </span>
+            )}
+          </button>
           <Link
             to="/connect"
+
             className="px-6 py-2 border border-[var(--bone)] text-[var(--cream)] font-hand text-lg hover:bg-[var(--bone)] transition-all"
           >
             Join the Dojo
           </Link>
         </div>
-
-        {/* Mobile Toggle */}
-        <button 
-          className="md:hidden relative z-50 text-[var(--cream)] p-2"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        
+        <div className="flex items-center gap-4 md:hidden">
+          <button
+            onClick={() => setIsCartOpen(true)}
+            className="relative p-2 text-[var(--muted)] hover:text-[var(--gold)] transition-colors"
+          >
+            <ShoppingBag size={20} />
+            {cart.length > 0 && (
+              <span className="absolute -top-1 -right-1 w-4 h-4 bg-[var(--gold)] text-[var(--night)] text-[8px] flex items-center justify-center rounded-full font-bold">
+                {cart.length}
+              </span>
+            )}
+          </button>
+          {/* Mobile Toggle */}
+          <button 
+            className="relative z-50 text-[var(--cream)] p-2"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
+
 
       {/* Mobile Menu */}
       <AnimatePresence>

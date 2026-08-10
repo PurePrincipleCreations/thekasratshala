@@ -4,6 +4,10 @@ import { motion } from "framer-motion";
 import macePose from "@/assets/mace_pose.png.asset.json";
 import BiomechanicalOverlay from "@/components/biomechanical/BiomechanicalOverlay";
 import MovementGeometry from "@/components/biomechanical/MovementGeometry";
+import { useAtom } from "jotai";
+import { cartAtom, isCartOpenAtom } from "@/lib/store";
+import { toast } from "sonner";
+
 import smfLogo from "@/assets/smf-logo.png.asset.json";
 
 export const Route = createFileRoute("/courses/steel-mace-flow")({
@@ -17,6 +21,19 @@ export const Route = createFileRoute("/courses/steel-mace-flow")({
 });
 
 function MaceDetail() {
+  const [cart, setCart] = useAtom(cartAtom);
+  const [, setIsCartOpen] = useAtom(isCartOpenAtom);
+
+  const addToCart = (id: string, name: string, price: number) => {
+    if (cart.find(item => item.id === id)) {
+      setIsCartOpen(true);
+      return;
+    }
+    setCart([...cart, { id, name, price }]);
+    toast.success(`${name} added to cart`);
+    setIsCartOpen(true);
+  };
+
   return (
     <Layout>
       <section className="py-32 px-6 bg-[var(--night)]">
@@ -78,26 +95,41 @@ function MaceDetail() {
 
       <section className="py-32 px-6 border-t border-[var(--bone)] bg-[var(--night)]">
         <div className="section-inner max-w-4xl space-y-12 bg-[var(--alt)] p-12 border border-[var(--bone)]">
-          <h2 className="editorial-heading text-4xl">Investment</h2>
+          <h2 className="editorial-heading text-4xl">Program Details</h2>
           <div className="space-y-4">
-             <div className="flex justify-between items-center border-b border-[var(--bone)] py-4">
-                <p className="label-caps text-[var(--cream)]">SMF Offline / Gathering</p>
-                <p className="editorial-heading text-2xl text-[var(--gold)]">₹35,000</p>
+             <div className="flex justify-between items-center border-b border-[var(--bone)] py-6">
+                <div>
+                  <p className="label-caps text-[var(--cream)]">SMF Offline / Gathering</p>
+                  <p className="text-[10px] italic opacity-60">Immersion in Naggar</p>
+                </div>
+                <div className="flex items-center gap-6">
+                  <p className="editorial-heading text-2xl text-[var(--gold)]">₹35,000</p>
+                  <button 
+                    onClick={() => addToCart('smf-gathering', 'SMF Gathering', 35000)}
+                    className="px-6 py-2 bg-[var(--teal)] text-[var(--night)] label-caps text-[10px] hover:bg-[var(--gold)] transition-all"
+                  >
+                    Add to Shop
+                  </button>
+                </div>
              </div>
-             <div className="flex justify-between items-center py-4">
-                <p className="label-caps text-[var(--cream)]">SMF Gathering + Certification</p>
-                <p className="editorial-heading text-2xl text-[var(--gold)]">₹45,000</p>
+             <div className="flex justify-between items-center py-6">
+                <div>
+                  <p className="label-caps text-[var(--cream)]">SMF Gathering + Certification</p>
+                  <p className="text-[10px] italic opacity-60">Full professional pathway</p>
+                </div>
+                <div className="flex items-center gap-6">
+                  <p className="editorial-heading text-2xl text-[var(--gold)]">₹45,000</p>
+                  <button 
+                    onClick={() => addToCart('smf-cert', 'SMF Gathering + Certification', 45000)}
+                    className="px-6 py-2 bg-[var(--teal)] text-[var(--night)] label-caps text-[10px] hover:bg-[var(--gold)] transition-all"
+                  >
+                    Add to Shop
+                  </button>
+                </div>
              </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-             <button className="px-10 py-5 bg-[var(--teal)] text-[var(--night)] label-caps hover:bg-[var(--gold)] transition-all">
-                Request syllabus
-             </button>
-             <button className="px-10 py-5 border border-[var(--bone)] text-[var(--cream)] label-caps hover:bg-[var(--bone)] transition-all">
-                Ask about certification
-             </button>
           </div>
         </div>
+
       </section>
     </Layout>
   );

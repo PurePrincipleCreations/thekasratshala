@@ -4,6 +4,10 @@ import { motion } from "framer-motion";
 import handMudra from "@/assets/hand_mudra.png.asset.json";
 import BiomechanicalOverlay from "@/components/biomechanical/BiomechanicalOverlay";
 import MovementGeometry from "@/components/biomechanical/MovementGeometry";
+import { useAtom } from "jotai";
+import { cartAtom, isCartOpenAtom } from "@/lib/store";
+import { toast } from "sonner";
+
 
 export const Route = createFileRoute("/courses/pranayama")({
   component: PranayamaDetail,
@@ -16,6 +20,19 @@ export const Route = createFileRoute("/courses/pranayama")({
 });
 
 function PranayamaDetail() {
+  const [cart, setCart] = useAtom(cartAtom);
+  const [, setIsCartOpen] = useAtom(isCartOpenAtom);
+
+  const addToCart = (id: string, name: string, price: number) => {
+    if (cart.find(item => item.id === id)) {
+      setIsCartOpen(true);
+      return;
+    }
+    setCart([...cart, { id, name, price }]);
+    toast.success(`${name} added to cart`);
+    setIsCartOpen(true);
+  };
+
   return (
     <Layout>
       <section className="py-40 px-6 bg-[var(--night)]">
@@ -56,17 +73,26 @@ function PranayamaDetail() {
 
       <section className="py-40 px-6 border-t border-[var(--bone)] text-center bg-[var(--night)]">
         <div className="section-inner max-w-2xl space-y-12 bg-[var(--alt)] p-12 border border-[var(--bone)] text-left">
-          <h2 className="editorial-heading text-4xl">Investment</h2>
+          <h2 className="editorial-heading text-4xl">Program Details</h2>
           <div className="space-y-4">
-            <div className="flex justify-between items-center border-b border-[var(--bone)] py-4">
-              <p className="label-caps text-[var(--cream)]">Pranayama Immersion</p>
-              <p className="editorial-heading text-2xl text-[var(--gold)]">₹25,000 <span className="text-[10px] opacity-60">+ GST</span></p>
+            <div className="flex justify-between items-center border-b border-[var(--bone)] py-6">
+              <div>
+                <p className="label-caps text-[var(--cream)]">Pranayama Immersion</p>
+                <p className="text-[8px] text-[var(--muted)] italic">Includes GST</p>
+              </div>
+              <div className="flex items-center gap-6">
+                <p className="editorial-heading text-2xl text-[var(--gold)]">₹25,000</p>
+                <button 
+                  onClick={() => addToCart('pranayama', 'Pranayama Immersion', 25000)}
+                  className="px-6 py-2 bg-[var(--teal)] text-[var(--night)] label-caps text-[10px] hover:bg-[var(--gold)] transition-all"
+                >
+                  Add to Shop
+                </button>
+              </div>
             </div>
           </div>
-          <button className="w-full px-10 py-5 bg-[var(--teal)] text-[var(--night)] label-caps hover:bg-[var(--gold)] transition-all">
-            Request module details
-          </button>
         </div>
+
       </section>
     </Layout>
   );

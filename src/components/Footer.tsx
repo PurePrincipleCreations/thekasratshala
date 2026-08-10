@@ -42,14 +42,34 @@ export default function Footer() {
                 Naggar, Kullu District<br />
                 Himachal Pradesh, India
               </div>
-              <div className="pt-4 grayscale opacity-50 contrast-125 border border-[var(--bone)] rounded-sm overflow-hidden h-32 w-full relative">
-                 {/* Placeholder for map view - would typically be an iframe or static map image */}
+              <div className="pt-4 grayscale opacity-50 contrast-125 border border-[var(--bone)] rounded-sm overflow-hidden h-32 w-full relative group">
                  <div className="absolute inset-0 bg-[#1a1a1a] flex items-center justify-center text-[8px] label-caps text-[var(--bone)]">
-                   Naggar Dojo View
+                   Naggar Dojo Map
                  </div>
               </div>
             </div>
           </div>
+
+          <div className="space-y-6">
+            <p className="label-caps text-[var(--gold)]">What they say</p>
+            <div className="space-y-4">
+              <div className="p-6 bg-[var(--alt)] border border-[var(--bone)] rounded-sm space-y-3">
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-2 h-2 fill-[var(--gold)]" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  ))}
+                </div>
+                <p className="text-[9px] italic text-[var(--muted)] leading-relaxed">
+                  "A transformative space for anyone looking to understand their body beyond just strength."
+                </p>
+                <p className="label-caps text-[7px] opacity-40">— Google Review</p>
+              </div>
+              <Link to="#" className="inline-block label-caps text-[7px] border-b border-[var(--gold)]/20 text-[var(--gold)]">
+                Read all reviews
+              </Link>
+            </div>
+          </div>
+
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-12 border-t border-[var(--bone)]">

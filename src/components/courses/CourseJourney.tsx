@@ -84,29 +84,49 @@ export default function CourseJourney() {
                 className="w-screen h-full flex items-center justify-center px-20"
                 style={{ opacity: opacities[i], y: yPos[i] }}
               >
-                <div className="section-inner w-full flex items-center gap-20">
-                  <div className="w-1/2 space-y-8">
-                    <p className="editorial-heading text-8xl text-[var(--bone)]">{item.n}</p>
+                <div className="section-inner w-full grid grid-cols-2 items-center gap-20">
+                  <div className="space-y-12">
                     <div className="space-y-4">
+                      <p className="editorial-heading text-8xl text-[var(--bone)] opacity-20">{item.n}</p>
                       <p className="label-caps text-[var(--gold)]">{item.category}</p>
-                      <h2 className="editorial-heading text-7xl">{item.title}</h2>
-                      <p className="text-[var(--muted)] text-xl leading-relaxed italic">{item.copy}</p>
+                      <h2 className="editorial-heading text-7xl md:text-9xl">{item.title}</h2>
                     </div>
-                    {item.metadata && (
-                      <p className="text-[var(--muted)] text-sm opacity-60">{item.metadata}</p>
-                    )}
-                    <Link to={item.to} className="inline-block px-10 py-5 bg-[var(--teal)] text-[var(--night)] label-caps hover:bg-[var(--gold)] transition-all">
-                      Explore {item.title}
-                    </Link>
+                    
+                    <div className="space-y-8 max-w-lg">
+                      <p className="text-[var(--muted)] text-xl leading-relaxed italic">{item.copy}</p>
+                      {item.metadata && (
+                        <p className="text-[var(--muted)] text-sm opacity-60 font-hand">{item.metadata}</p>
+                      )}
+                      
+                      <Link 
+                        to={item.to} 
+                        className="group flex items-center gap-4 text-[var(--gold)]"
+                      >
+                        <span className="label-caps border-b border-[var(--gold)]/20 group-hover:border-[var(--gold)] transition-all">
+                          Dive deep into {item.title}
+                        </span>
+                        <div className="w-10 h-10 border border-[var(--gold)] rounded-full flex items-center justify-center group-hover:bg-[var(--gold)] group-hover:text-[var(--night)] transition-all">
+                          <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current stroke-2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                      </Link>
+                    </div>
                   </div>
-                  <div className="w-1/2 relative aspect-square border border-[var(--bone)] rounded-sm overflow-hidden">
-                    <img src={item.image.url} className="w-full h-full object-cover grayscale opacity-40" alt={item.title} />
+
+                  <div className="relative aspect-square border border-[var(--bone)] rounded-sm overflow-hidden group/img">
+                    <img 
+                      src={item.image.url} 
+                      className="w-full h-full object-cover grayscale opacity-40 group-hover/img:scale-110 group-hover/img:opacity-60 transition-all duration-[2000ms]" 
+                      alt={item.title} 
+                    />
                     <div className="absolute inset-0 flex items-center justify-center">
                        <MovementGeometry type={item.type} className="w-1/2 h-1/2 opacity-20" />
                     </div>
                   </div>
                 </div>
               </motion.div>
+
             ))}
           </motion.div>
           {/* Progress system */}

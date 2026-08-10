@@ -63,10 +63,24 @@ export default function Hero() {
             }}
           >
             <motion.p variants={headlineReveal} className="label-caps text-[var(--muted)]">Movement Arts Dojo</motion.p>
-            <motion.h1 variants={headlineReveal} className="editorial-heading text-6xl md:text-9xl mt-6 leading-[0.85]">
-              Build a body<br />
-              <span className="italic text-[var(--gold)] ml-4 md:ml-12">that moves with you.</span>
+            <motion.h1 variants={headlineReveal} className="editorial-heading text-[12vw] md:text-[14vw] mt-6 leading-[0.8] tracking-tighter mix-blend-difference overflow-hidden">
+               {["KASRAT", "SHALA"].map((word, i) => (
+                  <motion.span
+                    key={word}
+                    initial={{ y: "100%", rotateX: -90, opacity: 0 }}
+                    animate={{ y: 0, rotateX: 0, opacity: 1 }}
+                    transition={{ 
+                      duration: 1.2, 
+                      delay: 0.6 + (i * 0.2),
+                      ease: [0.16, 1, 0.3, 1] 
+                    }}
+                    className="block origin-bottom"
+                  >
+                    {word}
+                  </motion.span>
+                ))}
             </motion.h1>
+
           </motion.div>
 
           <motion.div
@@ -87,18 +101,19 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-wrap gap-6 pt-4"
           >
-            <Link
-              to={"/courses" as any}
-              className="px-8 py-4 bg-[var(--teal)] text-[var(--night)] font-hand text-xl hover:bg-[var(--gold)] transition-colors"
-            >
-              Explore the practice
-            </Link>
-            <Link
-              to={"/one-flow" as any}
-              className="px-8 py-4 border border-[var(--bone)] text-[var(--cream)] font-hand text-xl hover:bg-[var(--bone)] transition-colors"
-            >
-              Discover One Flow
-            </Link>
+            <div className="flex flex-col items-start gap-4">
+              <Link
+                to={"/courses" as any}
+                className="group relative px-12 py-6 bg-[var(--teal)] text-[var(--night)] label-caps text-sm overflow-hidden rounded-full transition-transform hover:scale-105 active:scale-95"
+              >
+                <span className="relative z-10">Begin the Journey</span>
+                <motion.div 
+                  className="absolute inset-0 bg-[var(--gold)] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
+                />
+              </Link>
+              <p className="font-hand text-[var(--muted)] text-xl opacity-60">Hand-drawn but digitally precise.</p>
+            </div>
+
           </motion.div>
         </div>
 
