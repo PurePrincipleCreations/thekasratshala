@@ -36,8 +36,8 @@ export default function WorkshopsSection() {
           <div className="root-badge mb-6">Camps</div>
           <h2 className="section-title text-5xl md:text-6xl">Come practise in the field.</h2>
           <p className="section-sub mt-3 max-w-2xl mx-auto">
-            Kasratshala camps are in-person immersions for people who want more time, more attention and
-            a shared rhythm of practice. Accommodation and formats are confirmed directly by email.
+            Kasrat camps are exclusively for previous students who have shared their time training with us. Accommodation and formats are confirmed directly.
+
           </p>
           <div className="gold-line mt-6 mx-auto" />
         </motion.div>
