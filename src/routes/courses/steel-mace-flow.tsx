@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import macePose from "@/assets/mace_pose.png.asset.json";
 import BiomechanicalOverlay from "@/components/biomechanical/BiomechanicalOverlay";
 import MovementGeometry from "@/components/biomechanical/MovementGeometry";
+import smfLogo from "@/assets/smf-logo.png.asset.json";
 
 export const Route = createFileRoute("/courses/steel-mace-flow")({
   component: MaceDetail,
@@ -67,8 +68,8 @@ function MaceDetail() {
             <div className="bg-[var(--alt)] p-8 border border-[var(--bone)] space-y-6">
               <h2 className="editorial-heading text-3xl">Certification</h2>
               <p className="text-[var(--muted)] text-sm italic">Leo Savage / Steel Mace Flow Certification Pathway</p>
-              <div className="h-20 border border-[var(--bone)] border-dashed flex items-center justify-center text-[var(--muted)] label-caps text-[8px]">
-                Certification Mark Space
+              <div className="h-24 border border-[var(--bone)] border-dashed flex items-center justify-center p-4">
+                <img src={smfLogo.url} className="h-full object-contain grayscale invert opacity-60" alt="Steel Mace Flow Certification" />
               </div>
             </div>
           </div>
@@ -76,13 +77,26 @@ function MaceDetail() {
       </section>
 
       <section className="py-32 px-6 border-t border-[var(--bone)] bg-[var(--night)]">
-        <div className="section-inner max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8">
-           <button className="px-10 py-5 bg-[var(--teal)] text-[var(--night)] label-caps hover:bg-[var(--gold)] transition-all">
-              Request syllabus
-           </button>
-           <button className="px-10 py-5 border border-[var(--bone)] text-[var(--cream)] label-caps hover:bg-[var(--bone)] transition-all">
-              Ask about certification
-           </button>
+        <div className="section-inner max-w-4xl space-y-12 bg-[var(--alt)] p-12 border border-[var(--bone)]">
+          <h2 className="editorial-heading text-4xl">Investment</h2>
+          <div className="space-y-4">
+             <div className="flex justify-between items-center border-b border-[var(--bone)] py-4">
+                <p className="label-caps text-[var(--cream)]">SMF Offline / Gathering</p>
+                <p className="editorial-heading text-2xl text-[var(--gold)]">₹35,000</p>
+             </div>
+             <div className="flex justify-between items-center py-4">
+                <p className="label-caps text-[var(--cream)]">SMF Gathering + Certification</p>
+                <p className="editorial-heading text-2xl text-[var(--gold)]">₹45,000</p>
+             </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+             <button className="px-10 py-5 bg-[var(--teal)] text-[var(--night)] label-caps hover:bg-[var(--gold)] transition-all">
+                Request syllabus
+             </button>
+             <button className="px-10 py-5 border border-[var(--bone)] text-[var(--cream)] label-caps hover:bg-[var(--bone)] transition-all">
+                Ask about certification
+             </button>
+          </div>
         </div>
       </section>
     </Layout>

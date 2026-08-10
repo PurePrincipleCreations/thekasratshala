@@ -71,10 +71,19 @@ function YogaDetail() {
       </section>
 
       <section className="py-32 px-6 border-t border-[var(--bone)] text-center bg-[var(--night)]">
-        <div className="section-inner max-w-2xl space-y-10">
-          <h2 className="editorial-heading text-5xl">Ready to begin?</h2>
-          <button className="px-10 py-5 bg-[var(--teal)] text-[var(--night)] label-caps hover:bg-[var(--gold)] transition-all">
-            Request programme details
+        <div className="section-inner max-w-2xl space-y-12 bg-[var(--alt)] p-12 border border-[var(--bone)] text-left">
+          <h2 className="editorial-heading text-4xl">Investment</h2>
+          <div className="space-y-4">
+            <div className="flex justify-between items-center border-b border-[var(--bone)] py-4">
+              <div>
+                <p className="label-caps text-[var(--cream)]">Online Course</p>
+                <p className="text-[8px] text-[var(--muted)] italic">Live joined from Naggar Dojo if preferred</p>
+              </div>
+              <p className="editorial-heading text-2xl text-[var(--gold)]">₹40,000</p>
+            </div>
+          </div>
+          <button className="w-full px-10 py-5 bg-[var(--teal)] text-[var(--night)] label-caps hover:bg-[var(--gold)] transition-all">
+            Join the practice
           </button>
         </div>
       </section>

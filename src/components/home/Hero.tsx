@@ -39,6 +39,20 @@ export default function Hero() {
     <section className="relative min-h-[90vh] flex flex-col md:flex-row items-center justify-center overflow-hidden bg-[var(--night)] px-6">
       <div className="absolute inset-0 bg-gradient-to-r from-[var(--night)] via-[var(--night)]/80 to-transparent z-10" />
       
+      {/* Background Video Layer */}
+      <div className="absolute inset-0 z-0 overflow-hidden opacity-30">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="w-full h-full object-cover grayscale mix-blend-luminosity scale-110"
+        >
+          <source src={require("@/assets/drone-footage.mp4.asset.json").url} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-[var(--night)]/60" />
+      </div>
+      
       <div className="section-inner relative z-20 w-full flex flex-col md:flex-row items-center gap-12 py-20">
         <div className="w-full md:w-1/2 space-y-8">
           <motion.div

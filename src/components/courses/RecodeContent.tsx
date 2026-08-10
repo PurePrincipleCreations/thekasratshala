@@ -51,12 +51,16 @@ export default function RecodeContent() {
             <h2 className="editorial-heading text-4xl">Investment</h2>
             <div className="space-y-2 text-[var(--muted)]">
               <div className="flex justify-between items-center border-b border-[var(--bone)] py-4">
-                <p className="label-caps text-[var(--cream)]">Individual RECODE module</p>
+                <p className="label-caps text-[var(--cream)]">RECODE Individual Module</p>
                 <p className="editorial-heading text-2xl text-[var(--gold)]">₹5,000</p>
               </div>
-              <div className="flex justify-between items-center py-4">
-                <p className="label-caps text-[var(--cream)]">Complete four-part RECODE</p>
+              <div className="flex justify-between items-center border-b border-[var(--bone)] py-4">
+                <p className="label-caps text-[var(--cream)]">RECODE Complete (4 Modules)</p>
                 <p className="editorial-heading text-2xl text-[var(--gold)]">₹15,000</p>
+              </div>
+              <div className="flex justify-between items-center py-4">
+                <p className="label-caps text-[var(--cream)]">Complete + Certification</p>
+                <p className="editorial-heading text-2xl text-[var(--gold)]">₹25,000</p>
               </div>
             </div>
           </div>
