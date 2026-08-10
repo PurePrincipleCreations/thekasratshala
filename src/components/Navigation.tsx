@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useSpring } from "framer-motion";
 import { Link, useLocation } from "@tanstack/react-router";
 import { Menu, X, ArrowRight, ShoppingBag } from "lucide-react";
 import { useAtom } from "jotai";
 import { cartAtom, isCartOpenAtom } from "@/lib/store";
 
 import ksLogo from "@/assets/ks-logo.png.asset.json";
+import outdoorTraining from "@/assets/outdoor_training.png.asset.json";
+import outdoorMace2 from "@/assets/outdoor_mace_2.png.asset.json";
+import handMudra from "@/assets/hand_mudra.png.asset.json";
+import handsContact from "@/assets/hands_contact.png.asset.json";
 
 const links = [
-  { label: "Practice", path: "/courses" },
-  { label: "Camps", path: "/camps" },
-  { label: "One Flow", path: "/one-flow" },
-  { label: "Connect", path: "/connect" },
+  { label: "Practice", path: "/courses", preview: outdoorTraining.url },
+  { label: "Camps", path: "/camps", preview: outdoorMace2.url },
+  { label: "One Flow", path: "/one-flow", preview: handMudra.url },
+  { label: "Connect", path: "/connect", preview: handsContact.url },
 ];
 
 export default function Navigation() {
@@ -19,6 +23,20 @@ export default function Navigation() {
   const location = useLocation();
   const [cart] = useAtom(cartAtom);
   const [, setIsCartOpen] = useAtom(isCartOpenAtom);
+  const [hovered, setHovered] = useState<string | null>(null);
+  const cursorX = useSpring(0, { damping: 30, stiffness: 250, mass: 0.4 });
+  const cursorY = useSpring(0, { damping: 30, stiffness: 250, mass: 0.4 });
+
+  useEffect(() => {
+    const move = (e: MouseEvent) => {
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
+    };
+    window.addEventListener("mousemove", move);
+    return () => window.removeEventListener("mousemove", move);
+  }, [cursorX, cursorY]);
+
+  const hoveredLink = links.find((l) => l.path === hovered);
 
 
   useEffect(() => {
@@ -38,8 +56,10 @@ export default function Navigation() {
             <Link
               key={l.path}
               to={l.path as any}
-              className={`label-caps text-[9px] hover:text-[var(--gold)] transition-colors ${
-                location.pathname === l.path ? "text-[var(--gold)]" : "text-[var(--muted)]"
+              onMouseEnter={() => setHovered(l.path)}
+              onMouseLeave={() => setHovered(null)}
+              className={`label-caps text-[9px] transition-colors hover:text-[var(--gold)] ${
+                location.pathname === l.path ? "text-[var(--gold)]" : "text-[var(--cream)]/80"
               }`}
             >
               {l.label}
@@ -87,6 +107,33 @@ export default function Navigation() {
         </div>
       </div>
 
+
+      {/* Cursor-following preview on nav hover (desktop) */}
+      <AnimatePresence>
+        {hoveredLink && (
+          <motion.div
+            key={hoveredLink.path}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            style={{ x: cursorX, y: cursorY }}
+            className="pointer-events-none fixed top-0 left-0 z-40 hidden md:block"
+          >
+            <div className="-translate-x-1/2 translate-y-8">
+              <div className="w-56 overflow-hidden rounded-sm border border-[var(--bone)] bg-[var(--forest)]">
+                <img
+                  src={hoveredLink.preview}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-36 w-full object-cover grayscale opacity-80"
+                />
+                <p className="label-caps px-3 py-2 text-[8px] text-[var(--gold)]">{hoveredLink.label}</p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Mobile Menu */}
       <AnimatePresence>
