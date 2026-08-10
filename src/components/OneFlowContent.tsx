@@ -27,7 +27,7 @@ export default function OneFlowContent() {
             <h1 className="editorial-heading text-6xl md:text-8xl">One day. One field.<br />A shared practice.</h1>
           </motion.div>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-[var(--muted)] text-xl italic leading-relaxed mx-auto max-w-2xl">
-            One Flow is an in-person gathering for movers, coaches, yogis, artists and curious beginners. Tools, yoga, breath and play are not separate disciplines here.
+            One Flow is an in-person gathering for movers, coaches, yogis, artists and curious beginners. Tools, yoga, breath and play are not separate disciplines here. We welcome multi-disciplinary artists to come and share their skills with us.
           </motion.p>
         </div>
       </section>
