@@ -50,6 +50,11 @@
   --teal: #83976d;
   --bone: rgba(243, 240, 232, 0.18);
   --gold: #b28a4a;
+  
+  /* Retro Futuristic Additions */
+  --earth-brown: #3d2b1f;
+  --vintage-green: #4a5d4e;
+  --paper-dark: #b5ad9a;
 }
 
 @layer base {
