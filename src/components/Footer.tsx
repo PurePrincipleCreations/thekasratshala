@@ -30,6 +30,20 @@ export default function Footer() {
             <li><a href="mailto:namaste@kasratshala.in" className="hover:text-[var(--cream)] transition-colors">namaste@kasratshala.in</a></li>
             <li>Naggar, Kullu District</li>
             <li>Himachal Pradesh, India</li>
+            <li className="mt-4 pt-4 border-t border-[var(--bone)]">
+              <div className="w-full h-48 bg-[var(--alt)] rounded-sm overflow-hidden border border-[var(--bone)] opacity-80 hover:opacity-100 transition-opacity">
+                {/* Embedded Map Representation */}
+                <iframe 
+                  title="Kasratshala Location"
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0, filter: 'grayscale(1) invert(1) contrast(1.2)' }}
+                  loading="lazy"
+                  allowFullScreen
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.867941727764!2d77.1852!3d32.1158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3904870f44385a49%3A0xc6c4b2e8c607f2!2sNaggar%2C%20Himachal%20Pradesh!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin"
+                />
+              </div>
+            </li>
           </ul>
         </div>
 
