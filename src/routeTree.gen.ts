@@ -9,38 +9,167 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as OneFlowRouteImport } from './routes/one-flow'
+import { Route as ConnectRouteImport } from './routes/connect'
+import { Route as CampsRouteImport } from './routes/camps'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CoursesIndexRouteImport } from './routes/courses/index'
+import { Route as CoursesYogaForStrengthRouteImport } from './routes/courses/yoga-for-strength'
+import { Route as CoursesSteelMaceFlowRouteImport } from './routes/courses/steel-mace-flow'
+import { Route as CoursesRecodeRouteImport } from './routes/courses/recode'
+import { Route as CoursesPranayamaRouteImport } from './routes/courses/pranayama'
 
+const OneFlowRoute = OneFlowRouteImport.update({
+  id: '/one-flow',
+  path: '/one-flow',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConnectRoute = ConnectRouteImport.update({
+  id: '/connect',
+  path: '/connect',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CampsRoute = CampsRouteImport.update({
+  id: '/camps',
+  path: '/camps',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CoursesIndexRoute = CoursesIndexRouteImport.update({
+  id: '/courses/',
+  path: '/courses/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesYogaForStrengthRoute = CoursesYogaForStrengthRouteImport.update({
+  id: '/courses/yoga-for-strength',
+  path: '/courses/yoga-for-strength',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesSteelMaceFlowRoute = CoursesSteelMaceFlowRouteImport.update({
+  id: '/courses/steel-mace-flow',
+  path: '/courses/steel-mace-flow',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesRecodeRoute = CoursesRecodeRouteImport.update({
+  id: '/courses/recode',
+  path: '/courses/recode',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesPranayamaRoute = CoursesPranayamaRouteImport.update({
+  id: '/courses/pranayama',
+  path: '/courses/pranayama',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/camps': typeof CampsRoute
+  '/connect': typeof ConnectRoute
+  '/one-flow': typeof OneFlowRoute
+  '/courses/pranayama': typeof CoursesPranayamaRoute
+  '/courses/recode': typeof CoursesRecodeRoute
+  '/courses/steel-mace-flow': typeof CoursesSteelMaceFlowRoute
+  '/courses/yoga-for-strength': typeof CoursesYogaForStrengthRoute
+  '/courses/': typeof CoursesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/camps': typeof CampsRoute
+  '/connect': typeof ConnectRoute
+  '/one-flow': typeof OneFlowRoute
+  '/courses/pranayama': typeof CoursesPranayamaRoute
+  '/courses/recode': typeof CoursesRecodeRoute
+  '/courses/steel-mace-flow': typeof CoursesSteelMaceFlowRoute
+  '/courses/yoga-for-strength': typeof CoursesYogaForStrengthRoute
+  '/courses': typeof CoursesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/camps': typeof CampsRoute
+  '/connect': typeof ConnectRoute
+  '/one-flow': typeof OneFlowRoute
+  '/courses/pranayama': typeof CoursesPranayamaRoute
+  '/courses/recode': typeof CoursesRecodeRoute
+  '/courses/steel-mace-flow': typeof CoursesSteelMaceFlowRoute
+  '/courses/yoga-for-strength': typeof CoursesYogaForStrengthRoute
+  '/courses/': typeof CoursesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/camps'
+    | '/connect'
+    | '/one-flow'
+    | '/courses/pranayama'
+    | '/courses/recode'
+    | '/courses/steel-mace-flow'
+    | '/courses/yoga-for-strength'
+    | '/courses/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/camps'
+    | '/connect'
+    | '/one-flow'
+    | '/courses/pranayama'
+    | '/courses/recode'
+    | '/courses/steel-mace-flow'
+    | '/courses/yoga-for-strength'
+    | '/courses'
+  id:
+    | '__root__'
+    | '/'
+    | '/camps'
+    | '/connect'
+    | '/one-flow'
+    | '/courses/pranayama'
+    | '/courses/recode'
+    | '/courses/steel-mace-flow'
+    | '/courses/yoga-for-strength'
+    | '/courses/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CampsRoute: typeof CampsRoute
+  ConnectRoute: typeof ConnectRoute
+  OneFlowRoute: typeof OneFlowRoute
+  CoursesPranayamaRoute: typeof CoursesPranayamaRoute
+  CoursesRecodeRoute: typeof CoursesRecodeRoute
+  CoursesSteelMaceFlowRoute: typeof CoursesSteelMaceFlowRoute
+  CoursesYogaForStrengthRoute: typeof CoursesYogaForStrengthRoute
+  CoursesIndexRoute: typeof CoursesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/one-flow': {
+      id: '/one-flow'
+      path: '/one-flow'
+      fullPath: '/one-flow'
+      preLoaderRoute: typeof OneFlowRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/connect': {
+      id: '/connect'
+      path: '/connect'
+      fullPath: '/connect'
+      preLoaderRoute: typeof ConnectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/camps': {
+      id: '/camps'
+      path: '/camps'
+      fullPath: '/camps'
+      preLoaderRoute: typeof CampsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +177,55 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/courses/': {
+      id: '/courses/'
+      path: '/courses'
+      fullPath: '/courses/'
+      preLoaderRoute: typeof CoursesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses/yoga-for-strength': {
+      id: '/courses/yoga-for-strength'
+      path: '/courses/yoga-for-strength'
+      fullPath: '/courses/yoga-for-strength'
+      preLoaderRoute: typeof CoursesYogaForStrengthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses/steel-mace-flow': {
+      id: '/courses/steel-mace-flow'
+      path: '/courses/steel-mace-flow'
+      fullPath: '/courses/steel-mace-flow'
+      preLoaderRoute: typeof CoursesSteelMaceFlowRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses/recode': {
+      id: '/courses/recode'
+      path: '/courses/recode'
+      fullPath: '/courses/recode'
+      preLoaderRoute: typeof CoursesRecodeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses/pranayama': {
+      id: '/courses/pranayama'
+      path: '/courses/pranayama'
+      fullPath: '/courses/pranayama'
+      preLoaderRoute: typeof CoursesPranayamaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CampsRoute: CampsRoute,
+  ConnectRoute: ConnectRoute,
+  OneFlowRoute: OneFlowRoute,
+  CoursesPranayamaRoute: CoursesPranayamaRoute,
+  CoursesRecodeRoute: CoursesRecodeRoute,
+  CoursesSteelMaceFlowRoute: CoursesSteelMaceFlowRoute,
+  CoursesYogaForStrengthRoute: CoursesYogaForStrengthRoute,
+  CoursesIndexRoute: CoursesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
