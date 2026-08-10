@@ -25,6 +25,25 @@ export default function Footer() {
         </div>
 
         <div className="space-y-4">
+          <p className="label-caps text-[var(--gold)]">Reviews</p>
+          <div className="space-y-4">
+            {[
+              { name: "Arjun S.", text: "A life-changing practice. The biomechanics meeting tradition is exactly what I needed." },
+              { name: "Sarah K.", text: "Intelligent movement in a beautiful dark Himalayan setting. Highly recommended." }
+            ].map((r, i) => (
+              <div key={i} className="p-3 border border-[var(--bone)] bg-[var(--alt)]/50 rounded-sm">
+                <p className="text-[10px] text-[var(--cream)] italic">"{r.text}"</p>
+                <p className="text-[9px] label-caps text-[var(--gold)] mt-2">— {r.name}</p>
+              </div>
+            ))}
+            <div className="flex items-center gap-1 text-[var(--gold)]">
+              <span className="text-xs">★★★★★</span>
+              <span className="text-[9px] label-caps text-[var(--muted)]">4.9 on Google</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="space-y-4">
           <p className="label-caps text-[var(--gold)]">Contact</p>
           <ul className="space-y-2 text-sm text-[var(--muted)]">
             <li><a href="mailto:namaste@kasratshala.in" className="hover:text-[var(--cream)] transition-colors">namaste@kasratshala.in</a></li>
