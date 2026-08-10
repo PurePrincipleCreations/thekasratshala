@@ -66,7 +66,7 @@ export default function Principles() {
                   <motion.div key={p.n} style={{ opacity }} className="absolute inset-0 space-y-4">
                     <p className="editorial-heading text-8xl text-[var(--bone)]">{p.n}</p>
                     <h3 className="editorial-heading text-5xl">{p.title}</h3>
-                    <p className="label-caps text-[var(--muted)]">{p.subtitle}</p>
+                    <p className="label-caps text-[var(--muted)] font-serif italic text-sm normal-case tracking-normal">{p.subtitle}</p>
                   </motion.div>
                 );
               })}
