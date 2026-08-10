@@ -43,7 +43,7 @@ export default function Footer() {
       </div>
       
       <div className="section-inner mt-24 pt-8 border-t border-[var(--bone)] flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-[10px] label-caps text-[var(--muted)]">© 2026 Kasratshala · Naggar, Himachal Pradesh</p>
+        <p className="text-[10px] label-caps text-[var(--muted)]">© 2026 Kasratshala</p>
         <p className="text-[10px] label-caps italic text-[var(--muted)]">Come for the practice. Stay for the shift.</p>
       </div>
     </footer>

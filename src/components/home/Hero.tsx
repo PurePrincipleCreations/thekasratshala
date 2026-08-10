@@ -19,7 +19,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="label-caps text-[var(--muted)]">Movement Arts Dojo · Naggar, Himachal Pradesh</p>
+            <p className="label-caps text-[var(--muted)]">Movement Arts Dojo</p>
             <h1 className="editorial-heading text-6xl md:text-8xl mt-6">
               Build a body<br />
               <span className="italic text-[var(--gold)]">that moves with you.</span>
@@ -46,13 +46,13 @@ export default function Hero() {
           >
             <Link
               to={"/courses" as any}
-              className="px-8 py-4 bg-[var(--teal)] text-[var(--night)] label-caps hover:bg-[var(--gold)] transition-colors"
+              className="px-8 py-4 bg-[var(--teal)] text-[var(--night)] font-hand text-xl hover:bg-[var(--gold)] transition-colors"
             >
               Explore the practice
             </Link>
             <Link
               to={"/one-flow" as any}
-              className="px-8 py-4 border border-[var(--bone)] text-[var(--cream)] label-caps hover:bg-[var(--bone)] transition-colors"
+              className="px-8 py-4 border border-[var(--bone)] text-[var(--cream)] font-hand text-xl hover:bg-[var(--bone)] transition-colors"
             >
               Discover One Flow
             </Link>
