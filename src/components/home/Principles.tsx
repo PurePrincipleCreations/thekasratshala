@@ -53,7 +53,7 @@ export default function Principles() {
             <div className="space-y-4">
               <p className="label-caps text-[var(--gold)]">The Kasratshala Way</p>
               <h2 className="editorial-heading text-6xl">A different relationship with strength.</h2>
-              <p className="text-[var(--muted)] text-xl italic">Not fitness as repetition. Practice as intelligence.</p>
+              <p className="text-[var(--muted)] text-xl italic font-serif">Not fitness as repetition. Practice as intelligence.</p>
             </div>
             
             <div className="relative h-64">
@@ -114,7 +114,7 @@ export default function Principles() {
             <div className="space-y-2">
               <p className="editorial-heading text-4xl text-[var(--bone)]">{p.n}</p>
               <h3 className="editorial-heading text-3xl">{p.title}</h3>
-              <p className="label-caps text-[var(--muted)]">{p.subtitle}</p>
+              <p className="label-caps text-[var(--muted)] font-serif italic text-xs normal-case tracking-normal">{p.subtitle}</p>
             </div>
           </div>
         ))}
