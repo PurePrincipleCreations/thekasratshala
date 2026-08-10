@@ -1,9 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Hero from "@/components/home/Hero";
+import MovementMarquee from "@/components/home/MovementMarquee";
 import Principles from "@/components/home/Principles";
+import ScrollGallery from "@/components/home/ScrollGallery";
+import HomeStats from "@/components/home/HomeStats";
 import FeaturedCourses from "@/components/home/FeaturedCourses";
 import HomeEvents from "@/components/home/HomeEvents";
 import HomeFinalCTA from "@/components/home/HomeFinalCTA";
+
 import Layout from "@/components/Layout";
 
 export const Route = createFileRoute("/")({
