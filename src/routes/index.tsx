@@ -28,10 +28,14 @@ function Index() {
   return (
     <Layout>
       <Hero />
+      <MovementMarquee />
       <Principles />
+      <ScrollGallery />
+      <HomeStats />
       <FeaturedCourses />
       <HomeEvents />
       <HomeFinalCTA />
     </Layout>
   );
 }
+
