@@ -1,12 +1,39 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import yogaPose from "@/assets/yoga_pose.png.asset.json";
 import BiomechanicalOverlay from "../biomechanical/BiomechanicalOverlay";
 
 export default function Hero() {
   const { scrollY } = useScroll();
-  const scale = useTransform(scrollY, [0, 800], [1.06, 1]);
-  const y = useTransform(scrollY, [0, 800], [0, 100]);
+  const scale = useTransform(scrollY, [0, 800], [1.15, 1]);
+  const y = useTransform(scrollY, [0, 800], [0, 150]);
+  
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const springConfig = { damping: 25, stiffness: 150 };
+  const mouseX = useSpring(mousePos.x, springConfig);
+  const mouseY = useSpring(mousePos.y, springConfig);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({ 
+        x: (e.clientX / window.innerWidth - 0.5) * 20, 
+        y: (e.clientY / window.innerHeight - 0.5) * 20 
+      });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  const headlineReveal = {
+    hidden: { opacity: 0, y: 40, skewY: 7 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      skewY: 0,
+      transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] }
+    }
+  };
 
   return (
     <section className="relative min-h-[90vh] flex flex-col md:flex-row items-center justify-center overflow-hidden bg-[var(--night)] px-6">
@@ -15,15 +42,17 @@ export default function Hero() {
       <div className="section-inner relative z-20 w-full flex flex-col md:flex-row items-center gap-12 py-20">
         <div className="w-full md:w-1/2 space-y-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial="hidden"
+            animate="visible"
+            variants={{
+              visible: { transition: { staggerChildren: 0.1 } }
+            }}
           >
-            <p className="label-caps text-[var(--muted)]">Movement Arts Dojo</p>
-            <h1 className="editorial-heading text-6xl md:text-8xl mt-6">
+            <motion.p variants={headlineReveal} className="label-caps text-[var(--muted)]">Movement Arts Dojo</motion.p>
+            <motion.h1 variants={headlineReveal} className="editorial-heading text-6xl md:text-9xl mt-6 leading-[0.85]">
               Build a body<br />
-              <span className="italic text-[var(--gold)]">that moves with you.</span>
-            </h1>
+              <span className="italic text-[var(--gold)] ml-4 md:ml-12">that moves with you.</span>
+            </motion.h1>
           </motion.div>
 
           <motion.div
@@ -59,19 +88,42 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        <div className="w-full md:w-1/2 relative aspect-[4/5] md:aspect-auto md:h-[80vh]">
-          <motion.div style={{ scale, y }} className="relative w-full h-full overflow-hidden rounded-sm border border-[var(--bone)]">
+        <div className="w-full md:w-1/2 relative aspect-[4/5] md:aspect-auto md:h-[90vh]">
+          <motion.div 
+            style={{ 
+              scale, 
+              y,
+              rotateX: mouseY,
+              rotateY: mouseX,
+            }} 
+            className="relative w-full h-full overflow-hidden rounded-sm border border-[var(--bone)] shadow-2xl perspective-1000"
+          >
             <img 
               src={yogaPose.url} 
               alt="Movement Arts" 
-              className="w-full h-full object-cover grayscale opacity-60"
+              className="w-full h-full object-cover grayscale opacity-80 mix-blend-luminosity"
             />
             <BiomechanicalOverlay 
-              circles={[{ cx: 200, cy: 300, r: 150 }]}
-              paths={["M50 300 Q200 100 350 300"]}
-              points={[{ x: 200, y: 300, label: "ALIGNMENT" }, { x: 100, y: 200, label: "FORCE" }]}
+              circles={[{ cx: 200, cy: 300, r: 180 }, { cx: 200, cy: 300, r: 240 }]}
+              paths={[
+                "M50 300 Q200 50 350 300",
+                "M50 400 Q200 550 350 400",
+                "M200 50 L200 550"
+              ]}
+              points={[
+                { x: 200, y: 300, label: "CENTRE" }, 
+                { x: 200, y: 120, label: "AXIS" },
+                { x: 80, y: 300, label: "TORQUE" }
+              ]}
+              opacity={0.6}
             />
           </motion.div>
+          
+          {/* Hand-drawn element floating */}
+          <motion.div
+            style={{ x: mouseX, y: mouseY }}
+            className="absolute -top-10 -right-10 w-40 h-40 border border-[var(--gold)] rounded-full opacity-20 pointer-events-none"
+          />
         </div>
       </div>
       
