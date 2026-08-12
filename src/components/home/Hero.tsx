@@ -44,7 +44,7 @@ export default function Hero() {
           <img 
             src={yogaPose.url} 
             alt="" 
-            className="w-full h-full object-cover grayscale opacity-40 mix-blend-luminosity"
+            className="w-full h-full object-cover grayscale opacity-20 mix-blend-luminosity"
           />
         </motion.div>
         {/* Subtle translucent overlay */}
@@ -65,9 +65,9 @@ export default function Hero() {
         </video>
       </div>
 
-      {/* Movement Marquee Background Layer */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center opacity-40 mix-blend-overlay pointer-events-none overflow-hidden pt-20">
-        <div className="w-full scale-125 rotate-[-5deg]">
+      {/* Movement Marquee Background Layer - Now serving as the main header */}
+      <div className="absolute inset-0 z-10 flex items-center justify-center opacity-80 mix-blend-normal pointer-events-none overflow-hidden pt-20">
+        <div className="w-full scale-110 rotate-[-2deg]">
           <MovementMarquee />
         </div>
       </div>
@@ -86,13 +86,12 @@ export default function Hero() {
               Movement Arts Dojo
             </motion.p>
             
-            {/* The marquee itself is now the header content, but we keep text for accessibility if needed or visual layering */}
-            <div className="relative">
+            <div className="relative min-h-[30vh] md:min-h-[40vh] flex items-center justify-center">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.5 }}
-                className="absolute inset-0 blur-3xl bg-[var(--gold)]/10 rounded-full"
+                className="absolute inset-0 blur-[120px] bg-[var(--gold)]/10 rounded-full scale-150"
               />
             </div>
           </motion.div>

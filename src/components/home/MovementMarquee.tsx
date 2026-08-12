@@ -9,6 +9,8 @@ const words = [
   "Capacity",
   "Alignment",
   "Flow",
+  "Kasratshala",
+  "Dojo",
 ];
 
 function Row({ reverse = false, opacity = 1 }: { reverse?: boolean; opacity?: number }) {
