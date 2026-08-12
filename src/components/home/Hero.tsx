@@ -84,9 +84,45 @@ export default function Hero() {
         transition={{ delay: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20"
       >
-        <span className="label-caps text-[8px] text-[var(--cream)]">Scroll to descend</span>
+        <span className="label-caps text-[8px] text-[var(--cream)] uppercase tracking-[0.2em]">Scroll to descend</span>
         <div className="w-px h-12 bg-gradient-to-b from-[var(--gold)] to-transparent" />
       </motion.div>
+
+      {/* Hero Content Overlay */}
+      <div className="relative z-10 section-inner flex flex-col items-center text-center px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-4xl space-y-8"
+        >
+          <div className="space-y-4">
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 1 }}
+              className="label-caps text-[var(--gold)] tracking-[0.3em] text-[10px] md:text-xs"
+            >
+              ESTABLISHED IN NAGGAR
+            </motion.p>
+            <h1 className="editorial-heading text-5xl md:text-8xl text-[var(--bone)] leading-[1.1] md:leading-[1.05]">
+              Movement<br />
+              <span className="italic text-[var(--gold)]">Nourishment</span>
+            </h1>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 1 }}
+            className="max-w-2xl mx-auto"
+          >
+            <p className="text-[var(--cream)]/80 text-sm md:text-lg font-light leading-relaxed tracking-wide">
+              Kasratshala is a movement arts dojo blending traditional tools, yoga, and modern biomechanics into one living practice—for stronger, more capable, and more adaptable bodies.
+            </p>
+          </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 }
