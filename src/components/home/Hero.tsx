@@ -82,7 +82,7 @@ export default function Hero() {
                 animate={{ filter: "blur(0px)", opacity: 1 }}
                 transition={{ duration: 1.5, ease: "easeOut" }}
               >
-                HOW TO TRAIN <span className="italic text-[var(--gold)]">AI</span>
+                HOW TO TRAIN YOUR <span className="italic text-[var(--gold)]">AI</span>
               </motion.h1>
               
               <motion.div
