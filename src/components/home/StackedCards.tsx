@@ -42,10 +42,10 @@ function Card({ i, total, card }: { i: number; total: number; card: (typeof card
   const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1, 0.35]);
 
   return (
-    <div ref={ref} className="h-screen sticky top-0 flex items-center justify-center px-6">
+    <div ref={ref} className="h-[90vh] md:h-screen sticky top-0 flex items-center justify-center px-4 md:px-6">
       <motion.article
         style={{ scale, opacity, zIndex: i }}
-        className="relative w-full max-w-5xl overflow-hidden rounded-sm border border-[var(--bone)] bg-[var(--forest)] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)]"
+        className="relative w-full max-w-5xl overflow-hidden rounded-sm border border-[var(--bone)] bg-[var(--forest)] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)] max-h-[85vh] md:max-h-none overflow-y-auto md:overflow-hidden"
       >
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[420px] overflow-hidden">
@@ -61,7 +61,7 @@ function Card({ i, total, card }: { i: number; total: number; card: (typeof card
             </span>
           </div>
 
-          <div className="p-8 md:p-12 flex flex-col justify-center gap-5">
+          <div className="p-6 md:p-12 flex flex-col justify-center gap-4 md:gap-5">
             <span className="label-caps text-[9px] text-[var(--gold)]">Principle {card.n}</span>
             <h3 className="editorial-heading text-3xl md:text-5xl leading-[1.05] text-[var(--cream)]">
               {card.title}
@@ -80,7 +80,7 @@ export default function StackedCards() {
     <section className="relative bg-[var(--night)] border-y border-[var(--bone)]">
       <div className="section-inner pt-32 pb-10">
         <p className="label-caps text-[var(--gold)] mb-4">How we work</p>
-        <h2 className="editorial-heading text-5xl md:text-7xl leading-[0.95] text-[var(--cream)] max-w-3xl">
+        <h2 className="editorial-heading text-4xl md:text-7xl leading-[0.95] text-[var(--cream)] max-w-3xl">
           Four ideas that hold<br />
           <span className="italic text-[var(--gold)]">every session together.</span>
         </h2>

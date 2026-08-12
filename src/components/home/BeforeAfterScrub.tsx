@@ -30,7 +30,7 @@ export default function BeforeAfterScrub() {
             </p>
           </div>
 
-          <div className="relative aspect-[16/9] max-h-[52vh] w-full overflow-hidden rounded-sm border border-[var(--bone)]">
+          <div className="relative aspect-[4/5] md:aspect-[16/9] max-h-[60vh] md:max-h-[52vh] w-full overflow-hidden rounded-sm border border-[var(--bone)]">
             {/* Before */}
             <img
               src={feetDetail.url}

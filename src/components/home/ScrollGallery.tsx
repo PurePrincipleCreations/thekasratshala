@@ -70,7 +70,7 @@ export default function ScrollGallery() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
           <div className="space-y-4 max-w-xl">
             <p className="label-caps text-[var(--gold)]">The Dojo, in frames</p>
-            <h2 className="editorial-heading text-5xl md:text-7xl leading-[0.9]">
+            <h2 className="editorial-heading text-4xl md:text-7xl leading-[0.9]">
               Practice happens<br />
               <span className="italic text-[var(--gold)]">outdoors.</span>
             </h2>
@@ -80,10 +80,12 @@ export default function ScrollGallery() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 items-start">
-          <Column frames={columns[0]} speed={80} />
-          <Column frames={columns[1]} speed={-40} />
-          <Column frames={columns[2]} speed={110} />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-12 items-start">
+          <Column frames={columns[0]} speed={40} />
+          <div className="hidden md:block">
+            <Column frames={columns[1]} speed={-40} />
+          </div>
+          <Column frames={columns[2]} speed={60} />
         </div>
       </div>
     </section>
