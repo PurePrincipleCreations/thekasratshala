@@ -32,16 +32,16 @@ export default function Hero() {
           <img
             src={yogaPose.url}
             alt="Movement practice at Kasratshala"
-            className="w-full h-full object-cover grayscale opacity-60 mix-blend-luminosity"
+            className="w-full h-full object-cover grayscale opacity-100 mix-blend-luminosity"
           />
         </motion.div>
         {/* Soft translucent overlay so background remains dominant */}
-        <div className="absolute inset-0 bg-[var(--night)]/30 backdrop-blur-[1px]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--night)]/70 via-transparent to-[var(--night)]" />
+        <div className="absolute inset-0 bg-[var(--night)]/10 backdrop-blur-[1px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--night)]/40 via-transparent to-[var(--night)]" />
       </div>
 
       {/* Background Video Layer — featured to front */}
-      <div className="absolute inset-0 z-[1] overflow-hidden opacity-30 pointer-events-none">
+      <div className="absolute inset-0 z-[1] overflow-hidden opacity-60 pointer-events-none">
         <video
           autoPlay
           loop
@@ -54,7 +54,7 @@ export default function Hero() {
       </div>
 
       {/* Biomechanical Overlay — featured to front */}
-      <div className="absolute inset-0 pointer-events-none z-[5] opacity-70">
+      <div className="absolute inset-0 pointer-events-none z-[5] opacity-100">
         <BiomechanicalOverlay
           circles={[{ cx: 200, cy: 300, r: 180 }, { cx: 200, cy: 300, r: 240 }]}
           paths={[
