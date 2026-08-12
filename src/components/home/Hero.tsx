@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import yogaPose from "@/assets/yoga_pose.png.asset.json";
 import droneFootage from "@/assets/drone-footage.mp4.asset.json";
 import BiomechanicalOverlay from "../biomechanical/BiomechanicalOverlay";
+import MovementMarquee from "./MovementMarquee";
 
 export default function Hero() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -43,7 +44,7 @@ export default function Hero() {
           <img 
             src={yogaPose.url} 
             alt="" 
-            className="w-full h-full object-cover grayscale opacity-40 mix-blend-luminosity"
+            className="w-full h-full object-cover grayscale opacity-20 mix-blend-luminosity"
           />
         </motion.div>
         {/* Subtle translucent overlay */}
@@ -64,6 +65,13 @@ export default function Hero() {
         </video>
       </div>
 
+      {/* Movement Marquee Background Layer - Now serving as the main header */}
+      <div className="absolute inset-0 z-10 flex items-center justify-center opacity-80 mix-blend-normal pointer-events-none overflow-hidden pt-20">
+        <div className="w-full scale-110 rotate-[-2deg]">
+          <MovementMarquee />
+        </div>
+      </div>
+
       <div className="section-inner relative z-20 w-full flex flex-col items-center text-center py-20 mt-16 md:mt-24">
         <div className="max-w-4xl space-y-6 md:space-y-10">
           <motion.div
@@ -77,26 +85,15 @@ export default function Hero() {
             <motion.p variants={headlineReveal} className="label-caps text-[var(--gold)] tracking-[0.4em] text-[10px] md:text-xs mb-4">
               Movement Arts Dojo
             </motion.p>
-            <motion.h1 
-              variants={headlineReveal} 
-              className="editorial-heading text-[10vw] md:text-[6vw] leading-[0.9] tracking-tighter text-[var(--cream)] uppercase"
-            >
-               {["MOVEMENT", "NOURISHMENT"].map((word, i) => (
-                  <motion.span
-                    key={word}
-                    initial={{ y: "100%", rotateX: -90, opacity: 0 }}
-                    animate={{ y: 0, rotateX: 0, opacity: 1 }}
-                    transition={{ 
-                      duration: 1.2, 
-                      delay: 0.6 + (i * 0.2),
-                      ease: [0.16, 1, 0.3, 1] 
-                    }}
-                    className="block origin-bottom"
-                  >
-                    {word}
-                  </motion.span>
-                ))}
-            </motion.h1>
+            
+            <div className="relative min-h-[30vh] md:min-h-[40vh] flex items-center justify-center">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.5 }}
+                className="absolute inset-0 blur-[120px] bg-[var(--gold)]/10 rounded-full scale-150"
+              />
+            </div>
           </motion.div>
 
           <motion.div

@@ -67,7 +67,6 @@ export default function Principles() {
             <div className="space-y-4">
               <p className="label-caps text-[var(--gold)]">The Kasratshala Way</p>
               <h2 className="editorial-heading text-6xl">A different relationship with your body.</h2>
-              <p className="text-[var(--muted)] text-xl italic font-serif">The Kasratshala way.</p>
             </div>
             
             <div className="relative h-64">
