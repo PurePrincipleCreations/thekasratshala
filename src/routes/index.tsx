@@ -31,7 +31,7 @@ function Index() {
   return (
     <Layout>
       <Hero />
-      <MovementMarquee />
+      {/* MovementMarquee removed */}
       <Principles />
       <ScrollGallery />
       <StackedCards />
