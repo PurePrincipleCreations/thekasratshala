@@ -54,29 +54,15 @@ export default function Hero() {
         </video>
       </div>
 
-      {/* Text Layers — Featured content with precise accuracy */}
-      <div className="relative z-10 w-full max-w-7xl px-6 flex flex-col items-center text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="space-y-4 mb-12"
-        >
-          <span className="label-caps text-[var(--gold)] text-xs md:text-sm tracking-[0.3em] block mb-4">
-            How to move well
-          </span>
-          <h1 className="editorial-heading text-5xl md:text-8xl text-[var(--cream)] leading-[0.9]">
-            Functional<br />Movement Practice
-          </h1>
-          <p className="font-hand text-xl md:text-2xl text-[var(--bone)] mt-8 max-w-xl mx-auto opacity-80 italic">
-            Train your neuro on the Richness of Movement Science
-          </p>
-        </motion.div>
-      </div>
 
-      {/* Biomechanical Overlay — featured to front */}
+      {/* Biomechanical Overlay — Headlines integrated into the diagram layer */}
       <div className="absolute inset-0 pointer-events-none z-[5] opacity-100">
         <BiomechanicalOverlay
+          headlines={{
+            howToMoveWell: "How to move well",
+            functionalMovement: "Functional<br />Movement Practice",
+            trainYourNeuro: "Train your neuro on the Richness of Movement Science"
+          }}
           circles={[{ cx: 200, cy: 300, r: 180 }, { cx: 200, cy: 300, r: 240 }]}
           paths={[
             "M50 300 Q200 50 350 300",
