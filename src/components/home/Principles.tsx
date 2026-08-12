@@ -65,7 +65,6 @@ export default function Principles() {
         <div className="section-inner h-full flex items-center gap-12 py-20">
           <div className="w-1/2 space-y-12">
             <div className="space-y-4">
-              <p className="label-caps text-[var(--gold)]">The Kasratshala Way</p>
               <h2 className="editorial-heading text-6xl">A different relationship with your body.</h2>
             </div>
             
@@ -119,7 +118,7 @@ export default function Principles() {
       {/* Mobile View */}
       <div className="md:hidden pt-20 pb-20 space-y-20 px-6">
         <div className="space-y-4">
-          <p className="label-caps text-[var(--gold)]">The Kasratshala Way</p>
+          
           <h2 className="editorial-heading text-4xl leading-tight">A different relationship with your body.</h2>
         </div>
         {principles.map((p) => (
