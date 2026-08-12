@@ -55,8 +55,26 @@ export default function Hero() {
       </div>
 
 
+      {/* Hero Text Overlay - Integrated within the visual composition */}
+      <div className="absolute inset-0 pointer-events-none z-[10] flex items-center justify-center">
+        <div className="w-full max-w-[90vw] md:max-w-6xl px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 0.5 }}
+            className="flex flex-col"
+          >
+            <h1 className="editorial-heading text-4xl md:text-8xl text-[var(--cream)] leading-[0.9] max-w-3xl">
+              Result based <br />
+              Movement <br />
+              Practice
+            </h1>
+          </motion.div>
+        </div>
+      </div>
+
       {/* Biomechanical Overlay — Simplified and centered */}
-      <div className="absolute inset-0 pointer-events-none z-[5] opacity-100 flex items-center justify-center">
+      <div className="absolute inset-0 pointer-events-none z-[5] opacity-60 flex items-center justify-center">
         <div className="w-[600px] h-[600px] relative">
           <BiomechanicalOverlay
             circles={[{ cx: 200, cy: 300, r: 180 }, { cx: 200, cy: 300, r: 240 }]}
