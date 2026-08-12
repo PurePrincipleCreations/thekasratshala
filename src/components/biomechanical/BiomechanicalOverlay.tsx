@@ -6,6 +6,11 @@ interface BiomechanicalOverlayProps {
   paths?: string[];
   circles?: { cx: number; cy: number; r: number }[];
   opacity?: number;
+  headlines?: {
+    howToMoveWell?: string;
+    functionalMovement?: string;
+    trainYourNeuro?: string;
+  };
 }
 
 export default function BiomechanicalOverlay({
@@ -13,7 +18,8 @@ export default function BiomechanicalOverlay({
   points = [],
   paths = [],
   circles = [],
-  opacity = 0.4
+  opacity = 0.4,
+  headlines
 }: BiomechanicalOverlayProps) {
   return (
     <motion.svg
@@ -75,6 +81,36 @@ export default function BiomechanicalOverlay({
           )}
         </g>
       ))}
+      {headlines && (
+        <foreignObject x="0" y="0" width="100%" height="100%" className="overflow-visible">
+          <div className="w-full h-full flex flex-col items-center justify-center text-center px-4" style={{ transform: 'translateY(-10%)' }}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, delay: 0.5 }}
+              className="space-y-2 md:space-y-4"
+            >
+              {headlines.howToMoveWell && (
+                <span className="label-caps text-[var(--gold)] text-[6px] md:text-[10px] tracking-[0.3em] block mb-2 md:mb-4">
+                  {headlines.howToMoveWell}
+                </span>
+              )}
+              {headlines.functionalMovement && (
+                <h1 className="editorial-heading text-2xl md:text-5xl text-[var(--cream)] leading-[0.9]">
+                  {headlines.functionalMovement.split('<br />').map((text, i) => (
+                    <span key={i}>{text}{i === 0 && <br />}</span>
+                  ))}
+                </h1>
+              )}
+              {headlines.trainYourNeuro && (
+                <p className="font-hand text-[8px] md:text-[14px] text-[var(--bone)] mt-2 md:mt-4 max-w-[150px] md:max-w-xs mx-auto opacity-80 italic leading-tight">
+                  {headlines.trainYourNeuro}
+                </p>
+              )}
+            </motion.div>
+          </div>
+        </foreignObject>
+      )}
     </motion.svg>
   );
 }
