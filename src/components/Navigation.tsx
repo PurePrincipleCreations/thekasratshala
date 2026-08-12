@@ -35,7 +35,7 @@ export default function Navigation() {
       <div className="section-inner flex items-center justify-between">
         <Link to="/" className="relative z-[101] group flex items-center gap-3">
           <div className="flex flex-col">
-            <img src={ksLogo.url} alt="Kasratshala" className="h-12 md:h-16 w-auto group-hover:scale-105 transition-transform" />
+            <img src={ksLogo.url} alt="Kasratshala" className="h-16 md:h-24 w-auto group-hover:scale-105 transition-transform" />
           </div>
         </Link>
 
