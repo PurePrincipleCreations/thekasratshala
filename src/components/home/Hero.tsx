@@ -71,7 +71,7 @@ export default function Hero() {
             headlines={{
               howToMoveWell: "How to move well",
               functionalMovement: "How Body <br /> Moves Well",
-              trainYourNeuro: "Train your neuro on the Richness of Movement Science"
+              trainYourNeuro: "Train your body on the Richness of Movement Science"
             }}
           />
         </div>
