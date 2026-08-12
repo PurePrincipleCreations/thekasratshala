@@ -61,7 +61,7 @@ function Card({ i, total, card }: { i: number; total: number; card: (typeof card
             </span>
           </div>
 
-          <div className="p-8 md:p-12 flex flex-col justify-center gap-5">
+          <div className="p-6 md:p-12 flex flex-col justify-center gap-4 md:gap-5">
             <span className="label-caps text-[9px] text-[var(--gold)]">Principle {card.n}</span>
             <h3 className="editorial-heading text-3xl md:text-5xl leading-[1.05] text-[var(--cream)]">
               {card.title}

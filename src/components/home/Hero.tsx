@@ -118,7 +118,7 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        <div className="w-full md:w-1/2 relative aspect-[4/5] md:aspect-auto md:h-[90vh]">
+        <div className="w-full md:w-1/2 relative aspect-[4/5] md:aspect-auto md:h-[90vh] mt-8 md:mt-0">
           <motion.div 
             style={{ 
               scale, 
@@ -152,7 +152,7 @@ export default function Hero() {
           {/* Hand-drawn element floating */}
           <motion.div
             style={{ x: mouseX, y: mouseY }}
-            className="absolute -top-10 -right-10 w-40 h-40 border border-[var(--gold)] rounded-full opacity-20 pointer-events-none"
+            className="absolute -top-5 -right-5 md:-top-10 md:-right-10 w-24 h-24 md:w-40 md:h-40 border border-[var(--gold)] rounded-full opacity-20 pointer-events-none"
           />
         </div>
       </div>
