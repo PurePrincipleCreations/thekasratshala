@@ -65,9 +65,8 @@ export default function Hero() {
             className="flex flex-col"
           >
             <h1 className="editorial-heading text-4xl md:text-8xl text-[var(--cream)] leading-[0.9] max-w-3xl">
-              Result based <br />
-              Movement <br />
-              Practice
+              How Body <br />
+              Moves Well
             </h1>
           </motion.div>
         </div>
