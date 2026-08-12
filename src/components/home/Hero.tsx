@@ -113,28 +113,6 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="section-inner relative z-30 w-full flex flex-col items-center text-center py-20 mt-16 md:mt-24 pointer-events-none">
-        <div className="max-w-4xl space-y-6 md:space-y-10">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={{
-              visible: { transition: { staggerChildren: 0.1 } }
-            }}
-            className="flex flex-col items-center"
-          >
-            <div className="relative min-h-[30vh] md:min-h-[40vh] flex items-center justify-center">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1.5 }}
-                className="absolute inset-0 blur-[120px] bg-[var(--gold)]/10 rounded-full scale-150"
-              />
-            </div>
-          </motion.div>
-
-        </div>
-      </div>
 
       {/* Biomechanical Overlay */}
       <div className="absolute inset-0 pointer-events-none z-10 opacity-30">
