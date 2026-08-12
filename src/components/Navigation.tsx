@@ -6,6 +6,7 @@ import { useAtom } from "jotai";
 import { cartAtom, isCartOpenAtom } from "@/lib/store";
 
 import ksLogo from "@/assets/ks-logo-original.png.asset.json";
+import toriiGate from "@/assets/torii-gate.png.asset.json";
 
 const links = [
   { label: "Home", path: "/" },
@@ -77,7 +78,15 @@ export default function Navigation() {
               className="relative z-50 text-[var(--cream)] p-2 md:hidden"
               onClick={() => setOpen(!open)}
             >
-              {open ? <X size={24} /> : <Menu size={24} />}
+              {open ? (
+                <X size={24} />
+              ) : (
+                <img 
+                  src={toriiGate.url} 
+                  alt="Menu" 
+                  className="w-8 h-8 object-contain"
+                />
+              )}
             </button>
           )}
         </div>
