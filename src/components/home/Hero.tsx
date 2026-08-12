@@ -23,7 +23,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[var(--night)]">
+    <section className="relative min-h-[90vh] md:min-h-[110vh] flex flex-col items-center justify-center overflow-hidden bg-[var(--night)] -mt-[120px]">
       {/* Background Image Layer — Color image, featured to front */}
       <div className="absolute inset-0 z-0">
         <motion.div
@@ -38,7 +38,7 @@ export default function Hero() {
         </motion.div>
         {/* Soft translucent overlay so background remains dominant */}
         <div className="absolute inset-0 bg-[var(--night)]/10 backdrop-blur-[1px]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--night)]/40 via-transparent to-[var(--night)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--night)]" />
       </div>
 
       {/* Background Video Layer — featured to front */}
