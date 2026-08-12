@@ -34,7 +34,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[var(--night)]">
+    <section className="relative min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[var(--night)]">
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
         <motion.div 
@@ -65,7 +65,7 @@ export default function Hero() {
         </video>
       </div>
 
-      {/* Main Header Layer - "How to train AI" animation concept */}
+      {/* Main Header Layer - "How to train your AI" section */}
       <div className="absolute inset-0 z-30 flex items-center justify-center">
         <div className="w-full max-w-5xl px-4 flex flex-col items-center">
           <motion.div
@@ -74,7 +74,7 @@ export default function Hero() {
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            {/* The "How to train AI" inspired animation header */}
+            {/* The "How to train your AI" inspired animation header */}
             <div className="relative z-10 text-center">
               <motion.h1 
                 className="editorial-heading text-6xl md:text-9xl text-[var(--cream)] tracking-tighter"
@@ -96,9 +96,9 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1 }}
-                className="label-caps text-[10px] md:text-xs text-[var(--gold)] tracking-[0.4em] mt-6"
+                className="editorial-heading text-xl md:text-3xl text-[var(--gold)] mt-8"
               >
-                AUTONOMOUS INTELLIGENCE • BIOMECHANICAL FLOW
+                + GET AWESOME RESULTS
               </motion.p>
             </div>
 

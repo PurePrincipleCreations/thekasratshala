@@ -59,57 +59,60 @@ export default function Principles() {
   }, [springX, springY]);
 
   return (
-    <section ref={containerRef} className="relative h-[400vh] bg-[var(--night)]">
+    <section ref={containerRef} className="relative h-[400vh] bg-[var(--night)] mt-32 md:mt-48">
       {/* Desktop View */}
       <div className="hidden md:block sticky top-0 h-screen overflow-hidden">
-        <div className="section-inner h-full flex items-center gap-12 py-20">
-          <div className="w-1/2 space-y-12">
-            <div className="space-y-4">
-              <h2 className="editorial-heading text-6xl">A different relationship with your body.</h2>
+        <div className="section-inner h-full flex flex-col justify-center py-20">
+          <div className="flex items-center gap-12">
+            <div className="w-1/2 space-y-12">
+              <div className="space-y-4">
+                <p className="label-caps text-[var(--gold)] tracking-widest text-xs">THE KASRATSHALA WAY</p>
+                <h2 className="editorial-heading text-6xl">A different relationship with your body.</h2>
+              </div>
+              
+              <div className="relative h-64">
+                {principles.map((p, i) => {
+                  const opacity = useTransform(scrollYProgress, 
+                    [i * 0.25, i * 0.25 + 0.1, (i + 1) * 0.25 - 0.1, (i + 1) * 0.25], 
+                    [0, 1, 1, 0]
+                  );
+                  return (
+                    <motion.div key={p.n} style={{ opacity }} className="absolute inset-0 space-y-4">
+                      <p className="editorial-heading text-8xl text-[var(--bone)]">{p.n}</p>
+                      <h3 className="editorial-heading text-5xl">{p.title}</h3>
+                      <p className="label-caps text-[var(--muted)] font-serif italic text-sm normal-case tracking-normal">{p.subtitle}</p>
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
-            
-            <div className="relative h-64">
-              {principles.map((p, i) => {
-                const opacity = useTransform(scrollYProgress, 
-                  [i * 0.25, i * 0.25 + 0.1, (i + 1) * 0.25 - 0.1, (i + 1) * 0.25], 
-                  [0, 1, 1, 0]
-                );
-                return (
-                  <motion.div key={p.n} style={{ opacity }} className="absolute inset-0 space-y-4">
-                    <p className="editorial-heading text-8xl text-[var(--bone)]">{p.n}</p>
-                    <h3 className="editorial-heading text-5xl">{p.title}</h3>
-                    <p className="label-caps text-[var(--muted)] font-serif italic text-sm normal-case tracking-normal">{p.subtitle}</p>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
 
-          <div className="w-1/2 relative h-[70vh]">
-            <div className="w-full h-full border border-[var(--bone)] rounded-sm overflow-hidden relative">
-              {principles.map((p, i) => {
-                const opacity = useTransform(scrollYProgress, 
-                  [i * 0.25, i * 0.25 + 0.1, (i + 1) * 0.25 - 0.1, (i + 1) * 0.25], 
-                  [0, 1, 1, 0]
-                );
-                return (
-                  <motion.div 
-                    key={p.n} 
-                    style={{ opacity, x: springX, y: springY }} 
-                    className="absolute inset-0"
-                  >
-                    <img src={p.image.url} className="w-full h-full object-cover grayscale opacity-50 mix-blend-screen" alt={p.title} />
-                    <BiomechanicalOverlay {...p.overlay} />
-                  </motion.div>
-                );
-              })}
-            </div>
-            {/* Progress line */}
-            <div className="absolute -right-8 top-0 bottom-0 w-px bg-[var(--bone)]">
-              <motion.div 
-                style={{ scaleY: scrollYProgress }} 
-                className="absolute top-0 w-full bg-[var(--gold)] origin-top"
-              />
+            <div className="w-1/2 relative h-[70vh]">
+              <div className="w-full h-full border border-[var(--bone)] rounded-sm overflow-hidden relative">
+                {principles.map((p, i) => {
+                  const opacity = useTransform(scrollYProgress, 
+                    [i * 0.25, i * 0.25 + 0.1, (i + 1) * 0.25 - 0.1, (i + 1) * 0.25], 
+                    [0, 1, 1, 0]
+                  );
+                  return (
+                    <motion.div 
+                      key={p.n} 
+                      style={{ opacity, x: springX, y: springY }} 
+                      className="absolute inset-0"
+                    >
+                      <img src={p.image.url} className="w-full h-full object-cover grayscale opacity-50 mix-blend-screen" alt={p.title} />
+                      <BiomechanicalOverlay {...p.overlay} />
+                    </motion.div>
+                  );
+                })}
+              </div>
+              {/* Progress line */}
+              <div className="absolute -right-8 top-0 bottom-0 w-px bg-[var(--bone)]">
+                <motion.div 
+                  style={{ scaleY: scrollYProgress }} 
+                  className="absolute top-0 w-full bg-[var(--gold)] origin-top"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -118,7 +121,7 @@ export default function Principles() {
       {/* Mobile View */}
       <div className="md:hidden pt-20 pb-20 space-y-20 px-6">
         <div className="space-y-4">
-          
+          <p className="label-caps text-[var(--gold)] tracking-widest text-[10px]">THE KASRATSHALA WAY</p>
           <h2 className="editorial-heading text-4xl leading-tight">A different relationship with your body.</h2>
         </div>
         {principles.map((p) => (
