@@ -65,6 +65,13 @@ export default function Hero() {
         </video>
       </div>
 
+      {/* Movement Marquee Background Layer */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center opacity-40 mix-blend-overlay pointer-events-none overflow-hidden pt-20">
+        <div className="w-full scale-125 rotate-[-5deg]">
+          <MovementMarquee />
+        </div>
+      </div>
+
       <div className="section-inner relative z-20 w-full flex flex-col items-center text-center py-20 mt-16 md:mt-24">
         <div className="max-w-4xl space-y-6 md:space-y-10">
           <motion.div
@@ -78,26 +85,16 @@ export default function Hero() {
             <motion.p variants={headlineReveal} className="label-caps text-[var(--gold)] tracking-[0.4em] text-[10px] md:text-xs mb-4">
               Movement Arts Dojo
             </motion.p>
-            <motion.h1 
-              variants={headlineReveal} 
-              className="editorial-heading text-[10vw] md:text-[6vw] leading-[0.9] tracking-tighter text-[var(--cream)] uppercase"
-            >
-               {["MOVEMENT", "NOURISHMENT"].map((word, i) => (
-                  <motion.span
-                    key={word}
-                    initial={{ y: "100%", rotateX: -90, opacity: 0 }}
-                    animate={{ y: 0, rotateX: 0, opacity: 1 }}
-                    transition={{ 
-                      duration: 1.2, 
-                      delay: 0.6 + (i * 0.2),
-                      ease: [0.16, 1, 0.3, 1] 
-                    }}
-                    className="block origin-bottom"
-                  >
-                    {word}
-                  </motion.span>
-                ))}
-            </motion.h1>
+            
+            {/* The marquee itself is now the header content, but we keep text for accessibility if needed or visual layering */}
+            <div className="relative">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.5 }}
+                className="absolute inset-0 blur-3xl bg-[var(--gold)]/10 rounded-full"
+              />
+            </div>
           </motion.div>
 
           <motion.div
