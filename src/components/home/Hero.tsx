@@ -69,7 +69,7 @@ export default function Hero() {
               { x: 200, y: 120, label: "AXIS" },
             ]}
             headlines={{
-              trainYourNeuro: "Train your body on the Richness of Movement Science"
+              howToMoveWell: "How to move"
             }}
           />
         </div>
