@@ -22,10 +22,15 @@ export default function Footer() {
           <div className="space-y-6">
             <p className="label-caps text-[var(--gold)]">Navigation</p>
             <ul className="space-y-4">
-              {["Practice", "Camps", "One Flow", "Connect"].map(item => (
-                <li key={item}>
-                  <Link to={`/${item.toLowerCase().replace(" ", "-")}` as any} className="text-[var(--cream)]/70 hover:text-[var(--gold)] transition-colors italic font-serif text-lg">
-                    {item}
+              {[
+                { label: "Practice", path: "/courses" },
+                { label: "Camps", path: "/camps" },
+                { label: "One Flow", path: "/one-flow" },
+                { label: "Connect", path: "/connect" }
+              ].map(item => (
+                <li key={item.label}>
+                  <Link to={item.path as any} className="text-[var(--cream)]/70 hover:text-[var(--gold)] transition-colors italic font-serif text-lg">
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -64,7 +69,7 @@ export default function Footer() {
                 </p>
                 <p className="label-caps text-[7px] opacity-40">— Google Review</p>
               </div>
-              <Link to="#" className="inline-block label-caps text-[7px] border-b border-[var(--gold)]/20 text-[var(--gold)]">
+              <Link to={"/connect" as any} className="inline-block label-caps text-[7px] border-b border-[var(--gold)]/20 text-[var(--gold)]">
                 Read all reviews
               </Link>
             </div>
