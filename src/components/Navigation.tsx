@@ -60,17 +60,6 @@ export default function Navigation() {
         </div>
 
         <div className="flex items-center gap-4">
-          <button
-            onClick={() => setIsCartOpen(true)}
-            className="relative p-2 text-[var(--muted)] hover:text-[var(--gold)] transition-colors"
-          >
-            <ShoppingBag size={20} />
-            {cart.length > 0 && (
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-[var(--gold)] text-[var(--night)] text-[8px] flex items-center justify-center rounded-full font-bold">
-                {cart.length}
-              </span>
-            )}
-          </button>
           
           {/* Mobile Toggle (Only if links exist, but keeping structure for future) */}
           {links.length > 0 && (
