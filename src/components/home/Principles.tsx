@@ -120,7 +120,7 @@ export default function Principles() {
       <div className="md:hidden pt-20 pb-20 space-y-20 px-6">
         <div className="space-y-4">
           <p className="label-caps text-[var(--gold)]">The Kasratshala Way</p>
-          <h2 className="editorial-heading text-4xl">A different relationship with your body.</h2>
+          <h2 className="editorial-heading text-4xl leading-tight">A different relationship with your body.</h2>
         </div>
         {principles.map((p) => (
           <div key={p.n} className="space-y-6">
