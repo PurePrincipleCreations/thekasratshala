@@ -73,7 +73,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="editorial-heading text-4xl md:text-6xl text-[var(--gold)] mb-4"
+              className="editorial-heading text-5xl md:text-7xl text-[var(--gold)] mb-4"
             >
               How Surge Works
             </motion.h2>
@@ -81,7 +81,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="label-caps text-xs md:text-sm text-[var(--cream)] tracking-[0.2em] max-w-lg"
+              className="label-caps text-sm md:text-base text-[var(--cream)] tracking-[0.2em] max-w-lg"
             >
               Train your body with intentional force and rhythm.
             </motion.p>
