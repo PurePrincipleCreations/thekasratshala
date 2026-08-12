@@ -11,12 +11,7 @@ import outdoorMace2 from "@/assets/outdoor_mace_2.png.asset.json";
 import handMudra from "@/assets/hand_mudra.png.asset.json";
 import handsContact from "@/assets/hands_contact.png.asset.json";
 
-const links = [
-  { label: "Practice", path: "/courses", preview: outdoorTraining.url },
-  { label: "Camps", path: "/camps", preview: outdoorMace2.url },
-  { label: "One Flow", path: "/one-flow", preview: handMudra.url },
-  { label: "Connect", path: "/connect", preview: handsContact.url },
-];
+const links = [] as const;
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
@@ -49,25 +44,10 @@ export default function Navigation() {
         <Link to="/" className="relative z-[101] group flex items-center gap-3">
           <div className="flex flex-col">
             <img src={ksLogo.url} alt="Kasratshala" className="h-12 md:h-16 w-auto group-hover:scale-105 transition-transform" />
-            <span className="font-hand text-[10px] md:text-xs text-[var(--gold)] mt-1 tracking-widest opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">movement nourishment</span>
           </div>
         </Link>
 
-        {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-10">
-          {links.map((l) => (
-            <Link
-              key={l.path}
-              to={l.path as any}
-              onMouseEnter={() => setHovered(l.path)}
-              onMouseLeave={() => setHovered(null)}
-              className={`label-caps text-[9px] transition-colors hover:text-[var(--gold)] ${
-                location.pathname === l.path ? "text-[var(--gold)]" : "text-[var(--cream)]/80"
-              }`}
-            >
-              {l.label}
-            </Link>
-          ))}
           <button
             onClick={() => setIsCartOpen(true)}
             className="relative p-2 text-[var(--muted)] hover:text-[var(--gold)] transition-colors"
@@ -79,13 +59,7 @@ export default function Navigation() {
               </span>
             )}
           </button>
-          <Link
-            to="/connect"
-
-            className="px-6 py-2 border border-[var(--bone)] text-[var(--cream)] font-hand text-lg hover:bg-[var(--bone)] transition-all"
-          >
-            Join the Dojo
-          </Link>
+        </div>
         </div>
         
         <div className="flex items-center gap-4 md:hidden">

@@ -65,28 +65,51 @@ export default function Hero() {
         </video>
       </div>
 
-      {/* Movement Marquee Background Layer - Now serving as the main header */}
-      <div className="absolute inset-0 z-10 flex items-center justify-center mix-blend-normal overflow-hidden pt-20">
-        <div className="w-full scale-110 rotate-[-2deg]">
-          <div className="flex flex-col items-center justify-center text-center px-4 mb-12 relative z-30 pointer-events-auto">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="editorial-heading text-5xl md:text-7xl text-[var(--gold)] mb-4"
-            >
-              How Surge Works
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="label-caps text-sm md:text-base text-[var(--cream)] tracking-[0.2em] max-w-lg"
-            >
-              Train your body with intentional force and rhythm.
-            </motion.p>
-          </div>
-          <MovementMarquee />
+      {/* Main Header Layer - "How to train AI" animation concept */}
+      <div className="absolute inset-0 z-30 flex items-center justify-center">
+        <div className="w-full max-w-5xl px-4 flex flex-col items-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            className="relative"
+          >
+            {/* The "How to train AI" inspired animation header */}
+            <div className="relative z-10 text-center">
+              <motion.h1 
+                className="editorial-heading text-6xl md:text-9xl text-[var(--cream)] tracking-tighter"
+                initial={{ filter: "blur(20px)", opacity: 0 }}
+                animate={{ filter: "blur(0px)", opacity: 1 }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+              >
+                HOW TO TRAIN <span className="italic text-[var(--gold)]">AI</span>
+              </motion.h1>
+              
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
+                className="h-px bg-gradient-to-r from-transparent via-[var(--gold)]/50 to-transparent mt-4"
+              />
+              
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1 }}
+                className="label-caps text-[10px] md:text-xs text-[var(--gold)] tracking-[0.4em] mt-6"
+              >
+                AUTONOMOUS INTELLIGENCE • BIOMECHANICAL FLOW
+              </motion.p>
+            </div>
+
+            {/* Background glow for the header */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.15 }}
+              transition={{ duration: 2 }}
+              className="absolute inset-0 -z-10 blur-[100px] bg-[var(--gold)] rounded-full scale-150"
+            />
+          </motion.div>
         </div>
       </div>
 
@@ -110,22 +133,6 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col items-center gap-6 pt-4 pointer-events-auto"
-          >
-            <Link
-              to={"/courses" as any}
-              className="group relative px-12 py-6 bg-[var(--teal)]/20 hover:bg-[var(--teal)]/40 backdrop-blur-md border border-[var(--gold)]/30 text-[var(--cream)] label-caps text-sm overflow-hidden rounded-full transition-all hover:scale-105 active:scale-95"
-            >
-              <span className="relative z-10">Begin the Journey</span>
-              <motion.div 
-                className="absolute inset-0 bg-[var(--gold)]/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
-              />
-            </Link>
-          </motion.div>
         </div>
       </div>
 
