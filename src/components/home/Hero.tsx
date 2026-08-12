@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import yogaPose from "@/assets/yoga_pose.png.asset.json";
 import droneFootage from "@/assets/drone-footage.mp4.asset.json";
 import BiomechanicalOverlay from "../biomechanical/BiomechanicalOverlay";
+import MovementMarquee from "./MovementMarquee";
 
 export default function Hero() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
