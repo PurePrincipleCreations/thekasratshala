@@ -90,7 +90,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="section-inner relative z-20 w-full flex flex-col items-center text-center py-20 mt-16 md:mt-24 pointer-events-none">
+      <div className="section-inner relative z-30 w-full flex flex-col items-center text-center py-20 mt-16 md:mt-24 pointer-events-none">
         <div className="max-w-4xl space-y-6 md:space-y-10">
           <motion.div
             initial="hidden"
