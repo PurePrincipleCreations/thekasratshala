@@ -38,7 +38,7 @@ export default function Navigation() {
   }, [location.pathname]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[100] py-4 md:py-6 transition-all duration-300">
+    <nav className="fixed top-0 left-0 right-0 z-[100] py-4 md:py-6 transition-all duration-300 bg-gradient-to-b from-[var(--night)]/60 to-transparent">
       <div className="section-inner flex items-center justify-between">
         <Link to="/" className="relative z-[101] group flex items-center gap-3">
           <div className="flex flex-col">

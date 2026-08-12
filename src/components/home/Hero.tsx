@@ -23,7 +23,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[var(--night)]">
+    <section className="relative min-h-[90vh] md:min-h-[110vh] flex flex-col items-center justify-center overflow-hidden bg-[var(--night)] -mt-[120px]">
       {/* Background Image Layer — Color image, featured to front */}
       <div className="absolute inset-0 z-0">
         <motion.div
