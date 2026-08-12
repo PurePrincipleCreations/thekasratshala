@@ -24,7 +24,7 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[var(--night)]">
-      {/* Background Image Layer — featured to front */}
+      {/* Background Image Layer — Color image, featured to front */}
       <div className="absolute inset-0 z-0">
         <motion.div
           style={{ scale: 1.1 }}
@@ -33,7 +33,7 @@ export default function Hero() {
           <img
             src={buildingBackground.url}
             alt="The Kasratshala Shala Building"
-            className="w-full h-full object-cover grayscale opacity-100 mix-blend-luminosity"
+            className="w-full h-full object-cover opacity-100"
           />
         </motion.div>
         {/* Soft translucent overlay so background remains dominant */}
@@ -54,6 +54,26 @@ export default function Hero() {
         </video>
       </div>
 
+      {/* Text Layers — Featured content with precise accuracy */}
+      <div className="relative z-10 w-full max-w-7xl px-6 flex flex-col items-center text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="space-y-4 mb-12"
+        >
+          <span className="label-caps text-[var(--gold)] text-xs md:text-sm tracking-[0.3em] block mb-4">
+            How to move well
+          </span>
+          <h1 className="editorial-heading text-5xl md:text-8xl text-[var(--cream)] leading-[0.9]">
+            Functional<br />Movement Practice
+          </h1>
+          <p className="font-hand text-xl md:text-2xl text-[var(--bone)] mt-8 max-w-xl mx-auto opacity-80 italic">
+            Train your neuro on the Richness of Movement Science
+          </p>
+        </motion.div>
+      </div>
+
       {/* Biomechanical Overlay — featured to front */}
       <div className="absolute inset-0 pointer-events-none z-[5] opacity-100">
         <BiomechanicalOverlay
@@ -71,6 +91,30 @@ export default function Hero() {
         />
       </div>
 
+      {/* Moving Arrow Animation with "Become a Mover" text */}
+      <motion.div
+        animate={{ 
+          x: [0, 40, 0, -40, 0],
+          y: [0, -40, -80, -40, 0],
+          rotate: [0, 15, -15, 0]
+        }}
+        transition={{ 
+          duration: 12, 
+          repeat: Infinity, 
+          ease: "easeInOut" 
+        }}
+        className="absolute top-1/3 left-[15%] pointer-events-none z-[12] hidden md:flex items-center gap-4"
+      >
+        <div className="relative">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" className="rotate-45">
+            <path d="M10 30L30 10M30 10H15M30 10V25" stroke="var(--gold)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <span className="absolute left-10 top-1/2 -translate-y-1/2 label-caps text-[10px] text-[var(--gold)] whitespace-nowrap tracking-widest bg-[var(--night)]/40 px-2 py-1 backdrop-blur-sm rounded">
+            Become a Mover
+          </span>
+        </div>
+      </motion.div>
+
       {/* Hand-drawn element floating (Subtle) */}
       <motion.div
         style={{ x: mouseX, y: mouseY }}
@@ -87,9 +131,6 @@ export default function Hero() {
         <span className="label-caps text-[8px] text-[var(--cream)] uppercase tracking-[0.2em]">Scroll to descend</span>
         <div className="w-px h-12 bg-gradient-to-b from-[var(--gold)] to-transparent" />
       </motion.div>
-
-      {/* No static overlay text as requested */}
-      {/* We only have the background layers and biomechanical lines featured to the front */}
     </section>
   );
 }
