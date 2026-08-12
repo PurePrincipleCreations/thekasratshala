@@ -1,6 +1,7 @@
 import { motion, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
 import yogaPose from "@/assets/yoga_pose.png.asset.json";
+import buildingBackground from "@/assets/kasrat-shala-building.png.asset.json";
 import droneFootage from "@/assets/drone-footage.mp4.asset.json";
 import BiomechanicalOverlay from "../biomechanical/BiomechanicalOverlay";
 
@@ -30,8 +31,8 @@ export default function Hero() {
           className="w-full h-full"
         >
           <img
-            src={yogaPose.url}
-            alt="Movement practice at Kasratshala"
+            src={buildingBackground.url}
+            alt="The Kasratshala Shala Building"
             className="w-full h-full object-cover grayscale opacity-100 mix-blend-luminosity"
           />
         </motion.div>
