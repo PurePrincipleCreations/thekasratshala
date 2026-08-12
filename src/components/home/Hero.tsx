@@ -37,8 +37,8 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-[90vh] flex flex-col md:flex-row items-center justify-center overflow-hidden bg-[var(--night)] px-6">
-      <div className="absolute inset-0 bg-gradient-to-r from-[var(--night)] via-[var(--night)]/80 to-transparent z-10" />
+    <section className="relative min-h-[95vh] flex flex-col md:flex-row items-center justify-center overflow-hidden bg-[var(--night)] px-6 pt-24">
+      <div className="absolute inset-0 bg-gradient-to-r from-[var(--night)] via-[var(--night)]/90 to-transparent z-10" />
       
       {/* Background Video Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden opacity-30">
@@ -63,8 +63,8 @@ export default function Hero() {
               visible: { transition: { staggerChildren: 0.1 } }
             }}
           >
-            <motion.p variants={headlineReveal} className="label-caps text-[var(--muted)]">Movement Arts Dojo</motion.p>
-            <motion.h1 variants={headlineReveal} className="editorial-heading text-[12vw] md:text-[14vw] mt-6 leading-[0.8] tracking-tighter mix-blend-difference overflow-hidden">
+            <motion.p variants={headlineReveal} className="label-caps text-[var(--gold)] tracking-[0.2em]">Movement nourishment</motion.p>
+            <motion.h1 variants={headlineReveal} className="editorial-heading text-[12vw] md:text-[14vw] mt-2 leading-[0.8] tracking-tighter mix-blend-difference overflow-hidden">
                {["KASRAT", "SHALA"].map((word, i) => (
                   <motion.span
                     key={word}

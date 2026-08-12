@@ -44,10 +44,13 @@ export default function Navigation() {
   }, [location.pathname]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 py-6 md:py-8">
+    <nav className="fixed top-0 left-0 right-0 z-[100] py-4 md:py-6 transition-all duration-300">
       <div className="section-inner flex items-center justify-between">
-        <Link to="/" className="relative z-50 group flex items-center gap-3">
-          <img src={ksLogo.url} alt="Kasratshala" className="h-8 md:h-10 w-auto invert opacity-80 group-hover:opacity-100 transition-opacity" />
+        <Link to="/" className="relative z-[101] group flex items-center gap-3">
+          <div className="flex flex-col">
+            <img src={ksLogo.url} alt="Kasratshala" className="h-6 md:h-8 w-auto invert opacity-90 group-hover:opacity-100 transition-opacity" />
+            <span className="font-hand text-[10px] md:text-xs text-[var(--gold)] mt-1 tracking-widest opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">movement nourishment</span>
+          </div>
         </Link>
 
         {/* Desktop Links */}
