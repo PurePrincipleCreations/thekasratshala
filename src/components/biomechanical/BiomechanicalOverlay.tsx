@@ -24,7 +24,7 @@ export default function BiomechanicalOverlay({
   return (
     <motion.svg
       viewBox="0 0 400 600"
-      preserveAspectRatio="xMidYMid slice"
+      preserveAspectRatio="xMidYMid meet"
       className={`absolute inset-0 w-full h-full pointer-events-none z-10 ${className}`}
       style={{ opacity }}
       initial={{ opacity: 0 }}
@@ -91,12 +91,12 @@ export default function BiomechanicalOverlay({
               className="space-y-2 md:space-y-4"
             >
               {headlines.howToMoveWell && (
-                <span className="label-caps text-[var(--gold)] text-[10px] md:text-[16px] tracking-[0.3em] block mb-2 md:mb-4">
+                <span className="label-caps text-[12px] sm:text-[14px] md:text-[16px] text-[var(--gold)] tracking-[0.3em] block mb-3 md:mb-4">
                   {headlines.howToMoveWell}
                 </span>
               )}
               {headlines.trainYourNeuro && (
-                <p className="font-hand text-[8px] md:text-[14px] text-[var(--bone)] mt-2 md:mt-4 max-w-[150px] md:max-w-xs mx-auto opacity-80 italic leading-tight">
+                <p className="font-hand text-[10px] sm:text-[12px] md:text-[14px] text-[var(--bone)] mt-2 md:mt-4 max-w-[200px] sm:max-w-[250px] md:max-w-xs mx-auto opacity-90 italic leading-tight">
                   {headlines.trainYourNeuro}
                 </p>
               )}
