@@ -38,10 +38,10 @@ function Row({ reverse = false, opacity = 1 }: { reverse?: boolean; opacity?: nu
 
 export default function MovementMarquee() {
   return (
-    <div className="w-full flex flex-col gap-4 md:gap-8">
-      <Row opacity={0.3} />
-      <Row reverse opacity={0.15} />
-      <Row opacity={0.08} />
+    <div className="w-full flex flex-col gap-4 md:gap-8 py-10">
+      <Row opacity={0.6} />
+      <Row reverse opacity={0.3} />
+      <Row opacity={0.15} />
     </div>
   );
 }
