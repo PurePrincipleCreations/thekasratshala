@@ -79,7 +79,7 @@ export default function Hero() {
             </motion.p>
             <motion.h1 
               variants={headlineReveal} 
-              className="editorial-heading text-[12vw] md:text-[8vw] leading-[0.9] tracking-tighter text-[var(--cream)] uppercase"
+              className="editorial-heading text-[10vw] md:text-[6vw] leading-[0.9] tracking-tighter text-[var(--cream)] uppercase"
             >
                {["MOVEMENT", "NOURISHMENT"].map((word, i) => (
                   <motion.span
