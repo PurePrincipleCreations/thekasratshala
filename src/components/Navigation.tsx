@@ -7,7 +7,13 @@ import { cartAtom, isCartOpenAtom } from "@/lib/store";
 
 import ksLogo from "@/assets/ks-logo-original.png.asset.json";
 
-const links = [] as const;
+const links = [
+  { label: "Home", path: "/" },
+  { label: "Courses", path: "/courses" },
+  { label: "Camps", path: "/camps" },
+  { label: "One Flow", path: "/one-flow" },
+  { label: "Connect", path: "/connect" },
+] as const;
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
@@ -38,6 +44,19 @@ export default function Navigation() {
             <img src={ksLogo.url} alt="Kasratshala" className="h-16 md:h-24 w-auto group-hover:scale-105 transition-transform" />
           </div>
         </Link>
+
+        <div className="hidden md:flex items-center gap-8">
+          {links.map((l) => (
+            <Link
+              key={l.path}
+              to={l.path as any}
+              className="label-caps text-[10px] tracking-[0.2em] text-[var(--muted)] hover:text-[var(--gold)] transition-colors relative group"
+            >
+              {l.label}
+              <span className="absolute -bottom-1 left-0 w-0 h-px bg-[var(--gold)] transition-all group-hover:w-full" />
+            </Link>
+          ))}
+        </div>
 
         <div className="flex items-center gap-4">
           <button
