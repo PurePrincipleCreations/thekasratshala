@@ -5,7 +5,7 @@ import { Menu, X, ArrowRight, ShoppingBag } from "lucide-react";
 import { useAtom } from "jotai";
 import { cartAtom, isCartOpenAtom } from "@/lib/store";
 
-import ksLogo from "@/assets/ks-logo.png.asset.json";
+import ksLogo from "@/assets/ks-logo-original.png.asset.json";
 import outdoorTraining from "@/assets/outdoor_training.png.asset.json";
 import outdoorMace2 from "@/assets/outdoor_mace_2.png.asset.json";
 import handMudra from "@/assets/hand_mudra.png.asset.json";
@@ -48,7 +48,7 @@ export default function Navigation() {
       <div className="section-inner flex items-center justify-between">
         <Link to="/" className="relative z-[101] group flex items-center gap-3">
           <div className="flex flex-col">
-            <img src={ksLogo.url} alt="Kasratshala" className="h-6 md:h-8 w-auto invert opacity-90 group-hover:opacity-100 transition-opacity" />
+            <img src={ksLogo.url} alt="Kasratshala" className="h-12 md:h-16 w-auto group-hover:scale-105 transition-transform" />
             <span className="font-hand text-[10px] md:text-xs text-[var(--gold)] mt-1 tracking-widest opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">movement nourishment</span>
           </div>
         </Link>
