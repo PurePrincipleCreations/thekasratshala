@@ -59,7 +59,7 @@ export default function Principles() {
   }, [springX, springY]);
 
   return (
-    <section ref={containerRef} className="relative h-[400vh] bg-[var(--night)] mt-32 md:mt-48">
+    <section ref={containerRef} className="relative h-[400vh] bg-[var(--night)] mt-0 md:mt-0">
       {/* Desktop View */}
       <div className="hidden md:block sticky top-0 h-screen overflow-hidden">
         <div className="section-inner h-full flex flex-col justify-center py-20">
