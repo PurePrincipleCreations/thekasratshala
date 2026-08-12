@@ -6,10 +6,6 @@ import droneFootage from "@/assets/drone-footage.mp4.asset.json";
 import BiomechanicalOverlay from "../biomechanical/BiomechanicalOverlay";
 
 export default function Hero() {
-  const { scrollY } = useScroll();
-  const scale = useTransform(scrollY, [0, 800], [1.15, 1]);
-  const y = useTransform(scrollY, [0, 800], [0, 150]);
-  
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const springConfig = { damping: 25, stiffness: 150 };
   const mouseX = useSpring(mousePos.x, springConfig);
@@ -55,7 +51,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--night)] via-transparent to-[var(--night)]" />
       </div>
 
-      {/* Background Video Layer (Optional, kept subtle) */}
+      {/* Background Video Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden opacity-10 pointer-events-none">
         <video 
           autoPlay 
@@ -67,8 +63,8 @@ export default function Hero() {
           <source src={droneFootage.url} type="video/mp4" />
         </video>
       </div>
-      
-      <div className="section-inner relative z-20 w-full flex flex-col items-center text-center py-20">
+
+      <div className="section-inner relative z-20 w-full flex flex-col items-center text-center py-20 mt-16 md:mt-24">
         <div className="max-w-4xl space-y-6 md:space-y-10">
           <motion.div
             initial="hidden"
@@ -136,7 +132,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Biomechanical Overlay as a floating layer over the background */}
+      {/* Biomechanical Overlay */}
       <div className="absolute inset-0 pointer-events-none z-10 opacity-30">
         <BiomechanicalOverlay 
           circles={[{ cx: 200, cy: 300, r: 180 }, { cx: 200, cy: 300, r: 240 }]}
@@ -152,14 +148,12 @@ export default function Hero() {
           ]}
         />
       </div>
-          
-          {/* Hand-drawn element floating (Subtle) */}
-          <motion.div
-            style={{ x: mouseX, y: mouseY }}
-            className="absolute top-1/4 right-1/4 w-40 h-40 border border-[var(--gold)]/10 rounded-full opacity-20 pointer-events-none z-10"
-          />
-        </div>
-      </div>
+
+      {/* Hand-drawn element floating (Subtle) */}
+      <motion.div
+        style={{ x: mouseX, y: mouseY }}
+        className="absolute top-1/4 right-1/4 w-40 h-40 border border-[var(--gold)]/10 rounded-full opacity-20 pointer-events-none z-10"
+      />
       
       {/* Scroll indicator */}
       <motion.div 
