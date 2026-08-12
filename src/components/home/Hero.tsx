@@ -69,7 +69,6 @@ export default function Hero() {
               { x: 200, y: 120, label: "AXIS" },
             ]}
             headlines={{
-              howToMoveWell: "How to move well",
               trainYourNeuro: "Train your body on the Richness of Movement Science"
             }}
           />
