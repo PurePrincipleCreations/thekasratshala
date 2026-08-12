@@ -38,7 +38,7 @@ export default function Hero() {
         </motion.div>
         {/* Soft translucent overlay so background remains dominant */}
         <div className="absolute inset-0 bg-[var(--night)]/10 backdrop-blur-[1px]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--night)]/40 via-transparent to-[var(--night)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--night)]" />
       </div>
 
       {/* Background Video Layer — featured to front */}
