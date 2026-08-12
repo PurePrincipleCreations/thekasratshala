@@ -91,7 +91,7 @@ export default function BiomechanicalOverlay({
               className="space-y-2 md:space-y-4"
             >
               {headlines.howToMoveWell && (
-                <span className="label-caps text-[var(--gold)] text-[6px] md:text-[10px] tracking-[0.3em] block mb-2 md:mb-4">
+                <span className="label-caps text-[var(--gold)] text-[10px] md:text-[16px] tracking-[0.3em] block mb-2 md:mb-4">
                   {headlines.howToMoveWell}
                 </span>
               )}
