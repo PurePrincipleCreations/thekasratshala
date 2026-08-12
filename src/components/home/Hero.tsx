@@ -55,46 +55,22 @@ export default function Hero() {
       </div>
 
 
-      {/* Biomechanical Overlay — Pure visual diagram without text overlays */}
-      <div className="absolute inset-0 pointer-events-none z-[5] opacity-100">
-        <BiomechanicalOverlay
-          circles={[{ cx: 200, cy: 300, r: 180 }, { cx: 200, cy: 300, r: 240 }]}
-          paths={[
-            "M50 300 Q200 50 350 300",
-            "M50 400 Q200 550 350 400",
-            "M200 50 L200 550",
-          ]}
-          points={[
-            { x: 200, y: 300, label: "CENTRE" },
-            { x: 200, y: 120, label: "AXIS" },
-            { x: 80, y: 300, label: "TORQUE" },
-          ]}
-        />
-      </div>
-
-      {/* Moving Arrow Animation with "Become a Mover" text */}
-      <motion.div
-        animate={{ 
-          x: [0, 40, 0, -40, 0],
-          y: [0, -40, -80, -40, 0],
-          rotate: [0, 15, -15, 0]
-        }}
-        transition={{ 
-          duration: 12, 
-          repeat: Infinity, 
-          ease: "easeInOut" 
-        }}
-        className="absolute top-1/3 left-[15%] pointer-events-none z-[12] hidden md:flex items-center gap-4"
-      >
-        <div className="relative">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" className="rotate-45">
-            <path d="M10 30L30 10M30 10H15M30 10V25" stroke="var(--gold)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          <span className="absolute left-10 top-1/2 -translate-y-1/2 label-caps text-[10px] text-[var(--gold)] whitespace-nowrap tracking-widest bg-[var(--night)]/40 px-2 py-1 backdrop-blur-sm rounded">
-            Become a Mover
-          </span>
+      {/* Biomechanical Overlay — Simplified and centered */}
+      <div className="absolute inset-0 pointer-events-none z-[5] opacity-100 flex items-center justify-center">
+        <div className="w-[600px] h-[600px] relative">
+          <BiomechanicalOverlay
+            circles={[{ cx: 200, cy: 300, r: 180 }, { cx: 200, cy: 300, r: 240 }]}
+            paths={[
+              "M50 300 Q200 50 350 300",
+              "M50 400 Q200 550 350 400",
+              "M200 50 L200 550",
+            ]}
+            points={[
+              { x: 200, y: 120, label: "AXIS" },
+            ]}
+          />
         </div>
-      </motion.div>
+      </div>
 
       {/* Hand-drawn element floating (Subtle) */}
       <motion.div
