@@ -66,13 +66,31 @@ export default function Hero() {
       </div>
 
       {/* Movement Marquee Background Layer - Now serving as the main header */}
-      <div className="absolute inset-0 z-10 flex items-center justify-center opacity-80 mix-blend-normal pointer-events-none overflow-hidden pt-20">
+      <div className="absolute inset-0 z-10 flex items-center justify-center mix-blend-normal overflow-hidden pt-20">
         <div className="w-full scale-110 rotate-[-2deg]">
+          <div className="flex flex-col items-center justify-center text-center px-4 mb-12 relative z-30 pointer-events-auto">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="editorial-heading text-5xl md:text-7xl text-[var(--gold)] mb-4"
+            >
+              How Surge Works
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="label-caps text-sm md:text-base text-[var(--cream)] tracking-[0.2em] max-w-lg"
+            >
+              Train your body with intentional force and rhythm.
+            </motion.p>
+          </div>
           <MovementMarquee />
         </div>
       </div>
 
-      <div className="section-inner relative z-20 w-full flex flex-col items-center text-center py-20 mt-16 md:mt-24">
+      <div className="section-inner relative z-30 w-full flex flex-col items-center text-center py-20 mt-16 md:mt-24 pointer-events-none">
         <div className="max-w-4xl space-y-6 md:space-y-10">
           <motion.div
             initial="hidden"
@@ -82,10 +100,6 @@ export default function Hero() {
             }}
             className="flex flex-col items-center"
           >
-            <motion.p variants={headlineReveal} className="label-caps text-[var(--gold)] tracking-[0.4em] text-[10px] md:text-xs mb-4">
-              Movement Arts Dojo
-            </motion.p>
-            
             <div className="relative min-h-[30vh] md:min-h-[40vh] flex items-center justify-center">
               <motion.div
                 initial={{ opacity: 0 }}
@@ -99,22 +113,8 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-6 max-w-2xl mx-auto"
-          >
-            <p className="text-[var(--cream)]/80 text-lg md:text-xl leading-relaxed italic font-serif">
-              Kasratshala brings traditional movement tools, yoga, breathwork and modern biomechanics into one living practice — for stronger, more capable and more adaptable bodies.
-            </p>
-            <p className="label-caps text-[10px] md:text-xs text-[var(--gold)] border-t border-[var(--gold)]/20 pt-6 inline-block">
-              Ancient tools. Modern movement science. One body.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col items-center gap-6 pt-4"
+            className="flex flex-col items-center gap-6 pt-4 pointer-events-auto"
           >
             <Link
               to={"/courses" as any}
