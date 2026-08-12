@@ -59,7 +59,7 @@ export default function Navigation() {
           ))}
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 relative z-[101]">
           <button
             onClick={() => setIsCartOpen(true)}
             className="relative p-2 text-[var(--muted)] hover:text-[var(--gold)] transition-colors"
@@ -72,10 +72,9 @@ export default function Navigation() {
             )}
           </button>
           
-          {/* Mobile Toggle (Only if links exist, but keeping structure for future) */}
           {links.length > 0 && (
             <button 
-              className="relative z-50 text-[var(--cream)] p-2 md:hidden"
+              className="relative text-[var(--cream)] p-2 md:hidden hover:text-[var(--gold)] transition-colors"
               onClick={() => setOpen(!open)}
             >
               {open ? (
@@ -93,14 +92,14 @@ export default function Navigation() {
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {open && links.length > 0 && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 bg-[var(--night)] z-40 flex flex-col p-8 pt-32"
+            className="fixed inset-0 bg-[var(--night)]/95 backdrop-blur-md z-[90] flex flex-col p-8 pt-32"
           >
             <div className="flex flex-col gap-8">
               {(links as any).map((l: any, i: number) => (
