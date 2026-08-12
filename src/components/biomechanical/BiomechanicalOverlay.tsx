@@ -95,13 +95,6 @@ export default function BiomechanicalOverlay({
                   {headlines.howToMoveWell}
                 </span>
               )}
-              {headlines.functionalMovement && (
-                <h1 className="editorial-heading text-2xl md:text-5xl text-[var(--cream)] leading-[0.9]">
-                  {headlines.functionalMovement.split('<br />').map((text, i) => (
-                    <span key={i}>{text}{i === 0 && <br />}</span>
-                  ))}
-                </h1>
-              )}
               {headlines.trainYourNeuro && (
                 <p className="font-hand text-[8px] md:text-[14px] text-[var(--bone)] mt-2 md:mt-4 max-w-[150px] md:max-w-xs mx-auto opacity-80 italic leading-tight">
                   {headlines.trainYourNeuro}
