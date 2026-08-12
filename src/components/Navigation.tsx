@@ -59,8 +59,6 @@ export default function Navigation() {
               </span>
             )}
           </button>
-        </div>
-        </div>
         
         <div className="flex items-center gap-4 md:hidden">
           <button
