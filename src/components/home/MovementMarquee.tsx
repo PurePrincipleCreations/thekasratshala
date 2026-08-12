@@ -22,7 +22,7 @@ function Row({ reverse = false }: { reverse?: boolean }) {
       >
         {items.map((w, i) => (
           <span key={`${w}-${i}`} className="flex shrink-0 items-center gap-16">
-            <span className="editorial-heading text-[7vw] md:text-[5vw] leading-none italic text-[var(--cream)]/80 whitespace-nowrap">
+            <span className="editorial-heading text-[12vw] md:text-[5vw] leading-none italic text-[var(--cream)]/80 whitespace-nowrap">
               {w}
             </span>
             <span className="w-2 h-2 rounded-full bg-[var(--gold)] opacity-60" />

@@ -54,8 +54,8 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[var(--night)]/60" />
       </div>
       
-      <div className="section-inner relative z-20 w-full flex flex-col md:flex-row items-center gap-12 py-20">
-        <div className="w-full md:w-1/2 space-y-8">
+      <div className="section-inner relative z-20 w-full flex flex-col md:flex-row items-center gap-6 md:gap-12 py-12 md:py-20">
+        <div className="w-full md:w-1/2 space-y-6 md:space-y-8">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -63,8 +63,8 @@ export default function Hero() {
               visible: { transition: { staggerChildren: 0.1 } }
             }}
           >
-            <motion.p variants={headlineReveal} className="label-caps text-[var(--gold)] tracking-[0.2em]">Movement nourishment</motion.p>
-            <motion.h1 variants={headlineReveal} className="editorial-heading text-[12vw] md:text-[14vw] mt-2 leading-[0.8] tracking-tighter mix-blend-normal overflow-hidden text-[var(--cream)]">
+            <motion.p variants={headlineReveal} className="label-caps text-[var(--gold)] tracking-[0.2em] text-[8px] md:text-[10px]">Movement nourishment</motion.p>
+            <motion.h1 variants={headlineReveal} className="editorial-heading text-[16vw] md:text-[14vw] mt-2 leading-[0.85] md:leading-[0.8] tracking-tighter mix-blend-normal overflow-hidden text-[var(--cream)]">
                {["MOVEMENT", "NOURISHMENT"].map((word, i) => (
                   <motion.span
                     key={word}
