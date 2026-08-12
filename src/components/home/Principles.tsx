@@ -66,8 +66,8 @@ export default function Principles() {
           <div className="w-1/2 space-y-12">
             <div className="space-y-4">
               <p className="label-caps text-[var(--gold)]">The Kasratshala Way</p>
-              <h2 className="editorial-heading text-6xl">A different relationship with strength.</h2>
-              <p className="text-[var(--muted)] text-xl italic font-serif">Not fitness as repetition. Practice as intelligence.</p>
+              <h2 className="editorial-heading text-6xl">A different relationship with your body.</h2>
+              <p className="text-[var(--muted)] text-xl italic font-serif">The Kasratshala way.</p>
             </div>
             
             <div className="relative h-64">
@@ -121,7 +121,7 @@ export default function Principles() {
       <div className="md:hidden pt-20 pb-20 space-y-20 px-6">
         <div className="space-y-4">
           <p className="label-caps text-[var(--gold)]">The Kasratshala Way</p>
-          <h2 className="editorial-heading text-4xl">A different relationship with strength.</h2>
+          <h2 className="editorial-heading text-4xl">A different relationship with your body.</h2>
         </div>
         {principles.map((p) => (
           <div key={p.n} className="space-y-6">
