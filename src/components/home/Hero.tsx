@@ -34,7 +34,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[var(--night)]">
+    <section className="relative min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[var(--night)]">
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
         <motion.div 
