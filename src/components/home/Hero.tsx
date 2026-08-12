@@ -55,14 +55,9 @@ export default function Hero() {
       </div>
 
 
-      {/* Biomechanical Overlay — Headlines integrated into the diagram layer */}
+      {/* Biomechanical Overlay — Pure visual diagram without text overlays */}
       <div className="absolute inset-0 pointer-events-none z-[5] opacity-100">
         <BiomechanicalOverlay
-          headlines={{
-            howToMoveWell: "How to move well",
-            functionalMovement: "Functional<br />Movement Practice",
-            trainYourNeuro: "Train your neuro on the Richness of Movement Science"
-          }}
           circles={[{ cx: 200, cy: 300, r: 180 }, { cx: 200, cy: 300, r: 240 }]}
           paths={[
             "M50 300 Q200 50 350 300",
