@@ -12,7 +12,7 @@ export default function ContactContent() {
 
   return (
     <div className="bg-[var(--night)] min-h-[80vh]">
-      <section className="py-32 px-6">
+      <section className="py-20 md:py-24 px-6">
         <div className="section-inner max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-20">
           <div className="space-y-12">
             <div className="space-y-4">

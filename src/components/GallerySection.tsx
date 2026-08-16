@@ -11,7 +11,7 @@ const tiles = [
 
 export default function GallerySection() {
   return (
-    <section id="gallery" className="relative py-32">
+    <section id="gallery" className="relative py-20 md:py-24">
       <div className="section-inner">
         <div className="text-center mb-16">
           <div className="root-badge mb-6">The Practice</div>

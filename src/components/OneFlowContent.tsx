@@ -20,7 +20,7 @@ export default function OneFlowContent() {
 
   return (
     <div className="bg-[var(--night)]">
-      <section className="py-32 px-6">
+      <section className="py-20 md:py-24 px-6">
         <div className="section-inner max-w-4xl space-y-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
             <p className="label-caps text-[var(--gold)]">One Flow Gathering</p>
@@ -106,7 +106,7 @@ export default function OneFlowContent() {
       </section>
 
       {/* Additional sections */}
-      <section className="py-32 px-6 border-t border-[var(--bone)]">
+      <section className="py-20 md:py-24 px-6 border-t border-[var(--bone)]">
         <div className="section-inner grid grid-cols-1 md:grid-cols-3 gap-16">
           <div className="space-y-4">
             <p className="label-caps text-[var(--gold)]">01</p>

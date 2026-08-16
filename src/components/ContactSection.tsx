@@ -7,7 +7,7 @@ export default function ContactSection() {
   const [sent, setSent] = useState<string | null>(null);
 
   return (
-    <section id="contact" className="relative py-32 bg-[var(--night)]/60">
+    <section id="contact" className="relative py-20 md:py-24 bg-[var(--night)]/60">
       <div className="section-inner">
         <div className="text-center mb-16">
           <div className="root-badge mb-6">Connect</div>

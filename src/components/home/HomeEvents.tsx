@@ -34,7 +34,7 @@ const events = [
 
 export default function HomeEvents() {
   return (
-    <section className="py-32 bg-[var(--night)] px-6">
+    <section className="py-20 md:py-24 bg-[var(--night)] px-6">
       <div className="section-inner space-y-20">
         <div className="space-y-4">
           <p className="label-caps text-[var(--gold)]">Practice in company</p>

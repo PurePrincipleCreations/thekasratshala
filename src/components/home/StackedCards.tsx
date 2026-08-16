@@ -78,7 +78,7 @@ function Card({ i, total, card }: { i: number; total: number; card: (typeof card
 export default function StackedCards() {
   return (
     <section className="relative bg-[var(--night)] border-y border-[var(--bone)]">
-      <div className="section-inner pt-32 pb-10">
+      <div className="section-inner pt-20 md:pt-24 pb-10">
         <p className="label-caps text-[var(--gold)] mb-4">How we work</p>
         <h2 className="editorial-heading text-4xl md:text-7xl leading-[0.95] text-[var(--cream)] max-w-3xl">
           Four ideas that hold<br />
@@ -86,7 +86,7 @@ export default function StackedCards() {
         </h2>
       </div>
 
-      <div className="relative pb-32">
+      <div className="relative pb-20 md:pb-24">
         {cards.map((c, i) => (
           <Card key={c.n} i={i} total={cards.length} card={c} />
         ))}
