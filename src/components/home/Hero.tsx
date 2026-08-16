@@ -68,7 +68,10 @@ export default function Hero() {
             points={[
               { x: 200, y: 120, label: "AXIS" },
             ]}
-            headlines={{}}
+            headlines={{
+              howToMoveWell: "How to move",
+              trainYourNeuro: "Train your body on the Richness of Movement Science"
+            }}
           />
         </div>
       </div>
