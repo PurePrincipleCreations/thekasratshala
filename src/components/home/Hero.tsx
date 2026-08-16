@@ -23,7 +23,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen md:min-h-[110vh] flex flex-col items-center justify-center overflow-hidden bg-[var(--night)] -mt-[80px] md:-mt-[120px]">
+    <section className="relative min-h-[100svh] md:min-h-[110vh] flex flex-col items-center justify-center overflow-hidden bg-[var(--night)]">
       {/* Background Image Layer — Color image, featured to front */}
       <div className="absolute inset-0 z-0">
         <motion.div
@@ -56,8 +56,8 @@ export default function Hero() {
 
 
       {/* Biomechanical Overlay — Integrated with headlines */}
-      <div className="absolute inset-0 pointer-events-none z-[5] opacity-100 flex items-center justify-center">
-        <div className="w-full max-w-[320px] sm:max-w-[500px] md:w-[600px] h-[600px] relative">
+      <div className="absolute inset-0 pointer-events-none z-[5] opacity-100 flex items-center justify-center pt-[60px] md:pt-0">
+        <div className="w-full max-w-[340px] sm:max-w-[500px] md:w-[600px] h-[500px] sm:h-[600px] relative">
           <BiomechanicalOverlay
             circles={[{ cx: 200, cy: 300, r: 180 }, { cx: 200, cy: 300, r: 240 }]}
             paths={[
