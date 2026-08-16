@@ -3,8 +3,8 @@ import { useEffect, useRef, useState } from "react";
 
 const stats = [
   { value: 10, suffix: "", label: "Courses & modules", note: "online and offline" },
-  { value: 4, suffix: "", label: "Principles", note: "force · breath · structure · rhythm" },
-  { value: 12, suffix: "+", label: "Years of practice", note: "in the Himalayas" },
+  { value: 5, suffix: "", label: "Pillars", note: "self care · strength · skill · safety · spirituality" },
+  { value: 20, suffix: "+", label: "Years of practice", note: "in the Himalayas" },
   { value: 1, suffix: "", label: "One Flow Gathering", note: "multi-disciplinary artists" },
 ];
 
@@ -14,17 +14,25 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
   const motionValue = useMotionValue(0);
   const spring = useSpring(motionValue, { damping: 40, stiffness: 90 });
   const [display, setDisplay] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    if (inView) motionValue.set(value);
-  }, [inView, motionValue, value]);
+    const mobile = window.matchMedia("(max-width: 767px)").matches;
+    setIsMobile(mobile);
+    if (mobile) setDisplay(value);
+  }, [value]);
 
   useEffect(() => {
+    if (inView && !isMobile) motionValue.set(value);
+  }, [inView, isMobile, motionValue, value]);
+
+  useEffect(() => {
+    if (isMobile) return;
     const unsubscribe = spring.on("change", (latest) => {
       setDisplay(Math.round(latest));
     });
     return unsubscribe;
-  }, [spring]);
+  }, [spring, isMobile]);
 
   return (
     <span ref={ref} className="editorial-heading text-6xl md:text-8xl leading-none text-[var(--cream)]">
@@ -36,9 +44,9 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export default function HomeStats() {
   return (
-    <section className="py-32 px-6 bg-[var(--alt)] border-y border-[var(--bone)]">
+    <section className="py-20 md:py-24 px-6 bg-[var(--alt)] border-y border-[var(--bone)]">
       <div className="section-inner">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
