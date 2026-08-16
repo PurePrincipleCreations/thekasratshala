@@ -83,7 +83,7 @@ export default function BiomechanicalOverlay({
       ))}
       {headlines && (
         <foreignObject x="0" y="0" width="100%" height="100%" className="overflow-visible">
-          <div className="w-full h-full flex flex-col items-center justify-center text-center px-4" style={{ transform: 'translateY(-10%)' }}>
+          <div className="w-full h-full flex flex-col items-center justify-center text-center px-4" style={{ transform: 'translateY(0%)' }}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

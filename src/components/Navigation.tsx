@@ -38,11 +38,11 @@ export default function Navigation() {
   }, [location.pathname]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[100] py-3 md:py-6 transition-all duration-300 bg-gradient-to-b from-[var(--night)]/80 to-transparent">
-      <div className="section-inner flex items-center justify-between px-4 md:px-8">
+    <nav className="fixed top-0 left-0 right-0 z-[100] py-4 md:py-6 transition-all duration-300 bg-gradient-to-b from-[var(--night)]/90 via-[var(--night)]/50 to-transparent">
+      <div className="section-inner flex items-center justify-between px-6 md:px-8">
         <Link to="/" className="relative z-[101] group flex items-center gap-3">
           <div className="flex flex-col">
-            <img src={ksLogo.url} alt="Kasratshala" className="h-12 sm:h-16 md:h-24 w-auto group-hover:scale-105 transition-transform" />
+            <img src={ksLogo.url} alt="Kasratshala" className="h-14 sm:h-18 md:h-24 w-auto group-hover:scale-105 transition-transform" />
           </div>
         </Link>
 
@@ -99,7 +99,7 @@ export default function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 bg-[var(--night)]/95 backdrop-blur-md z-[90] flex flex-col p-8 pt-32"
+            className="fixed inset-0 bg-[var(--night)] z-[90] flex flex-col p-8 pt-40"
           >
             <div className="flex flex-col gap-8">
               {(links as any).map((l: any, i: number) => (
