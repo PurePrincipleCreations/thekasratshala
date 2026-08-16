@@ -30,7 +30,7 @@ export default function WorkshopsSection() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="camps" className="relative py-32">
+    <section id="camps" className="relative py-20 md:py-24">
       <div className="section-inner">
         <motion.div initial="hidden" whileInView="show" viewport={inViewOnce} variants={reveal} className="text-center mb-16">
           <div className="root-badge mb-6">Camps</div>

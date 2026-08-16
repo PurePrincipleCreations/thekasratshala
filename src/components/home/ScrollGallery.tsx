@@ -65,7 +65,7 @@ function Column({ frames, speed }: { frames: Frame[]; speed: number }) {
 
 export default function ScrollGallery() {
   return (
-    <section className="relative py-32 px-6 bg-[var(--night)] overflow-hidden">
+    <section className="relative py-20 md:py-24 px-6 bg-[var(--night)] overflow-hidden">
       <div className="section-inner">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
           <div className="space-y-4 max-w-xl">

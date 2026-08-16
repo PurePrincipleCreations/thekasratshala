@@ -57,7 +57,7 @@ export default function OnlineSection() {
   const centreOpacity = useTransform(scrollYProgress, [0.55, 0.95], [0, 1]);
 
   return (
-    <section id="gathering" className="relative py-32 bg-[var(--night)]/60">
+    <section id="gathering" className="relative py-20 md:py-24 bg-[var(--night)]/60">
       <div className="section-inner">
         <motion.div initial="hidden" whileInView="show" viewport={inViewOnce} variants={reveal} className="text-center mb-16">
           <div className="root-badge mb-6">Gathering · One day, one field</div>

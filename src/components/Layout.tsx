@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { Outlet, ScrollRestoration } from "@tanstack/react-router";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import DojoFrames from "@/components/DojoFrames";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Layout({ children }: { children?: ReactNode }) {
@@ -23,6 +24,7 @@ export default function Layout({ children }: { children?: ReactNode }) {
         </motion.main>
       </AnimatePresence>
 
+      <DojoFrames />
       <Footer />
       <ScrollRestoration />
     </div>

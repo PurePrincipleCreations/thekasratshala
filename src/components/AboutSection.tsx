@@ -14,7 +14,7 @@ const reveal = {
 
 export default function AboutSection() {
   return (
-    <section id="about" className="relative py-32">
+    <section id="about" className="relative py-20 md:py-24">
       <div className="section-inner">
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={reveal} className="flex flex-col items-center text-center mb-16">
           <div className="root-badge mb-6">The Dojo</div>
