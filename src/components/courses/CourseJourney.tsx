@@ -20,6 +20,7 @@ const journey = [
     copy: "RECODE is Kasratshala’s foundational movement recoding process for modern bodies. It helps people realign how they move through four focused areas: Upper Body · Lower Body · Core · Gait",
     metadata: "Four-part workshop and course format. Level 1 is intentionally limited.",
     image: recodeNew,
+    price: 15000,
     type: "recode" as const,
     to: "/courses/recode" as any
   },
@@ -29,6 +30,7 @@ const journey = [
     category: "Yoga Arts · Teacher Training Course module · Online",
     copy: "A yoga practice built for usable strength. Develop structure, joint capacity, balance and progressive control without separating strength from breath or awareness.",
     image: pranayamaKs,
+    price: 40000,
     type: "strength" as const,
     to: "/courses/yoga-for-strength" as any
   },
@@ -38,6 +40,7 @@ const journey = [
     category: "Advanced Breathwork · TTC module · Online",
     copy: "A deeper study of breath as capacity, regulation and attention. This is not breathwork as a quick fix. It is a deliberate practice for people ready to understand how breath changes movement.",
     image: oneFlow,
+    price: 25000,
     type: "breath" as const,
     to: "/courses/pranayama" as any
   },
@@ -48,6 +51,7 @@ const journey = [
     copy: "Steel Mace Flow develops rotational strength, shoulder integrity, timing and fluid multi-planar movement through the ancient gada.",
     metadata: "Veer — Master Trainer. Karam — Level 2 Trainer.",
     image: macePose,
+    price: 35000,
     type: "mace" as const,
     to: "/courses/steel-mace-flow" as any
   }
