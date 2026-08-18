@@ -40,23 +40,35 @@ export default function Navigation() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-[100] py-4 md:py-8 transition-all duration-300 bg-gradient-to-b from-[var(--night)]/90 via-[var(--night)]/50 to-transparent">
       <div className="section-inner flex items-center justify-between px-6 md:px-12">
-        <Link to="/" className="relative z-[101] group flex items-center gap-3">
+        <button 
+          onClick={() => setOpen(!open)}
+          className="relative z-[101] group flex items-center gap-3 outline-none"
+        >
           <div className="flex flex-col">
             <img src={ksLogo.url} alt="Kasratshala" className="h-20 sm:h-24 md:h-32 lg:h-40 w-auto group-hover:scale-105 transition-transform" />
           </div>
-        </Link>
+        </button>
 
-        <div className="hidden md:flex items-center gap-12">
-          {links.map((l) => (
-            <Link
-              key={l.path}
-              to={l.path as any}
-              className="label-caps text-[14px] lg:text-[16px] tracking-[0.25em] text-[var(--muted)] hover:text-[var(--gold)] transition-colors relative group font-bold"
-            >
-              {l.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-[var(--gold)] transition-all group-hover:w-full" />
-            </Link>
-          ))}
+        <div className="hidden md:flex items-center gap-12 transition-all duration-500">
+          <AnimatePresence mode="wait">
+            {!open && links.map((l, i) => (
+              <motion.div
+                key={l.path}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ delay: i * 0.05 }}
+              >
+                <Link
+                  to={l.path as any}
+                  className="label-caps text-[14px] lg:text-[16px] tracking-[0.25em] text-[var(--muted)] hover:text-[var(--gold)] transition-colors relative group font-bold"
+                >
+                  {l.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-[var(--gold)] transition-all group-hover:w-full" />
+                </Link>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
 
         <div className="flex items-center gap-6 relative z-[101]">
@@ -105,6 +117,7 @@ export default function Navigation() {
       </div>
 
       {/* Mobile Menu - Slide from top */}
+      {/* Navigation Overlay - Slide from top */}
       <AnimatePresence>
         {open && links.length > 0 && (
           <motion.div
@@ -112,22 +125,23 @@ export default function Navigation() {
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{ type: "spring", damping: 30, stiffness: 200 }}
-            className="fixed inset-0 bg-[var(--night)] z-[90] flex flex-col p-8 pt-48"
+            className="fixed inset-0 bg-[var(--night)] z-[90] flex flex-col p-8 pt-48 md:pt-64"
           >
-            <div className="flex flex-col gap-10">
+            <div className="section-inner flex flex-col gap-10 md:gap-14">
               {(links as any).map((l: any, i: number) => (
                 <motion.div
                   key={l.path}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.2 + i * 0.1 }}
+                  transition={{ delay: 0.2 + i * 0.1, duration: 0.5 }}
                 >
                   <Link
                     to={l.path as any}
-                    className="editorial-heading text-6xl text-[var(--cream)] hover:text-[var(--gold)] transition-colors flex items-center justify-between group"
+                    onClick={() => setOpen(false)}
+                    className="editorial-heading text-6xl md:text-8xl text-[var(--cream)] hover:text-[var(--gold)] transition-colors flex items-center justify-between group"
                   >
                     {l.label}
-                    <ArrowRight className="opacity-0 group-hover:opacity-100 transition-opacity w-10 h-10" />
+                    <ArrowRight className="opacity-0 group-hover:opacity-100 transition-all w-12 h-12 md:w-20 md:h-20 -translate-x-4 group-hover:translate-x-0" />
                   </Link>
                 </motion.div>
               ))}
