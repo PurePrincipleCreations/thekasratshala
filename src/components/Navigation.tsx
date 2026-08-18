@@ -38,35 +38,47 @@ export default function Navigation() {
   }, [location.pathname]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[100] py-4 md:py-6 transition-all duration-300 bg-gradient-to-b from-[var(--night)]/90 via-[var(--night)]/50 to-transparent">
-      <div className="section-inner flex items-center justify-between px-6 md:px-8">
-        <Link to="/" className="relative z-[101] group flex items-center gap-3">
+    <nav className="fixed top-0 left-0 right-0 z-[100] py-4 md:py-8 transition-all duration-300 bg-gradient-to-b from-[var(--night)]/90 via-[var(--night)]/50 to-transparent">
+      <div className="section-inner flex items-center justify-between px-6 md:px-12">
+        <button 
+          onClick={() => setOpen(!open)}
+          className="relative z-[101] group flex items-center gap-3 outline-none"
+        >
           <div className="flex flex-col">
-            <img src={ksLogo.url} alt="Kasratshala" className="h-14 sm:h-18 md:h-24 w-auto group-hover:scale-105 transition-transform" />
+            <img src={ksLogo.url} alt="Kasratshala" className="h-20 sm:h-24 md:h-32 lg:h-40 w-auto group-hover:scale-105 transition-transform" />
           </div>
-        </Link>
+        </button>
 
-        <div className="hidden md:flex items-center gap-8">
-          {links.map((l) => (
-            <Link
-              key={l.path}
-              to={l.path as any}
-              className="label-caps text-[10px] tracking-[0.2em] text-[var(--muted)] hover:text-[var(--gold)] transition-colors relative group"
-            >
-              {l.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-[var(--gold)] transition-all group-hover:w-full" />
-            </Link>
-          ))}
+        <div className="hidden md:flex items-center gap-12 transition-all duration-500">
+          <AnimatePresence mode="wait">
+            {!open && links.map((l, i) => (
+              <motion.div
+                key={l.path}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ delay: i * 0.05 }}
+              >
+                <Link
+                  to={l.path as any}
+                  className="label-caps text-[14px] lg:text-[16px] tracking-[0.25em] text-[var(--muted)] hover:text-[var(--gold)] transition-colors relative group font-bold"
+                >
+                  {l.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-[var(--gold)] transition-all group-hover:w-full" />
+                </Link>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
 
-        <div className="flex items-center gap-4 relative z-[101]">
+        <div className="flex items-center gap-6 relative z-[101]">
           <button
             onClick={() => setIsCartOpen(true)}
             className="relative p-2 text-[var(--muted)] hover:text-[var(--gold)] transition-colors"
           >
-            <ShoppingBag size={20} />
+            <ShoppingBag size={28} className="md:w-8 md:h-8" />
             {cart.length > 0 && (
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-[var(--gold)] text-[var(--night)] text-[8px] flex items-center justify-center rounded-full font-bold">
+              <span className="absolute -top-1 -right-1 w-5 h-5 bg-[var(--gold)] text-[var(--night)] text-[10px] flex items-center justify-center rounded-full font-bold">
                 {cart.length}
               </span>
             )}
@@ -77,44 +89,59 @@ export default function Navigation() {
               className="relative text-[var(--cream)] p-2 md:hidden hover:text-[var(--gold)] transition-colors"
               onClick={() => setOpen(!open)}
             >
-              {open ? (
-                <X size={24} />
-              ) : (
-                <img 
-                  src={toriiGate.url} 
-                  alt="Menu" 
-                  className="w-8 h-8 object-contain mix-blend-screen"
-                />
-              )}
+              <AnimatePresence mode="wait">
+                {open ? (
+                  <motion.div
+                    key="close"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                  >
+                    <X size={32} />
+                  </motion.div>
+                ) : (
+                  <motion.img 
+                    key="menu"
+                    src={toriiGate.url} 
+                    alt="Menu" 
+                    className="w-12 h-12 object-contain mix-blend-screen"
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.8, opacity: 0 }}
+                  />
+                )}
+              </AnimatePresence>
             </button>
           )}
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence mode="wait">
+      {/* Mobile Menu - Slide from top */}
+      {/* Navigation Overlay - Slide from top */}
+      <AnimatePresence>
         {open && links.length > 0 && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 bg-[var(--night)] z-[90] flex flex-col p-8 pt-40"
+            initial={{ y: "-100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-100%" }}
+            transition={{ type: "spring", damping: 30, stiffness: 200 }}
+            className="fixed inset-0 bg-[var(--night)] z-[90] flex flex-col p-8 pt-48 md:pt-64"
           >
-            <div className="flex flex-col gap-8">
+            <div className="section-inner flex flex-col gap-10 md:gap-14">
               {(links as any).map((l: any, i: number) => (
                 <motion.div
                   key={l.path}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 + i * 0.1, duration: 0.5 }}
                 >
                   <Link
                     to={l.path as any}
-                    className="editorial-heading text-5xl text-[var(--cream)] hover:text-[var(--gold)] transition-colors flex items-center justify-between group"
+                    onClick={() => setOpen(false)}
+                    className="editorial-heading text-6xl md:text-8xl text-[var(--cream)] hover:text-[var(--gold)] transition-colors flex items-center justify-between group"
                   >
                     {l.label}
-                    <ArrowRight className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowRight className="opacity-0 group-hover:opacity-100 transition-all w-12 h-12 md:w-20 md:h-20 -translate-x-4 group-hover:translate-x-0" />
                   </Link>
                 </motion.div>
               ))}

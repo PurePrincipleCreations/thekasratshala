@@ -23,40 +23,25 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[100svh] md:min-h-[110vh] flex flex-col items-center justify-center overflow-hidden bg-[var(--night)]">
-      {/* Background Image Layer — Color image, featured to front */}
-      <div className="absolute inset-0 z-0">
-        <motion.div
-          style={{ scale: 1.1 }}
-          className="w-full h-full"
-        >
-          <img
-            src={buildingBackground.url}
-            alt="The Kasratshala Shala Building"
-            className="w-full h-full object-cover opacity-100"
+    <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-[var(--night)]">
+      {/* Background Video Layer — YouTube Embed for specific video */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-[177.78vh] h-[56.25vw]">
+          <iframe
+            src="https://www.youtube.com/embed/H46Oo99i898?autoplay=1&mute=1&loop=1&playlist=H46Oo99i898&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&vq=hd720"
+            className="absolute top-0 left-0 w-full h-full"
+            frameBorder="0"
+            allow="autoplay; encrypted-media"
+            title="Hero Video"
           />
-        </motion.div>
-        {/* Soft translucent overlay so background remains dominant */}
-        <div className="absolute inset-0 bg-[var(--night)]/10 backdrop-blur-[1px]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--night)]" />
+        </div>
+        {/* Cinematic Overlays */}
+        <div className="absolute inset-0 bg-[var(--night)]/20 backdrop-blur-[1px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--night)]/40 via-transparent to-[var(--night)]" />
       </div>
-
-      {/* Background Video Layer — featured to front */}
-      <div className="absolute inset-0 z-[1] overflow-hidden opacity-60 pointer-events-none">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover grayscale mix-blend-luminosity scale-110"
-        >
-          <source src={droneFootage.url} type="video/mp4" />
-        </video>
-      </div>
-
 
       {/* Biomechanical Overlay — Integrated with headlines */}
-      <div className="absolute inset-0 pointer-events-none z-[5] opacity-100 flex items-center justify-center pt-[60px] md:pt-0">
+      <div className="absolute inset-0 pointer-events-none z-[5] opacity-80 flex items-center justify-center">
         <div className="w-full max-w-[340px] sm:max-w-[500px] md:w-[600px] h-[500px] sm:h-[600px] relative">
           <BiomechanicalOverlay
             circles={[{ cx: 200, cy: 300, r: 180 }, { cx: 200, cy: 300, r: 240 }]}

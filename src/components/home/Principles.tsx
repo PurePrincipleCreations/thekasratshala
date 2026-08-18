@@ -128,40 +128,56 @@ export default function Principles() {
         </div>
       </div>
 
-      {/* Mobile View */}
-      <div className="md:hidden py-20 space-y-16 px-6">
-        <div className="space-y-4">
-          <p className="label-caps text-[var(--gold)] tracking-widest text-[10px]">THE KASRATSHALA WAY</p>
-          <h2 className="editorial-heading text-4xl leading-tight">A different relationship with your body.</h2>
+      {/* Mobile View - Now with smooth scroll reveal and longer presence */}
+      <div className="md:hidden py-32 space-y-32 px-6">
+        <div className="space-y-6">
+          <p className="label-caps text-[var(--gold)] tracking-widest text-[12px]">THE KASRATSHALA WAY</p>
+          <h2 className="editorial-heading text-5xl leading-tight">A different relationship with your body.</h2>
         </div>
         {principles.map((p, i) => (
           <motion.div
             key={p.n}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="space-y-6"
+            viewport={{ 
+              once: false, // Allow re-animating for scroll effect
+              margin: "-10% 0px -20% 0px" // Trigger slightly earlier and stay longer
+            }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="space-y-8"
           >
-            <div className="relative aspect-square border border-[var(--bone)] rounded-sm overflow-hidden">
-              <img src={p.image.url} className="w-full h-full object-cover grayscale opacity-50 mix-blend-screen" alt={p.title} />
-              <BiomechanicalOverlay {...p.overlay} opacity={0.6} />
+            <div className="relative aspect-square border border-[var(--bone)] rounded-sm overflow-hidden bg-[var(--night)]">
+              <motion.img 
+                src={p.image.url} 
+                className="w-full h-full object-cover grayscale opacity-60 mix-blend-screen" 
+                alt={p.title}
+                initial={{ scale: 1.2 }}
+                whileInView={{ scale: 1 }}
+                transition={{ duration: 2 }}
+              />
+              <div className="absolute inset-0">
+                <BiomechanicalOverlay {...p.overlay} opacity={0.7} />
+              </div>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-4">
               <motion.p
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.15 }}
-                className="editorial-heading text-5xl text-[var(--gold)]"
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="editorial-heading text-7xl text-[var(--gold)] opacity-50"
               >
                 {p.n}
               </motion.p>
-              <h3 className="editorial-heading text-3xl">{p.title}</h3>
-              <p className="label-caps text-[var(--muted)] font-serif italic text-xs normal-case tracking-normal">{p.subtitle}</p>
+              <h3 className="editorial-heading text-4xl">{p.title}</h3>
+              <p className="label-caps text-[var(--muted)] font-serif italic text-sm normal-case tracking-normal leading-relaxed">{p.subtitle}</p>
             </div>
-            <div className="h-px w-full bg-[var(--bone)]" aria-hidden="true" />
-            <span className="sr-only">{i + 1}</span>
+            <motion.div 
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              className="h-px w-full bg-gradient-to-r from-[var(--gold)]/50 to-transparent origin-left" 
+              aria-hidden="true" 
+            />
           </motion.div>
         ))}
       </div>
