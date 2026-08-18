@@ -50,32 +50,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Biomechanical Overlay — Integrated with headlines */}
-      <div className="absolute inset-0 pointer-events-none z-[5] opacity-80 flex items-center justify-center">
-        <div className="w-full max-w-[340px] sm:max-w-[500px] md:w-[600px] h-[500px] sm:h-[600px] relative">
-          <BiomechanicalOverlay
-            circles={[{ cx: 200, cy: 300, r: 180 }, { cx: 200, cy: 300, r: 240 }]}
-            paths={[
-              "M50 300 Q200 50 350 300",
-              "M50 400 Q200 550 350 400",
-              "M200 50 L200 550",
-            ]}
-            points={[
-              { x: 200, y: 120, label: "AXIS" },
-            ]}
-            headlines={{
-              howToMoveWell: "How to move",
-              trainYourNeuro: "Train your body on the Richness of Movement Science"
-            }}
-          />
-        </div>
-      </div>
 
-      {/* Hand-drawn element floating (Subtle) */}
-      <motion.div
-        style={{ x: mouseX, y: mouseY }}
-        className="absolute top-1/4 right-1/4 w-40 h-40 border border-[var(--gold)]/20 rounded-full opacity-40 pointer-events-none z-[6]"
-      />
 
       {/* Volume Control */}
       <button 
