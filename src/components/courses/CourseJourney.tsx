@@ -85,7 +85,7 @@ export default function CourseJourney() {
               <motion.div 
                 key={item.n} 
                 className="w-screen h-full flex items-center justify-center px-20"
-                style={{ opacity: opacities[i], y: yPos[i] }}
+                style={{ opacity: opacities[i] }}
               >
                 <div className="section-inner w-full grid grid-cols-2 items-center gap-20">
                   <div className="space-y-12">
