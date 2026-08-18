@@ -17,8 +17,9 @@ const links = [
 ] as const;
 
 export default function Navigation() {
-  const [open, setOpen] = useState(false);
   const location = useLocation();
+  const isHomePage = location.pathname === "/";
+  const [open, setOpen] = useState(false);
   const [cart] = useAtom(cartAtom);
   const [, setIsCartOpen] = useAtom(isCartOpenAtom);
   const cursorX = useSpring(0, { damping: 30, stiffness: 250, mass: 0.4 });
@@ -38,7 +39,7 @@ export default function Navigation() {
   }, [location.pathname]);
 
   return (
-    <nav className="sticky top-0 left-0 right-0 z-[100] py-4 md:py-8 transition-all duration-300 pointer-events-none bg-[var(--night)]">
+    <nav className={`${isHomePage ? "absolute" : "sticky"} top-0 left-0 right-0 z-[100] py-4 md:py-8 transition-all duration-300 pointer-events-none ${!isHomePage ? "bg-[var(--night)]" : ""}`}>
       <div className="section-inner flex items-center justify-between px-6 md:px-12 pointer-events-auto">
         <button 
           onClick={() => setOpen(!open)}
