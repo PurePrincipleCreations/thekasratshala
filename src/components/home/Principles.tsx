@@ -29,7 +29,7 @@ const principles = [
     n: "03",
     title: "Skill",
     subtitle: "Coordination, flow and play",
-    image: macePose,
+    image: staffSkill,
     overlay: { circles: [{ cx: 200, cy: 300, r: 100 }], paths: ["M50 300 Q200 500 350 300"], points: [{ x: 200, y: 300, label: "FLOW" }] }
   },
   {
