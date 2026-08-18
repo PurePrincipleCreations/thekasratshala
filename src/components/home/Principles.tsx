@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import macePose from "@/assets/mace_pose.png.asset.json";
 import handsOnGrass from "@/assets/hands-on-grass.jpg.asset.json";
 import handsContact from "@/assets/hands_contact.png.asset.json";
+import suspensionStrength from "@/assets/suspension-strength.jpg.asset.json";
 import workshopDiagram from "@/assets/mace-workshop.png.asset.json";
 import yogaPose from "@/assets/yoga_pose.png.asset.json";
 import prayerBreath from "@/assets/prayer_breath.png.asset.json";
@@ -20,7 +21,7 @@ const principles = [
     n: "02",
     title: "Strength",
     subtitle: "Steel, load and honest effort",
-    image: workshopDiagram,
+    image: suspensionStrength,
     overlay: { circles: [{ cx: 200, cy: 300, r: 80 }], points: [{ x: 200, y: 300, label: "LOAD" }] }
   },
   {
