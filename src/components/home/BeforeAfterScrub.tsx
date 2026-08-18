@@ -1,7 +1,7 @@
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
-import feetDetail from "@/assets/feet_detail.png.asset.json";
-import macePose from "@/assets/mace_pose.png.asset.json";
+import movingIntent1 from "@/assets/moving-intent-1.jpg.asset.json";
+import movingIntent2 from "@/assets/moving-intent-2.jpg.asset.json";
 
 export default function BeforeAfterScrub() {
   const ref = useRef<HTMLDivElement>(null);
@@ -33,15 +33,15 @@ export default function BeforeAfterScrub() {
           <div className="relative aspect-[4/5] md:aspect-[16/9] max-h-[60vh] md:max-h-[52vh] w-full overflow-hidden rounded-sm border border-[var(--bone)]">
             {/* Before */}
             <img
-              src={feetDetail.url}
+              src={movingIntent1.url}
               alt="Before — grounding and base work"
               className="absolute inset-0 w-full h-full object-cover grayscale opacity-70"
             />
             {/* After, revealed by scroll */}
             <motion.img
               style={{ clipPath: clip }}
-              src={macePose.url}
-              alt="After — loaded mace practice"
+              src={movingIntent2.url}
+              alt="After — movement mechanics"
               className="absolute inset-0 w-full h-full object-cover opacity-90"
             />
 
