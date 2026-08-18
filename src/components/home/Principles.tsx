@@ -21,7 +21,7 @@ const principles = [
     n: "02",
     title: "Strength",
     subtitle: "Steel, load and honest effort",
-    image: workshopDiagram,
+    image: suspensionStrength,
     overlay: { circles: [{ cx: 200, cy: 300, r: 80 }], points: [{ x: 200, y: 300, label: "LOAD" }] }
   },
   {
