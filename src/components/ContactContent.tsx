@@ -26,7 +26,7 @@ export default function ContactContent() {
             <div className="space-y-8 pt-8">
               <div className="space-y-2">
                 <p className="label-caps text-[10px] text-[var(--gold)]">Location</p>
-                <p className="text-[var(--cream)]">Kasratshala<br />Naggar, Kullu District<br />Himachal Pradesh, India</p>
+                <p className="text-[var(--cream)]">Kasratshala · Naggar</p>
               </div>
               <div className="space-y-2">
                 <p className="label-caps text-[10px] text-[var(--gold)]">Direct</p>

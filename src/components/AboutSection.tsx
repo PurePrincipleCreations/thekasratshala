@@ -40,7 +40,7 @@ export default function AboutSection() {
               is available through direct enquiry.
             </p>
             <div className="flex flex-wrap gap-2 mt-8">
-              {["Naggar · Kullu District", "Himachal Pradesh", "Rooted, online"].map((t) => (
+              {["Rooted, online"].map((t) => (
                 <span key={t} className="text-xs tracking-widest uppercase text-[var(--muted)] border border-[var(--cream)]/10 rounded-full px-3 py-1">{t}</span>
               ))}
             </div>
