@@ -44,7 +44,7 @@ const principles = [
     n: "05",
     title: "Spirituality",
     subtitle: "Attention, stillness and the inner witness",
-    image: handsContact,
+    image: spiritualityMudra,
     overlay: { circles: [{ cx: 200, cy: 300, r: 140 }, { cx: 200, cy: 300, r: 180 }], points: [{ x: 200, y: 300, label: "STILLNESS" }] }
   }
 ];
