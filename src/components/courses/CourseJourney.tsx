@@ -10,6 +10,7 @@ import handsContact from "@/assets/hands_contact.png.asset.json";
 import pranayamaKs from "@/assets/pranayama-ks.jpg.asset.json";
 import oneFlow from "@/assets/one-flow.jpg.asset.json";
 import recodeNew from "@/assets/recode-new.jpg.asset.json";
+import pranayamaHero from "@/assets/pranayama-hero.png.asset.json";
 import MovementGeometry from "../biomechanical/MovementGeometry";
 
 const journey = [
