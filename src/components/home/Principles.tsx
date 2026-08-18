@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import staffSkill from "@/assets/staff-skill.jpg.asset.json";
 import macePose from "@/assets/mace_pose.png.asset.json";
 import handsOnGrass from "@/assets/hands-on-grass.jpg.asset.json";
 import handsContact from "@/assets/hands_contact.png.asset.json";
