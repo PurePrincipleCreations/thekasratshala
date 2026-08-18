@@ -131,7 +131,7 @@ export default function CourseJourney() {
                           <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current stroke-2">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                           </svg>
-                        </div>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -188,5 +188,7 @@ export default function CourseJourney() {
         ))}
       </div>
     </div>
+  );
+}
   );
 }
