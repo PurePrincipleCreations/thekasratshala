@@ -21,10 +21,10 @@ export default function Layout({ children }: { children?: ReactNode }) {
           className="relative pt-20"
         >
           {children || <Outlet />}
+          <DojoFrames />
         </motion.main>
       </AnimatePresence>
 
-      <DojoFrames />
       <Footer />
       <ScrollRestoration />
     </div>

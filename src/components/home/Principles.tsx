@@ -101,8 +101,8 @@ export default function Principles() {
               </div>
             </div>
 
-            <div className="w-1/2 relative h-[70vh]">
-              <div className="w-full h-full border border-[var(--bone)] rounded-sm overflow-hidden relative">
+            <div className="w-1/2 relative h-[80vh] flex flex-col justify-center">
+              <div className="w-full aspect-square border border-[var(--bone)] rounded-sm overflow-hidden relative">
                 {principles.map((p, i) => {
                   const opacity = useTransform(scrollYProgress,
                     [i * STEP, i * STEP + STEP * 0.4, (i + 1) * STEP - STEP * 0.4, (i + 1) * STEP],
@@ -121,7 +121,7 @@ export default function Principles() {
                 })}
               </div>
               {/* Progress line */}
-              <div className="absolute -right-8 top-0 bottom-0 w-px bg-[var(--bone)]">
+              <div className="absolute -right-8 top-[10%] bottom-[10%] w-px bg-[var(--bone)]">
                 <motion.div
                   style={{ scaleY: scrollYProgress }}
                   className="absolute top-0 w-full bg-[var(--gold)] origin-top"

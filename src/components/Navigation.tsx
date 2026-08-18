@@ -38,8 +38,8 @@ export default function Navigation() {
   }, [location.pathname]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[100] py-4 md:py-8 transition-all duration-300">
-      <div className="section-inner flex items-center justify-between px-6 md:px-12">
+    <nav className="fixed top-0 left-0 right-0 z-[100] py-4 md:py-8 transition-all duration-300 pointer-events-none">
+      <div className="section-inner flex items-center justify-between px-6 md:px-12 pointer-events-auto">
         <button 
           onClick={() => setOpen(!open)}
           className="relative z-[101] group flex items-center gap-3 outline-none"
@@ -125,7 +125,7 @@ export default function Navigation() {
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{ type: "spring", damping: 30, stiffness: 200 }}
-            className="fixed inset-0 bg-[var(--night)] z-[90] flex flex-col p-8 pt-48 md:pt-64"
+            className="fixed inset-0 bg-[var(--night)] z-[90] flex flex-col p-8 pt-48 md:pt-64 pointer-events-auto"
           >
             <div className="section-inner flex flex-col gap-10 md:gap-14">
               {(links as any).map((l: any, i: number) => (
