@@ -6,6 +6,7 @@ import handsOnGrass from "@/assets/hands-on-grass.jpg.asset.json";
 import handsContact from "@/assets/hands_contact.png.asset.json";
 import suspensionStrength from "@/assets/suspension-strength.jpg.asset.json";
 import workshopDiagram from "@/assets/mace-workshop.png.asset.json";
+import squatSafety from "@/assets/squat-safety.jpg.asset.json";
 import yogaPose from "@/assets/yoga_pose.png.asset.json";
 import prayerBreath from "@/assets/prayer_breath.png.asset.json";
 import BiomechanicalOverlay from "../biomechanical/BiomechanicalOverlay";
@@ -36,7 +37,7 @@ const principles = [
     n: "04",
     title: "Safety",
     subtitle: "Mechanics, alignment and longevity",
-    image: yogaPose,
+    image: squatSafety,
     overlay: { paths: ["M100 100 L300 500"], points: [{ x: 200, y: 300, label: "ALIGNMENT" }] }
   },
   {
