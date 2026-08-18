@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import staffSkill from "@/assets/staff-skill.jpg.asset.json";
 import macePose from "@/assets/mace_pose.png.asset.json";
 import handsOnGrass from "@/assets/hands-on-grass.jpg.asset.json";
 import handsContact from "@/assets/hands_contact.png.asset.json";
@@ -28,7 +29,7 @@ const principles = [
     n: "03",
     title: "Skill",
     subtitle: "Coordination, flow and play",
-    image: macePose,
+    image: staffSkill,
     overlay: { circles: [{ cx: 200, cy: 300, r: 100 }], paths: ["M50 300 Q200 500 350 300"], points: [{ x: 200, y: 300, label: "FLOW" }] }
   },
   {
