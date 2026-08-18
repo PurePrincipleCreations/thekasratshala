@@ -22,7 +22,7 @@ const journey = [
     category: "Foundational movement recoding · Level 1",
     copy: "RECODE is Kasratshala’s foundational movement recoding process for modern bodies. It helps people realign how they move through four focused areas: Upper Body · Lower Body · Core · Gait",
     metadata: "Four-part workshop and course format. Level 1 is intentionally limited.",
-    image: recodeNew,
+    image: recodeNewV2,
     price: 15000,
     type: "recode" as const,
     to: "/courses/recode" as any
