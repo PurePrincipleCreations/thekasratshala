@@ -62,7 +62,7 @@ export default function Navigation() {
               >
                 <Link
                   to={l.path as any}
-                  className="label-caps text-[20px] tracking-[0.25em] text-[#3d5a45] hover:text-[#3d5a45] transition-colors relative group font-bold px-4 py-2 rounded-full hover:bg-[rgba(93,74,62,0.2)]"
+                  className="label-caps text-[20px] tracking-[0.25em] text-[#A3E635] hover:text-[#A3E635] transition-colors relative group font-bold px-4 py-2 rounded-full hover:bg-[rgba(93,74,62,0.2)]"
                 >
                   {l.label}
                 </Link>
