@@ -10,6 +10,7 @@ import handsContact from "@/assets/hands_contact.png.asset.json";
 import pranayamaKs from "@/assets/pranayama-ks.jpg.asset.json";
 import oneFlow from "@/assets/one-flow.jpg.asset.json";
 import recodeNew from "@/assets/recode-new.jpg.asset.json";
+import pranayamaHero from "@/assets/pranayama-hero.png.asset.json";
 import MovementGeometry from "../biomechanical/MovementGeometry";
 
 const journey = [
@@ -39,7 +40,7 @@ const journey = [
     title: "Pranayama",
     category: "Advanced Breathwork · TTC module · Online",
     copy: "A deeper study of breath as capacity, regulation and attention. This is not breathwork as a quick fix. It is a deliberate practice for people ready to understand how breath changes movement.",
-    image: oneFlow,
+    image: pranayamaHero,
     price: 25000,
     type: "breath" as const,
     to: "/courses/pranayama" as any
