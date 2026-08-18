@@ -45,7 +45,7 @@ export default function Navigation() {
           className="relative z-[101] group flex items-center gap-3 outline-none"
         >
           <div className="flex flex-col">
-            <img src={ksLogo.url} alt="Kasratshala" className="h-20 sm:h-24 md:h-32 lg:h-40 w-auto group-hover:scale-105 transition-transform" />
+            <img src={ksLogo.url} alt="Kasratshala" className="h-40 sm:h-48 md:h-64 lg:h-[300px] w-auto group-hover:scale-105 transition-transform" />
           </div>
         </button>
 

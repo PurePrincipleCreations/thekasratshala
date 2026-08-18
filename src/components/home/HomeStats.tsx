@@ -35,7 +35,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
   }, [spring, isMobile]);
 
   return (
-    <span ref={ref} className="editorial-heading text-6xl md:text-8xl leading-none text-[var(--cream)]">
+    <span ref={ref} className="editorial-heading text-6xl md:text-8xl leading-none text-[var(--cream)] group-hover:text-[var(--gold)] transition-colors duration-500">
       {display}
       <span className="text-[var(--gold)]">{suffix}</span>
     </span>
@@ -54,7 +54,7 @@ export default function HomeStats() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.8, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-              className="space-y-4 relative"
+              className="space-y-4 relative group"
             >
               <div className="w-full h-px bg-[var(--bone)] mb-8">
                 <motion.div

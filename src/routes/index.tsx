@@ -32,11 +32,11 @@ function Index() {
     <Layout>
       <Hero />
       <Principles />
+      <FeaturedCourses />
       <HomeStats />
       <ScrollGallery />
       <StackedCards />
       <BeforeAfterScrub />
-      <FeaturedCourses />
       <HomeEvents />
       <HomeFinalCTA />
     </Layout>
