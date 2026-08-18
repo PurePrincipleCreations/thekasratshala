@@ -13,7 +13,7 @@ const principles = [
     n: "01",
     title: "Self Care",
     subtitle: "Recovery, breath and daily maintenance",
-    image: prayerBreath,
+    image: handsOnGrass,
     overlay: { circles: [{ cx: 200, cy: 300, r: 120 }], points: [{ x: 200, y: 300, label: "BREATH" }] }
   },
   {
