@@ -173,9 +173,9 @@ export default function CourseJourney() {
       <div className="md:hidden py-20 px-6 space-y-12">
         {journey.map((item) => (
           <div key={item.n} className="space-y-6 pb-12 border-b border-[var(--bone)]">
-            <div className="relative aspect-[4/3] rounded-sm border border-[var(--bone)] overflow-hidden">
-              <img src={item.image.url} className="w-full h-full object-cover grayscale-0 opacity-60" alt={item.title} />
-              <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative aspect-[4/5] rounded-sm border border-[var(--bone)] overflow-hidden">
+              <img src={item.image.url} className="w-full h-full object-contain grayscale-0 opacity-60" alt={item.title} />
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                  <MovementGeometry type={item.type} className="w-1/3 h-1/3 opacity-20" />
               </div>
             </div>
