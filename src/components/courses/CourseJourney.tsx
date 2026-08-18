@@ -40,7 +40,7 @@ const journey = [
     title: "Pranayama",
     category: "Advanced Breathwork · TTC module · Online",
     copy: "A deeper study of breath as capacity, regulation and attention. This is not breathwork as a quick fix. It is a deliberate practice for people ready to understand how breath changes movement.",
-    image: oneFlow,
+    image: pranayamaHero,
     price: 25000,
     type: "breath" as const,
     to: "/courses/pranayama" as any
