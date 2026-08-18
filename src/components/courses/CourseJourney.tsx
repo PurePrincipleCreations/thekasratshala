@@ -4,6 +4,9 @@ import { Link } from "@tanstack/react-router";
 import yogaPose from "@/assets/yoga_pose.png.asset.json";
 import macePose from "@/assets/mace_pose.png.asset.json";
 import handsContact from "@/assets/hands_contact.png.asset.json";
+import pranayamaKs from "@/assets/pranayama-ks.jpg.asset.json";
+import oneFlow from "@/assets/one-flow.jpg.asset.json";
+import recodeNew from "@/assets/recode-new.jpg.asset.json";
 import MovementGeometry from "../biomechanical/MovementGeometry";
 
 const journey = [
@@ -13,7 +16,7 @@ const journey = [
     category: "Foundational movement recoding · Level 1",
     copy: "RECODE is Kasratshala’s foundational movement recoding process for modern bodies. It helps people realign how they move through four focused areas: Upper Body · Lower Body · Core · Gait",
     metadata: "Four-part workshop and course format. Level 1 is intentionally limited.",
-    image: handsContact,
+    image: recodeNew,
     type: "recode" as const,
     to: "/courses/recode" as any
   },
@@ -22,7 +25,7 @@ const journey = [
     title: "Yoga for Strength",
     category: "Yoga Arts · Teacher Training Course module · Online",
     copy: "A yoga practice built for usable strength. Develop structure, joint capacity, balance and progressive control without separating strength from breath or awareness.",
-    image: yogaPose,
+    image: pranayamaKs,
     type: "strength" as const,
     to: "/courses/yoga-for-strength" as any
   },
@@ -31,7 +34,7 @@ const journey = [
     title: "Pranayama",
     category: "Advanced Breathwork · TTC module · Online",
     copy: "A deeper study of breath as capacity, regulation and attention. This is not breathwork as a quick fix. It is a deliberate practice for people ready to understand how breath changes movement.",
-    image: handsContact,
+    image: oneFlow,
     type: "breath" as const,
     to: "/courses/pranayama" as any
   },
@@ -117,7 +120,7 @@ export default function CourseJourney() {
                   <div className="relative aspect-square border border-[var(--bone)] rounded-sm overflow-hidden group/img">
                     <img 
                       src={item.image.url} 
-                      className="w-full h-full object-cover grayscale opacity-40 group-hover/img:scale-110 group-hover/img:opacity-60 transition-all duration-[2000ms]" 
+                      className="w-full h-full object-cover grayscale-0 opacity-60 group-hover/img:scale-110 group-hover/img:opacity-100 transition-all duration-[2000ms]" 
                       alt={item.title} 
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
@@ -145,7 +148,7 @@ export default function CourseJourney() {
         {journey.map((item) => (
           <div key={item.n} className="space-y-6 pb-12 border-b border-[var(--bone)]">
             <div className="relative aspect-[4/3] rounded-sm border border-[var(--bone)] overflow-hidden">
-              <img src={item.image.url} className="w-full h-full object-cover grayscale opacity-40" alt={item.title} />
+              <img src={item.image.url} className="w-full h-full object-cover grayscale-0 opacity-60" alt={item.title} />
               <div className="absolute inset-0 flex items-center justify-center">
                  <MovementGeometry type={item.type} className="w-1/3 h-1/3 opacity-20" />
               </div>

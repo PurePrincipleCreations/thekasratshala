@@ -39,9 +39,9 @@ export default function FeaturedCourses() {
   return (
     <section className="py-20 md:py-24 bg-[var(--night)] px-6">
       <div className="section-inner">
-        <div className="space-y-4 mb-20">
-          <p className="label-caps text-[var(--gold)]">Start where your body is.</p>
-          <h2 className="editorial-heading text-6xl">A few ways in.</h2>
+        <div className="space-y-6 mb-20 text-center">
+          <p className="label-caps text-[var(--gold)] text-xs md:text-sm tracking-[0.3em] opacity-60">Start where your body is.</p>
+          <h2 className="editorial-heading text-7xl md:text-[8rem] leading-[0.9] tracking-tighter">OUR COURSES.</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

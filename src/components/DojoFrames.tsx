@@ -3,8 +3,16 @@ import outdoorTraining from "@/assets/outdoor_training.png.asset.json";
 import macePose from "@/assets/mace_pose.png.asset.json";
 import feetDetail from "@/assets/feet_detail.png.asset.json";
 import stickDrill from "@/assets/stick_drill.png.asset.json";
+import drone1 from "@/assets/dojo-drone-1.jpg.asset.json";
+import buildingMist from "@/assets/dojo-building-mist.jpg.asset.json";
+import buildingClear from "@/assets/dojo-building-clear.jpg.asset.json";
+import stickTraining from "@/assets/stick-training.jpg.asset.json";
 
 const frames = [
+  { image: drone1.url, caption: "Dojo from above" },
+  { image: buildingMist.url, caption: "The Dojo in mist" },
+  { image: buildingClear.url, caption: "Clear skies" },
+  { image: stickTraining.url, caption: "Morning drills" },
   { image: outdoorTraining.url, caption: "The courtyard" },
   { image: macePose.url, caption: "The steel room" },
   { image: feetDetail.url, caption: "Ground contact" },
@@ -37,7 +45,7 @@ export default function DojoFrames() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3 md:gap-4">
           {frames.map((f, i) => (
             <motion.figure
               key={f.caption}
