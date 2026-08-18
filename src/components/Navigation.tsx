@@ -39,14 +39,14 @@ export default function Navigation() {
   }, [location.pathname]);
 
   return (
-    <nav className={`${isHomePage ? "absolute" : "sticky"} top-0 left-0 right-0 z-[100] py-2 md:py-4 transition-all duration-300 pointer-events-none ${!isHomePage ? "bg-[var(--night)]" : ""}`}>
-      <div className="section-inner flex items-center justify-between px-6 md:px-12 pointer-events-auto">
+    <nav className={`${isHomePage ? "absolute" : "sticky"} top-0 left-0 right-0 z-[100] py-0 transition-all duration-300 pointer-events-none ${!isHomePage ? "bg-[var(--night)]" : ""}`}>
+      <div className="section-inner flex items-center justify-between px-6 md:px-12 pointer-events-auto min-h-[60px] sm:min-h-[80px]">
         <button 
           onClick={() => setOpen(!open)}
-          className="relative z-[101] group flex items-center outline-none"
+          className="relative z-[101] group flex items-center outline-none py-1"
         >
           <div className="flex flex-col">
-            <img src={ksLogo.url} alt="Kasratshala" className="h-20 sm:h-28 md:h-36 lg:h-48 w-auto group-hover:scale-105 transition-transform" />
+            <img src={ksLogo.url} alt="Kasratshala" className="h-10 sm:h-14 md:h-20 lg:h-24 w-auto group-hover:scale-105 transition-transform" />
           </div>
         </button>
 
