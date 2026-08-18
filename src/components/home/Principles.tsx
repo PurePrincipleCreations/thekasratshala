@@ -37,7 +37,7 @@ const principles = [
     n: "04",
     title: "Safety",
     subtitle: "Mechanics, alignment and longevity",
-    image: yogaPose,
+    image: squatSafety,
     overlay: { paths: ["M100 100 L300 500"], points: [{ x: 200, y: 300, label: "ALIGNMENT" }] }
   },
   {
