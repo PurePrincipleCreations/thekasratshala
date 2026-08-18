@@ -3,18 +3,19 @@ import outdoorTraining from "@/assets/outdoor_training.png.asset.json";
 import macePose from "@/assets/mace_pose.png.asset.json";
 import feetDetail from "@/assets/feet_detail.png.asset.json";
 import stickDrill from "@/assets/stick_drill.png.asset.json";
-import drone1 from "@/assets/dojo-drone-1.jpg.asset.json";
 import buildingMist from "@/assets/dojo-building-mist.jpg.asset.json";
 import buildingClear from "@/assets/dojo-building-clear.jpg.asset.json";
 import stickTraining from "@/assets/stick-training.jpg.asset.json";
+import dojoDrone4 from "@/assets/dojo-drone-4.jpg.asset.json";
+import dojoDrone3 from "@/assets/dojo-drone-3.jpg.asset.json";
 
 const frames = [
-  { image: drone1.url, caption: "Dojo from above" },
+  { image: dojoDrone4.url, caption: "Dojo from above" },
   { image: buildingMist.url, caption: "The Dojo in mist" },
   { image: buildingClear.url, caption: "Clear skies" },
   { image: stickTraining.url, caption: "Morning drills" },
-  { image: outdoorTraining.url, caption: "The courtyard" },
-  { image: macePose.url, caption: "The steel room" },
+  { image: dojoDrone3.url, caption: "The courtyard" },
+  { image: macePose.url, caption: "Mace flow" },
   { image: feetDetail.url, caption: "Ground contact" },
   { image: stickDrill.url, caption: "Evening drills" },
 ];
@@ -41,7 +42,7 @@ export default function DojoFrames() {
         <div className="space-y-3">
           <p className="label-caps text-[var(--gold)] tracking-widest text-[10px]">The Dojo, in frames</p>
           <h2 className="editorial-heading text-3xl md:text-5xl leading-tight">
-            Naggar, Kullu District — <span className="italic text-[var(--gold)]">Himachal Pradesh</span>
+            The Living Space
           </h2>
         </div>
 

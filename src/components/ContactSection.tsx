@@ -24,7 +24,7 @@ export default function ContactSection() {
               <MapPin size={20} className="text-[var(--gold)] shrink-0 mt-1" />
               <div>
                 <p className="section-sub">Kasratshala</p>
-                <p className="text-[var(--cream)]/70 text-sm mt-1">Naggar, Kullu District<br/>Himachal Pradesh, India</p>
+                <p className="text-[var(--cream)]/70 text-sm mt-1">Naggar, Himachal Pradesh</p>
               </div>
             </div>
             <div className="flex gap-4">

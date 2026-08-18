@@ -125,7 +125,7 @@ export default function HeroOverlay() {
           transition={{ duration: 0.9, delay: 0.3, ease: EASE as unknown as number[] }}
           className="label-caps"
         >
-          Movement Arts Dojo · Naggar, Himachal Pradesh
+          Movement Arts Dojo
         </motion.p>
 
         <h1 className="hand-title text-6xl md:text-8xl text-[var(--heading)] leading-[0.95] mt-4">
