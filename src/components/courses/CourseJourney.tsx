@@ -11,6 +11,8 @@ import pranayamaKs from "@/assets/pranayama-ks.jpg.asset.json";
 import oneFlow from "@/assets/one-flow.jpg.asset.json";
 import recodeNew from "@/assets/recode-new.jpg.asset.json";
 import pranayamaHero from "@/assets/pranayama-hero.png.asset.json";
+import yogaForStrengthNew from "@/assets/yoga-for-strength-new.png.asset.json";
+import recodeNewV2 from "@/assets/recode-new-v2.png.asset.json";
 import MovementGeometry from "../biomechanical/MovementGeometry";
 
 const journey = [
@@ -20,7 +22,7 @@ const journey = [
     category: "Foundational movement recoding · Level 1",
     copy: "RECODE is Kasratshala’s foundational movement recoding process for modern bodies. It helps people realign how they move through four focused areas: Upper Body · Lower Body · Core · Gait",
     metadata: "Four-part workshop and course format. Level 1 is intentionally limited.",
-    image: recodeNew,
+    image: recodeNewV2,
     price: 15000,
     type: "recode" as const,
     to: "/courses/recode" as any
@@ -30,7 +32,7 @@ const journey = [
     title: "Yoga for Strength",
     category: "Yoga Arts · Teacher Training Course module · Online",
     copy: "A yoga practice built for usable strength. Develop structure, joint capacity, balance and progressive control without separating strength from breath or awareness.",
-    image: pranayamaKs,
+    image: yogaForStrengthNew,
     price: 40000,
     type: "strength" as const,
     to: "/courses/yoga-for-strength" as any
@@ -141,13 +143,13 @@ export default function CourseJourney() {
                     </div>
                   </div>
 
-                  <div className="relative aspect-square border border-[var(--bone)] rounded-sm overflow-hidden group/img">
+                  <div className="relative aspect-square md:aspect-auto h-[600px] border border-[var(--bone)] rounded-sm overflow-hidden group/img">
                     <img 
                       src={item.image.url} 
-                      className="w-full h-full object-cover grayscale-0 opacity-60 group-hover/img:scale-110 group-hover/img:opacity-100 transition-all duration-[2000ms]" 
+                      className="w-full h-full object-contain grayscale-0 opacity-60 group-hover/img:scale-110 group-hover/img:opacity-100 transition-all duration-[2000ms]" 
                       alt={item.title} 
                     />
-                    <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                        <MovementGeometry type={item.type} className="w-1/2 h-1/2 opacity-20" />
                     </div>
                   </div>
@@ -171,9 +173,9 @@ export default function CourseJourney() {
       <div className="md:hidden py-20 px-6 space-y-12">
         {journey.map((item) => (
           <div key={item.n} className="space-y-6 pb-12 border-b border-[var(--bone)]">
-            <div className="relative aspect-[4/3] rounded-sm border border-[var(--bone)] overflow-hidden">
-              <img src={item.image.url} className="w-full h-full object-cover grayscale-0 opacity-60" alt={item.title} />
-              <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative aspect-[4/5] rounded-sm border border-[var(--bone)] overflow-hidden">
+              <img src={item.image.url} className="w-full h-full object-contain grayscale-0 opacity-60" alt={item.title} />
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                  <MovementGeometry type={item.type} className="w-1/3 h-1/3 opacity-20" />
               </div>
             </div>
