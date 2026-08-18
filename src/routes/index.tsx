@@ -31,15 +31,13 @@ function Index() {
   return (
     <Layout>
       <Hero />
-      {/* MovementMarquee removed */}
       <Principles />
+      <HomeStats />
       <ScrollGallery />
       <StackedCards />
       <BeforeAfterScrub />
-      <HomeStats />
       <FeaturedCourses />
       <HomeEvents />
-
       <HomeFinalCTA />
     </Layout>
   );
