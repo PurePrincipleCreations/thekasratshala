@@ -38,7 +38,7 @@ export default function Navigation() {
   }, [location.pathname]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[100] py-4 md:py-8 transition-all duration-300 bg-gradient-to-b from-[var(--night)]/90 via-[var(--night)]/50 to-transparent">
+    <nav className="fixed top-0 left-0 right-0 z-[100] py-4 md:py-8 transition-all duration-300">
       <div className="section-inner flex items-center justify-between px-6 md:px-12">
         <button 
           onClick={() => setOpen(!open)}
