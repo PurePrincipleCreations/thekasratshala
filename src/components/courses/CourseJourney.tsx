@@ -1,6 +1,9 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "@tanstack/react-router";
+import { useAtom } from "jotai";
+import { cartAtom, isCartOpenAtom } from "@/lib/store";
+import { toast } from "sonner";
 import yogaPose from "@/assets/yoga_pose.png.asset.json";
 import macePose from "@/assets/mace_pose.png.asset.json";
 import handsContact from "@/assets/hands_contact.png.asset.json";
@@ -51,6 +54,19 @@ const journey = [
 ];
 
 export default function CourseJourney() {
+  const [cart, setCart] = useAtom(cartAtom);
+  const [, setIsCartOpen] = useAtom(isCartOpenAtom);
+
+  const addToCart = (id: string, name: string, price: number) => {
+    if (cart.find(item => item.id === id)) {
+      setIsCartOpen(true);
+      return;
+    }
+    setCart([...cart, { id, name, price }]);
+    toast.success(`${name} added to cart`);
+    setIsCartOpen(true);
+  };
+
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -101,19 +117,22 @@ export default function CourseJourney() {
                         <p className="text-[var(--muted)] text-sm opacity-60 font-hand">{item.metadata}</p>
                       )}
                       
-                      <Link 
-                        to={item.to} 
-                        className="group flex items-center gap-4 text-[var(--gold)]"
-                      >
-                        <span className="label-caps border-b border-[var(--gold)]/20 group-hover:border-[var(--gold)] transition-all">
+                      <div className="group flex items-center gap-4 text-[var(--gold)] cursor-pointer">
+                        <Link to={item.to} className="label-caps border-b border-[var(--gold)]/20 group-hover:border-[var(--gold)] transition-all">
                           Dive deep into {item.title}
-                        </span>
-                        <div className="w-10 h-10 border border-[var(--gold)] rounded-full flex items-center justify-center group-hover:bg-[var(--gold)] group-hover:text-[var(--night)] transition-all">
+                        </Link>
+                        <button 
+                          onClick={(e) => {
+                            e.preventDefault();
+                            addToCart(item.n, item.title, item.price);
+                          }}
+                          className="w-10 h-10 border border-[var(--gold)] rounded-full flex items-center justify-center group-hover:bg-[var(--gold)] group-hover:text-[var(--night)] transition-all"
+                        >
                           <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current stroke-2">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                           </svg>
                         </div>
-                      </Link>
+                      </div>
                     </div>
                   </div>
 
@@ -155,11 +174,15 @@ export default function CourseJourney() {
             </div>
             <div className="space-y-4">
               <p className="label-caps text-[8px] text-[var(--gold)]">{item.category}</p>
-              <h2 className="editorial-heading text-4xl">{item.title}</h2>
+              <Link to={item.to}><h2 className="editorial-heading text-4xl hover:text-[var(--gold)] transition-colors">{item.title}</h2></Link>
+              <p className="label-caps text-[var(--gold)]">₹{item.price.toLocaleString()}</p>
               <p className="text-[var(--muted)] text-base italic leading-relaxed">{item.copy}</p>
-              <Link to={item.to} className="inline-block px-8 py-3 bg-[var(--teal)] text-[var(--night)] label-caps text-[10px]">
-                Explore
-              </Link>
+              <button 
+                onClick={() => addToCart(item.n, item.title, item.price)}
+                className="inline-block px-8 py-3 bg-[var(--teal)] text-[var(--night)] label-caps text-[10px]"
+              >
+                Add to Cart
+              </button>
             </div>
           </div>
         ))}
