@@ -32,7 +32,7 @@ const journey = [
     title: "Yoga for Strength",
     category: "Yoga Arts · Teacher Training Course module · Online",
     copy: "A yoga practice built for usable strength. Develop structure, joint capacity, balance and progressive control without separating strength from breath or awareness.",
-    image: pranayamaKs,
+    image: yogaForStrengthNew,
     price: 40000,
     type: "strength" as const,
     to: "/courses/yoga-for-strength" as any
