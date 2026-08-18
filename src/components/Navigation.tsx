@@ -38,7 +38,7 @@ export default function Navigation() {
   }, [location.pathname]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[100] py-4 md:py-8 transition-all duration-300 pointer-events-none">
+    <nav className="sticky top-0 left-0 right-0 z-[100] py-4 md:py-8 transition-all duration-300 pointer-events-none bg-[var(--night)]">
       <div className="section-inner flex items-center justify-between px-6 md:px-12 pointer-events-auto">
         <button 
           onClick={() => setOpen(!open)}
@@ -49,7 +49,7 @@ export default function Navigation() {
           </div>
         </button>
 
-        <div className="hidden md:flex items-center gap-12 transition-all duration-500">
+        <div className="hidden md:flex items-center gap-8 lg:gap-12 transition-all duration-500">
           <AnimatePresence mode="wait">
             {!open && links.map((l, i) => (
               <motion.div
@@ -61,10 +61,9 @@ export default function Navigation() {
               >
                 <Link
                   to={l.path as any}
-                  className="label-caps text-[14px] lg:text-[16px] tracking-[0.25em] text-[var(--muted)] hover:text-[var(--gold)] transition-colors relative group font-bold"
+                  className="label-caps text-[20px] tracking-[0.25em] text-[#3d5a45] hover:text-[#3d5a45] transition-colors relative group font-bold px-4 py-2 rounded-full hover:bg-[rgba(93,74,62,0.2)]"
                 >
                   {l.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-[var(--gold)] transition-all group-hover:w-full" />
                 </Link>
               </motion.div>
             ))}

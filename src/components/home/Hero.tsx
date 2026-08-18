@@ -35,7 +35,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-[var(--night)] -mt-[120px]">
+    <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-[var(--night)]">
       {/* Background Video Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-[177.78vh] h-[56.25vw]">
