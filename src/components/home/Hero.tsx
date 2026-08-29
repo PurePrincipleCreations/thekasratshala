@@ -38,17 +38,21 @@ export default function Hero() {
     <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-[var(--night)]">
       {/* Background Video Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-[177.78vh] h-[56.25vw]">
+        {/* Oversized wrapper pushes YouTube's title bar / control chrome outside the visible frame */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(177.78vh*1.3)] h-[calc(56.25vw*1.3)] min-w-[130vw] min-h-[130vh]">
           <iframe
             ref={iframeRef}
-            src={`https://www.youtube.com/embed/H46Oo99i898?autoplay=1&mute=1&loop=1&playlist=H46Oo99i898&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&vq=hd1080&enablejsapi=1`}
-            className="absolute top-0 left-0 w-full h-full pointer-events-none"
+            src={`https://www.youtube-nocookie.com/embed/H46Oo99i898?autoplay=1&mute=1&loop=1&playlist=H46Oo99i898&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0&playsinline=1&cc_load_policy=0&vq=hd1080&enablejsapi=1`}
+            className="absolute top-0 left-0 w-full h-full pointer-events-none select-none"
             frameBorder="0"
             allow="autoplay; encrypted-media"
             title="Hero Video"
           />
         </div>
+        {/* Transparent shields so no YouTube UI can ever be hovered or clicked */}
+        <div className="absolute inset-0 z-10" aria-hidden="true" />
       </div>
+
 
 
 
