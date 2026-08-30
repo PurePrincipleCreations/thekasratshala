@@ -37,6 +37,13 @@ export default function Hero() {
 
   return (
     <section className="relative h-[100svh] min-h-[520px] flex flex-col items-center justify-center overflow-hidden bg-[var(--night)]">
+      {/* Poster fallback so the hero is never blank if the video is blocked */}
+      <img
+        src={dojoBuilding.url}
+        alt="The Kasratshala dojo in Naggar, Himachal Pradesh"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+
       {/* Background Video Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Oversized wrapper pushes YouTube's title bar and bottom-right chrome outside the visible frame */}
