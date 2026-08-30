@@ -10,7 +10,7 @@ export default function HomeFinalCTA() {
             <span className="italic text-[var(--gold)]">Stay for the shift.</span>
           </h2>
           <p className="text-[var(--muted)] text-xl leading-relaxed">
-            Join online from wherever you are, or meet us when the field calls.
+            Join online from wherever you are, &amp; write to us to do the same certifications in person.
           </p>
         </div>
 
