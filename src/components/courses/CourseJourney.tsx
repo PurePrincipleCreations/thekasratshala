@@ -62,9 +62,9 @@ const journey = [
     copy: "Steel Mace Flow develops rotational strength, shoulder integrity, timing and fluid multi-planar movement through the ancient gada.",
     metadata: "Veer — Master Trainer. Karam — Level 2 Trainer.",
     details: [
-      "Day 1 — Foundations: grip, stance, swing paths and safety",
-      "Day 2 — Strength and flow: rotational loading, transitions, sequencing",
-      "Day 3 — Teaching and assessment: coaching cues, programming, certification test",
+      "Foundations: grip, stance, swing paths and safety",
+      "Strength and flow: rotational loading, transitions, sequencing",
+      "Teaching and assessment: coaching cues, programming, certification test",
     ],
     forWhom: "For coaches, trainers and movement practitioners who want to teach the mace with structure and confidence — no prior mace experience required.",
     format: "Hybrid certification · online modules first, then the certification test performance at the Dojo",
