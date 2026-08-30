@@ -133,10 +133,10 @@ export default function Principles() {
       </div>
 
       {/* Mobile View - Now with smooth scroll reveal and longer presence */}
-      <div className="md:hidden py-32 space-y-32 px-6">
-        <div className="space-y-6">
-          <p className="label-caps text-[var(--gold)] tracking-widest text-[12px]">THE KASRATSHALA WAY</p>
-          <h2 className="editorial-heading text-5xl leading-tight">A different relationship with your body.</h2>
+      <div className="md:hidden py-12 space-y-14 px-6">
+        <div className="space-y-3">
+          <p className="label-caps text-[var(--gold)] tracking-widest text-[11px]">THE KASRATSHALA WAY</p>
+          <h2 className="editorial-heading text-[2.6rem] leading-[1.05]">A different relationship with your body.</h2>
         </div>
         {principles.map((p, i) => (
           <motion.div
@@ -148,7 +148,7 @@ export default function Principles() {
               margin: "-10% 0px -20% 0px" // Trigger slightly earlier and stay longer
             }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="space-y-8"
+            className="space-y-5"
           >
             <div className="relative aspect-square border border-[var(--bone)] rounded-sm overflow-hidden bg-[var(--night)]">
               <motion.img 
@@ -168,7 +168,7 @@ export default function Principles() {
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="editorial-heading text-7xl text-[var(--gold)] opacity-50"
+                className="editorial-heading text-5xl text-[var(--gold)] opacity-50"
               >
                 {p.n}
               </motion.p>

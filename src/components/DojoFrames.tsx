@@ -37,7 +37,7 @@ const reviews = [
 
 export default function DojoFrames() {
   return (
-    <section className="relative py-20 md:py-24 px-6 bg-[var(--night)] border-t border-[var(--bone)]">
+    <section className="relative py-12 md:py-24 px-6 bg-[var(--night)] border-t border-[var(--bone)]">
       <div className="section-inner space-y-12">
         <div className="space-y-3">
           <p className="label-caps text-[var(--gold)] tracking-widest text-[10px]">The Dojo, in frames</p>

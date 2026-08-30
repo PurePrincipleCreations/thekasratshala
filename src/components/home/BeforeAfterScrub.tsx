@@ -14,8 +14,8 @@ export default function BeforeAfterScrub() {
   const afterOpacity = useTransform(smooth, [0.4, 0.85], [0.25, 1]);
 
   return (
-    <section ref={ref} className="relative h-[300vh] bg-[var(--night)]">
-      <div className="sticky top-0 h-screen overflow-hidden flex items-center">
+    <section ref={ref} className="relative h-[220vh] md:h-[300vh] bg-[var(--night)]">
+      <div className="sticky top-0 h-[100svh] overflow-hidden flex items-center">
         <div className="section-inner w-full">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
             <div className="space-y-3">

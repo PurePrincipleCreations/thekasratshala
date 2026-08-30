@@ -19,7 +19,7 @@ export const Route = createFileRoute("/kinetic")({
 function KineticPage() {
   return (
     <Layout>
-      <section className="min-h-[80vh] flex items-center justify-center px-6 py-32">
+      <section className="min-h-[70vh] flex items-center justify-center px-6 py-20 md:py-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

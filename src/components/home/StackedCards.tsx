@@ -42,7 +42,7 @@ function Card({ i, total, card }: { i: number; total: number; card: (typeof card
   const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1, 0.35]);
 
   return (
-    <div ref={ref} className="h-screen sticky top-0 flex items-center justify-center px-4 md:px-6">
+    <div ref={ref} className="h-[100svh] sticky top-0 flex items-center justify-center px-4 md:px-6">
       <motion.article
         style={{ scale, opacity, zIndex: i }}
         className="relative w-full max-w-5xl overflow-hidden rounded-sm border border-[var(--bone)] bg-[var(--forest)] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)] h-[80vh] md:h-auto"
@@ -78,7 +78,7 @@ function Card({ i, total, card }: { i: number; total: number; card: (typeof card
 export default function StackedCards() {
   return (
     <section className="relative bg-[var(--night)] border-y border-[var(--bone)]">
-      <div className="section-inner pt-20 md:pt-24 pb-10">
+      <div className="section-inner pt-12 md:pt-24 pb-6 md:pb-10">
         <p className="label-caps text-[var(--gold)] mb-4">How we work</p>
         <h2 className="editorial-heading text-4xl md:text-7xl leading-[0.95] text-[var(--cream)] max-w-3xl">
           Four ideas that hold<br />

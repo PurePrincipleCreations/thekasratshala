@@ -11,7 +11,7 @@ export default function Layout({ children }: { children?: ReactNode }) {
   const isHomePage = location.pathname === "/";
 
   return (
-    <div className="relative min-h-screen selection:bg-[var(--gold)] selection:text-[var(--night)] bg-[var(--page)]">
+    <div className="relative min-h-screen overflow-x-hidden selection:bg-[var(--gold)] selection:text-[var(--night)] bg-[var(--page)]">
       <div className="grain-overlay" />
       <Navigation />
       
@@ -22,7 +22,7 @@ export default function Layout({ children }: { children?: ReactNode }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`relative ${isHomePage ? "pt-0" : "pt-20"}`}
+          className={`relative ${isHomePage ? "pt-0" : "pt-16 md:pt-20"}`}
         >
           {children || <Outlet />}
           <DojoFrames />

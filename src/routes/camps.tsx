@@ -9,7 +9,7 @@ import yogaForStrengthNew from "@/assets/yoga-for-strength-new.png.asset.json";
 import yogaPose from "@/assets/yoga_pose.png.asset.json";
 import macePose from "@/assets/mace_pose.png.asset.json";
 import outdoorMace1 from "@/assets/outdoor_mace_1.png.asset.json";
-import oneFlowImg from "@/assets/one-flow.jpg.asset.json";
+import flowRainbow from "@/assets/flow-rainbow.jpg.asset.json";
 import BiomechanicalOverlay from "@/components/biomechanical/BiomechanicalOverlay";
 
 const camps = [
@@ -31,7 +31,7 @@ const camps = [
     title: "One Flow",
     category: "Residential immersion · Naggar",
     copy: "Different arts under one roof — community, flow, joy, experience.",
-    image: oneFlowImg,
+    image: flowRainbow,
     intro:
       "One Flow brings different arts under our roof inclusive of community, Flow, joy, Experience.",
     details: [
@@ -105,7 +105,7 @@ function CampsPage() {
 
   return (
     <Layout>
-      <section className="py-24 md:py-32 px-6 bg-[var(--night)]">
+      <section className="py-16 md:py-32 px-6 bg-[var(--night)]">
         <div className="section-inner max-w-4xl space-y-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
             <p className="label-caps text-[var(--gold)]">In person immersions</p>
@@ -127,7 +127,7 @@ function CampsPage() {
           const isOpen = open === camp.title;
           return (
             <div key={camp.title} className="relative border-t border-[var(--bone)] group overflow-hidden">
-              <div className="relative min-h-[75vh] flex">
+              <div className="relative min-h-[70svh] md:min-h-[80vh] flex">
                 <img
                   src={camp.image.url}
                   className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-all duration-[2000ms]"
@@ -191,7 +191,7 @@ function CampsPage() {
         })}
       </section>
 
-      <section className="py-24 bg-[var(--night)] px-6 border-t border-[var(--bone)]">
+      <section className="py-14 md:py-24 bg-[var(--night)] px-6 border-t border-[var(--bone)]">
         <div className="section-inner grid md:grid-cols-2 gap-12 items-center">
           <div className="relative h-[360px] md:h-[480px] border border-[var(--bone)] rounded-sm overflow-hidden bg-[var(--alt)]">
             <img src={yogaForStrengthNew.url} className="w-full h-full object-contain" alt="Yoga for Strength" />
@@ -269,7 +269,7 @@ function CampsPage() {
         </div>
       </section>
 
-      <section className="py-40 bg-[var(--night)] px-6 text-center border-t border-[var(--bone)]">
+      <section className="py-20 md:py-32 bg-[var(--night)] px-6 text-center border-t border-[var(--bone)]">
         <div className="section-inner max-w-2xl space-y-10">
           <h2 className="editorial-heading text-5xl italic">Come for the practice. Stay long enough for it to change your rhythm.</h2>
           <Link to="/connect" className="inline-block px-10 py-5 bg-[var(--gold)] text-[var(--night)] label-caps">
