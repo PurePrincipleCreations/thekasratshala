@@ -127,7 +127,7 @@ function CampsPage() {
           const isOpen = open === camp.title;
           return (
             <div key={camp.title} className="relative border-t border-[var(--bone)] group overflow-hidden">
-              <div className="relative min-h-[75vh] flex">
+              <div className="relative min-h-[70svh] md:min-h-[80vh] flex">
                 <img
                   src={camp.image.url}
                   className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-all duration-[2000ms]"

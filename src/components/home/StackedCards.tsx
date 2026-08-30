@@ -42,7 +42,7 @@ function Card({ i, total, card }: { i: number; total: number; card: (typeof card
   const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1, 0.35]);
 
   return (
-    <div ref={ref} className="h-screen sticky top-0 flex items-center justify-center px-4 md:px-6">
+    <div ref={ref} className="h-[100svh] sticky top-0 flex items-center justify-center px-4 md:px-6">
       <motion.article
         style={{ scale, opacity, zIndex: i }}
         className="relative w-full max-w-5xl overflow-hidden rounded-sm border border-[var(--bone)] bg-[var(--forest)] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)] h-[80vh] md:h-auto"
