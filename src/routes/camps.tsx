@@ -105,7 +105,7 @@ function CampsPage() {
 
   return (
     <Layout>
-      <section className="py-24 md:py-32 px-6 bg-[var(--night)]">
+      <section className="py-16 md:py-32 px-6 bg-[var(--night)]">
         <div className="section-inner max-w-4xl space-y-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
             <p className="label-caps text-[var(--gold)]">In person immersions</p>
@@ -191,7 +191,7 @@ function CampsPage() {
         })}
       </section>
 
-      <section className="py-24 bg-[var(--night)] px-6 border-t border-[var(--bone)]">
+      <section className="py-14 md:py-24 bg-[var(--night)] px-6 border-t border-[var(--bone)]">
         <div className="section-inner grid md:grid-cols-2 gap-12 items-center">
           <div className="relative h-[360px] md:h-[480px] border border-[var(--bone)] rounded-sm overflow-hidden bg-[var(--alt)]">
             <img src={yogaForStrengthNew.url} className="w-full h-full object-contain" alt="Yoga for Strength" />
@@ -269,7 +269,7 @@ function CampsPage() {
         </div>
       </section>
 
-      <section className="py-40 bg-[var(--night)] px-6 text-center border-t border-[var(--bone)]">
+      <section className="py-20 md:py-32 bg-[var(--night)] px-6 text-center border-t border-[var(--bone)]">
         <div className="section-inner max-w-2xl space-y-10">
           <h2 className="editorial-heading text-5xl italic">Come for the practice. Stay long enough for it to change your rhythm.</h2>
           <Link to="/connect" className="inline-block px-10 py-5 bg-[var(--gold)] text-[var(--night)] label-caps">

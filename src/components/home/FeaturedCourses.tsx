@@ -37,7 +37,7 @@ const featured = [
 
 export default function FeaturedCourses() {
   return (
-    <section className="py-20 md:py-24 bg-[var(--night)] px-6">
+    <section className="py-12 md:py-24 bg-[var(--night)] px-6">
       <div className="section-inner">
         <div className="space-y-6 mb-20 text-center">
           <p className="label-caps text-[var(--gold)] text-xs md:text-sm tracking-[0.3em] opacity-60">Start where your body is.</p>

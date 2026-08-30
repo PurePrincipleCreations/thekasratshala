@@ -133,7 +133,7 @@ export default function Principles() {
       </div>
 
       {/* Mobile View - Now with smooth scroll reveal and longer presence */}
-      <div className="md:hidden py-32 space-y-32 px-6">
+      <div className="md:hidden py-16 space-y-16 px-6">
         <div className="space-y-6">
           <p className="label-caps text-[var(--gold)] tracking-widest text-[12px]">THE KASRATSHALA WAY</p>
           <h2 className="editorial-heading text-5xl leading-tight">A different relationship with your body.</h2>

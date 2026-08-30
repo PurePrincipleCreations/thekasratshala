@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 
 export default function HomeFinalCTA() {
   return (
-    <section className="py-40 bg-[var(--night)] px-6 text-center border-t border-[var(--bone)]">
+    <section className="py-20 md:py-32 bg-[var(--night)] px-6 text-center border-t border-[var(--bone)]">
       <div className="section-inner max-w-3xl space-y-12">
         <div className="space-y-6">
           <h2 className="editorial-heading text-6xl md:text-8xl">
