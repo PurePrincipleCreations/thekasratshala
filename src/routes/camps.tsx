@@ -9,7 +9,7 @@ import yogaForStrengthNew from "@/assets/yoga-for-strength-new.png.asset.json";
 import yogaPose from "@/assets/yoga_pose.png.asset.json";
 import macePose from "@/assets/mace_pose.png.asset.json";
 import outdoorMace1 from "@/assets/outdoor_mace_1.png.asset.json";
-import oneFlowImg from "@/assets/one-flow.jpg.asset.json";
+import flowRainbow from "@/assets/flow-rainbow.jpg.asset.json";
 import BiomechanicalOverlay from "@/components/biomechanical/BiomechanicalOverlay";
 
 const camps = [
@@ -31,7 +31,7 @@ const camps = [
     title: "One Flow",
     category: "Residential immersion · Naggar",
     copy: "Different arts under one roof — community, flow, joy, experience.",
-    image: oneFlowImg,
+    image: flowRainbow,
     intro:
       "One Flow brings different arts under our roof inclusive of community, Flow, joy, Experience.",
     details: [
