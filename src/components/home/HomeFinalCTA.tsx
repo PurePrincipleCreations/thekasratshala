@@ -16,10 +16,10 @@ export default function HomeFinalCTA() {
 
         <div className="flex flex-wrap justify-center gap-6">
           <Link
-            to={"/courses" as any}
+            to={"/certifications" as any}
             className="px-10 py-5 bg-[var(--teal)] text-[var(--night)] font-hand text-xl hover:bg-[var(--gold)] transition-all"
           >
-            Explore Courses
+            Explore Certifications
           </Link>
           <Link
             to={"/connect" as any}
