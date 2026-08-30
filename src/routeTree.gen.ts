@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as OneFlowRouteImport } from './routes/one-flow'
 import { Route as ConnectRouteImport } from './routes/connect'
+import { Route as CertificationsRouteImport } from './routes/certifications'
 import { Route as CampsRouteImport } from './routes/camps'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CoursesIndexRouteImport } from './routes/courses/index'
@@ -27,6 +28,11 @@ const OneFlowRoute = OneFlowRouteImport.update({
 const ConnectRoute = ConnectRouteImport.update({
   id: '/connect',
   path: '/connect',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CertificationsRoute = CertificationsRouteImport.update({
+  id: '/certifications',
+  path: '/certifications',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CampsRoute = CampsRouteImport.update({
@@ -68,6 +74,7 @@ const CoursesPranayamaRoute = CoursesPranayamaRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/camps': typeof CampsRoute
+  '/certifications': typeof CertificationsRoute
   '/connect': typeof ConnectRoute
   '/one-flow': typeof OneFlowRoute
   '/courses/pranayama': typeof CoursesPranayamaRoute
@@ -79,6 +86,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/camps': typeof CampsRoute
+  '/certifications': typeof CertificationsRoute
   '/connect': typeof ConnectRoute
   '/one-flow': typeof OneFlowRoute
   '/courses/pranayama': typeof CoursesPranayamaRoute
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/camps': typeof CampsRoute
+  '/certifications': typeof CertificationsRoute
   '/connect': typeof ConnectRoute
   '/one-flow': typeof OneFlowRoute
   '/courses/pranayama': typeof CoursesPranayamaRoute
@@ -104,6 +113,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/camps'
+    | '/certifications'
     | '/connect'
     | '/one-flow'
     | '/courses/pranayama'
@@ -115,6 +125,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/camps'
+    | '/certifications'
     | '/connect'
     | '/one-flow'
     | '/courses/pranayama'
@@ -126,6 +137,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/camps'
+    | '/certifications'
     | '/connect'
     | '/one-flow'
     | '/courses/pranayama'
@@ -138,6 +150,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CampsRoute: typeof CampsRoute
+  CertificationsRoute: typeof CertificationsRoute
   ConnectRoute: typeof ConnectRoute
   OneFlowRoute: typeof OneFlowRoute
   CoursesPranayamaRoute: typeof CoursesPranayamaRoute
@@ -161,6 +174,13 @@ declare module '@tanstack/react-router' {
       path: '/connect'
       fullPath: '/connect'
       preLoaderRoute: typeof ConnectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/certifications': {
+      id: '/certifications'
+      path: '/certifications'
+      fullPath: '/certifications'
+      preLoaderRoute: typeof CertificationsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/camps': {
@@ -218,6 +238,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CampsRoute: CampsRoute,
+  CertificationsRoute: CertificationsRoute,
   ConnectRoute: ConnectRoute,
   OneFlowRoute: OneFlowRoute,
   CoursesPranayamaRoute: CoursesPranayamaRoute,
