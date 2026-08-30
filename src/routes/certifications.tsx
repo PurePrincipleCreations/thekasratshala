@@ -22,11 +22,11 @@ export const Route = createFileRoute("/certifications")({
 function CertificationsPage() {
   return (
     <Layout>
-      <section className="pt-48 pb-20 px-6 border-b border-[var(--bone)]">
+      <section className="pt-24 md:pt-28 pb-20 px-6 border-b border-[var(--bone)]">
         <div className="section-inner text-center space-y-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
             <p className="label-caps text-[var(--gold)]">Start where your body is</p>
-            <h1 className="editorial-heading text-7xl md:text-[10rem] leading-none">Coach confidently</h1>
+            <h1 className="editorial-heading text-[13vw] md:text-[7.5rem] leading-none whitespace-nowrap">Coach confidently</h1>
           </motion.div>
 
           <motion.p
