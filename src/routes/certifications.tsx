@@ -26,7 +26,7 @@ function CertificationsPage() {
         <div className="section-inner text-center space-y-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
             <p className="label-caps text-[var(--gold)]">Start where your body is</p>
-            <h1 className="editorial-heading text-7xl md:text-[10rem] leading-none">Certifications.</h1>
+            <h1 className="editorial-heading text-7xl md:text-[10rem] leading-none">Coach confidently</h1>
           </motion.div>
 
           <motion.p
@@ -35,7 +35,7 @@ function CertificationsPage() {
             transition={{ delay: 0.2 }}
             className="max-w-xl mx-auto text-[var(--muted)] text-lg italic"
           >
-            An overview of our certification tracks. Open any path to go deeper into the practice, structure and details.
+            Certifications give you the ability to share your knowledge with people, honoring its creators.
           </motion.p>
         </div>
       </section>

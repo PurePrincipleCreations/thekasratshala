@@ -6,7 +6,6 @@ import { cartAtom, isCartOpenAtom } from "@/lib/store";
 import { toast } from "sonner";
 import macePose from "@/assets/mace_pose.png.asset.json";
 import pranayamaHero from "@/assets/pranayama-hero.png.asset.json";
-import yogaForStrengthNew from "@/assets/yoga-for-strength-new.png.asset.json";
 import recodeNewV2 from "@/assets/recode-new-v2.png.asset.json";
 import MovementGeometry from "../biomechanical/MovementGeometry";
 
@@ -31,23 +30,6 @@ const journey = [
   },
   {
     n: "02",
-    title: "Yoga for Strength",
-    category: "Yoga Arts · Teacher Training Course module · Online",
-    copy: "A yoga practice built for usable strength. Develop structure, joint capacity, balance and progressive control without separating strength from breath or awareness.",
-    details: [
-      "Progressive loading inside familiar yoga shapes",
-      "Joint capacity, balance and controlled range",
-      "Breath as a structural tool, not decoration",
-      "Teaching methodology for movement educators",
-    ],
-    format: "Online TTC module · includes GST",
-    image: yogaForStrengthNew,
-    price: 40000,
-    type: "strength" as const,
-    to: "/courses/yoga-for-strength" as const,
-  },
-  {
-    n: "03",
     title: "Pranayama",
     category: "Advanced Breathwork · TTC module · Online",
     copy: "A deeper study of breath as capacity, regulation and attention. This is not breathwork as a quick fix. It is a deliberate practice for people ready to understand how breath changes movement.",
@@ -64,7 +46,7 @@ const journey = [
     to: "/courses/pranayama" as const,
   },
   {
-    n: "04",
+    n: "03",
     title: "Steel Mace Flow",
     category: "Strength Arts + Movement Arts · Certification",
     copy: "Steel Mace Flow develops rotational strength, shoulder integrity, timing and fluid multi-planar movement through the ancient gada.",
