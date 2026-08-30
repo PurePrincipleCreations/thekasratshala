@@ -79,6 +79,50 @@ function CampsPage() {
         ))}
       </section>
 
+      <section className="py-24 bg-[var(--night)] px-6 border-t border-[var(--bone)]">
+        <div className="section-inner grid md:grid-cols-2 gap-12 items-center">
+          <div className="relative h-[360px] md:h-[480px] border border-[var(--bone)] rounded-sm overflow-hidden bg-[var(--alt)]">
+            <img src={yogaForStrengthNew.url} className="w-full h-full object-contain" alt="Yoga for Strength" />
+          </div>
+          <div className="space-y-6">
+            <p className="label-caps text-[var(--gold)] text-[10px]">Yoga Arts · Teacher Training Course module · Online</p>
+            <h2 className="editorial-heading text-5xl md:text-6xl">Yoga for Strength</h2>
+            <p className="text-[var(--muted)] text-lg italic leading-relaxed max-w-lg">
+              A yoga practice built for usable strength. Develop structure, joint capacity, balance and progressive
+              control without separating strength from breath or awareness.
+            </p>
+            <ul className="space-y-3">
+              {[
+                "Progressive loading inside familiar yoga shapes",
+                "Joint capacity, balance and controlled range",
+                "Breath as a structural tool, not decoration",
+                "Teaching methodology for movement educators",
+              ].map((d) => (
+                <li key={d} className="flex gap-3 text-[var(--muted)] text-base italic">
+                  <span className="text-[var(--gold)]">—</span>
+                  <span>{d}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="label-caps text-[var(--gold)]">₹40,000</p>
+            <div className="flex flex-wrap gap-4 pt-2">
+              <button
+                onClick={addYogaToCart}
+                className="px-8 py-3 bg-[var(--teal)] text-[var(--night)] label-caps text-[10px] hover:bg-[var(--gold)] transition-colors"
+              >
+                Add to cart
+              </button>
+              <Link
+                to="/courses/yoga-for-strength"
+                className="label-caps text-[10px] text-[var(--gold)] border-b border-[var(--gold)]/30 hover:border-[var(--gold)] transition-colors self-center"
+              >
+                Dive deep into Yoga for Strength
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-40 bg-[var(--night)] px-6 text-center border-t border-[var(--bone)]">
         <div className="section-inner max-w-2xl space-y-10">
           <h2 className="editorial-heading text-5xl italic">Come for the practice. Stay long enough for it to change your rhythm.</h2>
