@@ -10,9 +10,9 @@ import toriiGate from "@/assets/torii-gate.png.asset.json";
 
 const links = [
   { label: "Home", path: "/" },
-  { label: "Courses", path: "/courses" },
+  { label: "Certifications", path: "/certifications" },
   { label: "Camps", path: "/camps" },
-  { label: "One Flow", path: "/one-flow" },
+  { label: "Kinetic", path: "/kinetic" },
   { label: "Connect", path: "/connect" },
 ] as const;
 

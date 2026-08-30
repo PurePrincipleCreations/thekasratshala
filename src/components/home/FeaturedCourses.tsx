@@ -41,7 +41,7 @@ export default function FeaturedCourses() {
       <div className="section-inner">
         <div className="space-y-6 mb-20 text-center">
           <p className="label-caps text-[var(--gold)] text-xs md:text-sm tracking-[0.3em] opacity-60">Start where your body is.</p>
-          <h2 className="editorial-heading text-7xl md:text-[8rem] leading-[0.9] tracking-tighter">OUR COURSES.</h2>
+          <h2 className="editorial-heading text-7xl md:text-[8rem] leading-[0.9] tracking-tighter">CERTIFICATIONS.</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -54,7 +54,7 @@ export default function FeaturedCourses() {
               <div className="relative aspect-[3/4] overflow-hidden rounded-sm border border-[var(--bone)]">
                 <motion.img 
                   src={item.image.url} 
-                  className="w-full h-full object-cover grayscale opacity-50 group-hover:scale-105 group-hover:opacity-70 transition-all duration-700"
+                  className="w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700"
                   alt={item.title}
                 />
                 <div className="absolute inset-0 p-8 flex flex-col justify-between">
@@ -83,10 +83,10 @@ export default function FeaturedCourses() {
 
         <div className="mt-20 text-center">
           <Link 
-            to={"/courses" as any}
+            to={"/certifications" as any}
             className="inline-block px-10 py-4 border border-[var(--bone)] text-[var(--cream)] font-hand text-xl hover:bg-[var(--bone)] transition-all"
           >
-            View all courses
+            View all certifications
           </Link>
         </div>
       </div>

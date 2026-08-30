@@ -10,16 +10,16 @@ export default function HomeFinalCTA() {
             <span className="italic text-[var(--gold)]">Stay for the shift.</span>
           </h2>
           <p className="text-[var(--muted)] text-xl leading-relaxed">
-            Join online from wherever you are, or meet us when the field calls.
+            Join online from wherever you are, &amp; write to us to do the same certifications in person.
           </p>
         </div>
 
         <div className="flex flex-wrap justify-center gap-6">
           <Link
-            to={"/courses" as any}
+            to={"/certifications" as any}
             className="px-10 py-5 bg-[var(--teal)] text-[var(--night)] font-hand text-xl hover:bg-[var(--gold)] transition-all"
           >
-            Explore Courses
+            Explore Certifications
           </Link>
           <Link
             to={"/connect" as any}
