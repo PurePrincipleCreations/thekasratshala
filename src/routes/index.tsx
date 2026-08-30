@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Kasratshala — Movement Arts Dojo · Naggar, Himachal" },
-      { name: "description", content: "Ancient tools, yoga and modern movement science in one living practice. 10 online courses, residential camps in Naggar, and the One Flow Gathering." },
+      { name: "description", content: "Ancient tools, yoga and modern movement science in one living practice. Certification tracks online and residential camps in Naggar, Himachal." },
       { property: "og:title", content: "Kasratshala — Movement Arts Dojo" },
       { property: "og:description", content: "Ancient tools. Modern movement science. One body. Online courses and residential camps in Naggar, Himachal Pradesh." },
       { property: "og:type", content: "website" },
