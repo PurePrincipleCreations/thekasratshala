@@ -114,7 +114,7 @@ export default function Principles() {
                       style={{ opacity, x: springX, y: springY }}
                       className="absolute inset-0"
                     >
-                      <img src={p.image.url} className="w-full h-full object-cover grayscale opacity-50 transition-all duration-700 pointer-events-auto hover:grayscale-0 hover:opacity-100" alt={p.title} />
+                      <img src={p.image.url} className="w-full h-full object-cover transition-all duration-700 pointer-events-auto hover:scale-105" alt={p.title} />
                       <BiomechanicalOverlay {...p.overlay} />
                     </motion.div>
                   );
@@ -153,7 +153,7 @@ export default function Principles() {
             <div className="relative aspect-square border border-[var(--bone)] rounded-sm overflow-hidden bg-[var(--night)]">
               <motion.img 
                 src={p.image.url} 
-                className="w-full h-full object-cover grayscale opacity-60 active:grayscale-0 active:opacity-100 transition-all duration-700" 
+                className="w-full h-full object-cover transition-all duration-700" 
                 alt={p.title}
                 initial={{ scale: 1.2 }}
                 whileInView={{ scale: 1 }}

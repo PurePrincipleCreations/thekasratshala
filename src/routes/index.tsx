@@ -3,7 +3,6 @@ import Hero from "@/components/home/Hero";
 import MovementMarquee from "@/components/home/MovementMarquee";
 import Principles from "@/components/home/Principles";
 import ScrollGallery from "@/components/home/ScrollGallery";
-import HomeStats from "@/components/home/HomeStats";
 import StackedCards from "@/components/home/StackedCards";
 import BeforeAfterScrub from "@/components/home/BeforeAfterScrub";
 import FeaturedCourses from "@/components/home/FeaturedCourses";
@@ -33,7 +32,6 @@ function Index() {
       <Hero />
       <Principles />
       <FeaturedCourses />
-      <HomeStats />
       <ScrollGallery />
       <StackedCards />
       <BeforeAfterScrub />

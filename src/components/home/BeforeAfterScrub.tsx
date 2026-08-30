@@ -35,7 +35,7 @@ export default function BeforeAfterScrub() {
             <img
               src={movingIntent1.url}
               alt="Before — grounding and base work"
-              className="absolute inset-0 w-full h-full object-cover grayscale opacity-70"
+              className="absolute inset-0 w-full h-full object-cover opacity-80"
             />
             {/* After, revealed by scroll */}
             <motion.img
@@ -60,13 +60,13 @@ export default function BeforeAfterScrub() {
               style={{ opacity: beforeOpacity }}
               className="absolute bottom-5 left-5 label-caps text-[9px] px-3 py-1.5 bg-[var(--night)]/80 text-[var(--cream)] border border-[var(--bone)]"
             >
-              Before · base &amp; contact
+              Before · Recode &amp; Conditioning
             </motion.span>
             <motion.span
               style={{ opacity: afterOpacity }}
               className="absolute bottom-5 right-5 label-caps text-[9px] px-3 py-1.5 bg-[var(--night)]/80 text-[var(--gold)] border border-[var(--gold)]/40"
             >
-              After · load &amp; rotation
+              After · Skill under load and time
             </motion.span>
           </div>
         </div>
