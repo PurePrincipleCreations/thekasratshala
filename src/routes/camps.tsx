@@ -1,6 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
+import { useAtom } from "jotai";
+import { toast } from "sonner";
+import { cartAtom, isCartOpenAtom } from "@/lib/store";
+import yogaForStrengthNew from "@/assets/yoga-for-strength-new.png.asset.json";
 import yogaPose from "@/assets/yoga_pose.png.asset.json";
 import macePose from "@/assets/mace_pose.png.asset.json";
 import outdoorMace1 from "@/assets/outdoor_mace_1.png.asset.json";
