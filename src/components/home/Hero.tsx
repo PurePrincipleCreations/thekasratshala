@@ -1,3 +1,4 @@
+import dojoBuilding from "@/assets/dojo-building-clear.jpg.asset.json";
 import { useEffect, useState } from "react";
 
 const VIDEO_ID = "H46Oo99i898";
