@@ -8,18 +8,18 @@ const events = [
     title: "The Kasrat Camp",
     category: "Residential immersion",
     description:
-      "Our signature camp from THE KASRATSHALA, focused on strength & conditioning with mace, kettlebells, resistance bands, clubs and more. TKC brings back the ABCDE's — Agility, Balance, Dexterity, Efficiency, Speed — the base of our protocols and movement discipline. It is also a healthy holiday in the Himalayas, with challenges that push you beyond your comfort zone to become stronger and better.",
+      "Our signature camp from THE KASRATSHALA — strength & conditioning with mace, kettlebells, resistance bands, clubs and more. It brings back the ABCDE's: Agility, Balance, Dexterity, Efficiency, Speed.",
     image: macePose,
-    cta: "Explore the camp",
+    cta: "See what happens at TKC",
     to: "/camps" as any,
   },
   {
     title: "One Flow",
     category: "Residential immersion",
     description:
-      "One Flow brings different arts under our roof — community, flow, joy, experience. Unique multidisciplinary combinations: Vinyasa yoga flow, SMF, Kali Yoga, Flow Arts (Dapo, Poi, Fire Toys), hiking and cold exposure, and creative arts.",
+      "One Flow brings different arts under our roof — community, flow, joy, experience. Unique multidisciplinary combinations, in one field, over a few days.",
     image: yogaPose,
-    cta: "Explore One Flow",
+    cta: "See the full line-up",
     to: "/camps" as any,
   },
 ];
