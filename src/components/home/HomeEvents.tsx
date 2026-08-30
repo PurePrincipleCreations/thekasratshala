@@ -1,35 +1,27 @@
-import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import yogaPose from "@/assets/yoga_pose.png.asset.json";
 import macePose from "@/assets/mace_pose.png.asset.json";
-import handsContact from "@/assets/hands_contact.png.asset.json";
 import BiomechanicalOverlay from "../biomechanical/BiomechanicalOverlay";
 
 const events = [
   {
-    title: "Yoga for Strength Camp",
+    title: "The Kasrat Camp",
     category: "Residential immersion",
-    description: "Build strong foundations through movement, breath and patient practice.",
-    image: yogaPose,
-    cta: "Explore the camp",
-    to: "/camps" as any
-  },
-  {
-    title: "Kasrat Camp",
-    category: "Residential immersion",
-    description: "A full-spectrum immersion in tools, yoga, breathwork and movement science.",
+    description:
+      "Our signature camp from THE KASRATSHALA, focused on strength & conditioning with mace, kettlebells, resistance bands, clubs and more. TKC brings back the ABCDE's — Agility, Balance, Dexterity, Efficiency, Speed — the base of our protocols and movement discipline. It is also a healthy holiday in the Himalayas, with challenges that push you beyond your comfort zone to become stronger and better.",
     image: macePose,
     cta: "Explore the camp",
-    to: "/camps" as any
+    to: "/camps" as any,
   },
   {
-    title: "One Flow Gathering",
-    category: "In person · India",
-    description: "One day. One field. A shared movement practice.",
-    image: handsContact,
-    cta: "Discover One Flow",
-    to: "/one-flow" as any
-  }
+    title: "One Flow",
+    category: "Residential immersion",
+    description:
+      "One Flow brings different arts under our roof — community, flow, joy, experience. Unique multidisciplinary combinations: Vinyasa yoga flow, SMF, Kali Yoga, Flow Arts (Dapo, Poi, Fire Toys), hiking and cold exposure, and creative arts.",
+    image: yogaPose,
+    cta: "Explore One Flow",
+    to: "/camps" as any,
+  },
 ];
 
 export default function HomeEvents() {
@@ -37,26 +29,30 @@ export default function HomeEvents() {
     <section className="py-20 md:py-24 bg-[var(--night)] px-6">
       <div className="section-inner space-y-20">
         <div className="space-y-4">
-          <p className="label-caps text-[var(--gold)]">Practice in company</p>
-          <h2 className="editorial-heading text-6xl">Some practices need more time.</h2>
+          <p className="label-caps text-[var(--gold)]">Explore our camps</p>
+          <h2 className="editorial-heading text-6xl">Come join us in the Field</h2>
         </div>
 
         <div className="grid grid-cols-1 gap-12">
-          {events.map((event, i) => (
-            <Link key={event.title} to={event.to} className="group relative block aspect-[16/7] overflow-hidden rounded-sm border border-[var(--bone)]">
-              <img 
-                src={event.image.url} 
-                className="w-full h-full object-cover grayscale opacity-40 group-hover:scale-105 group-hover:opacity-60 transition-all duration-1000"
+          {events.map((event) => (
+            <Link
+              key={event.title}
+              to={event.to}
+              className="group relative block overflow-hidden rounded-sm border border-[var(--bone)] min-h-[28rem] md:aspect-[16/8]"
+            >
+              <img
+                src={event.image.url}
+                className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 group-hover:opacity-60 transition-all duration-1000"
                 alt={event.title}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--night)] via-transparent to-transparent opacity-80" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--night)] via-[var(--night)]/60 to-transparent" />
               <BiomechanicalOverlay className="opacity-20 group-hover:opacity-40" circles={[{ cx: 300, cy: 300, r: 200 }]} />
-              
-              <div className="absolute inset-0 p-12 flex flex-col justify-end max-w-2xl space-y-4">
+
+              <div className="relative p-8 md:p-12 flex flex-col justify-end h-full max-w-3xl space-y-4">
                 <p className="label-caps text-[var(--gold)]">{event.category}</p>
                 <h3 className="editorial-heading text-4xl md:text-5xl">{event.title}</h3>
-                <p className="text-[var(--muted)] text-lg italic">{event.description}</p>
-                <span className="inline-block pt-4 label-caps text-[10px] text-[var(--cream)] group-hover:text-[var(--gold)] transition-colors">
+                <p className="text-[var(--muted)] text-base md:text-lg leading-relaxed">{event.description}</p>
+                <span className="inline-block pt-2 label-caps text-[10px] text-[var(--cream)] group-hover:text-[var(--gold)] transition-colors">
                   {event.cta} →
                 </span>
               </div>
