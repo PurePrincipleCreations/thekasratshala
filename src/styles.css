@@ -50,6 +50,11 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     cursor: crosshair;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  @media (max-width: 767px) {
+    html, body { cursor: auto; }
   }
 }
 
