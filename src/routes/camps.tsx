@@ -86,18 +86,8 @@ export const Route = createFileRoute("/camps")({
 });
 
 function CampsPage() {
-  const [cart, setCart] = useAtom(cartAtom);
-  const [, setIsCartOpen] = useAtom(isCartOpenAtom);
   const [open, setOpen] = useState<string | null>(null);
-  const [yogaOpen, setYogaOpen] = useState(false);
 
-  const addYogaToCart = () => {
-    if (!cart.find((item) => item.id === "yoga-for-strength")) {
-      setCart([...cart, { id: "yoga-for-strength", name: "Yoga for Strength", price: 40000 }]);
-      toast.success("Yoga for Strength added to cart");
-    }
-    setIsCartOpen(true);
-  };
 
   return (
     <Layout>
