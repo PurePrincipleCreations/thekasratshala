@@ -2,10 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import Layout from "@/components/Layout";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { useAtom } from "jotai";
-import { toast } from "sonner";
-import { cartAtom, isCartOpenAtom } from "@/lib/store";
-import yogaForStrengthNew from "@/assets/yoga-for-strength-new.png.asset.json";
 import yogaPose from "@/assets/yoga_pose.png.asset.json";
 import macePose from "@/assets/mace_pose.png.asset.json";
 import outdoorMace1 from "@/assets/outdoor_mace_1.png.asset.json";
@@ -90,18 +86,8 @@ export const Route = createFileRoute("/camps")({
 });
 
 function CampsPage() {
-  const [cart, setCart] = useAtom(cartAtom);
-  const [, setIsCartOpen] = useAtom(isCartOpenAtom);
   const [open, setOpen] = useState<string | null>(null);
-  const [yogaOpen, setYogaOpen] = useState(false);
 
-  const addYogaToCart = () => {
-    if (!cart.find((item) => item.id === "yoga-for-strength")) {
-      setCart([...cart, { id: "yoga-for-strength", name: "Yoga for Strength", price: 40000 }]);
-      toast.success("Yoga for Strength added to cart");
-    }
-    setIsCartOpen(true);
-  };
 
   return (
     <Layout>
@@ -191,83 +177,6 @@ function CampsPage() {
         })}
       </section>
 
-      <section className="py-14 md:py-24 bg-[var(--night)] px-6 border-t border-[var(--bone)]">
-        <div className="section-inner grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative h-[360px] md:h-[480px] border border-[var(--bone)] rounded-sm overflow-hidden bg-[var(--alt)]">
-            <img src={yogaForStrengthNew.url} className="w-full h-full object-contain" alt="Yoga for Strength" />
-          </div>
-          <div className="space-y-6">
-            <p className="label-caps text-[var(--gold)] text-[10px]">Yoga Arts · Teacher Training Course module · Online</p>
-            <h2 className="editorial-heading text-5xl md:text-6xl">Yoga for Strength</h2>
-            <p className="text-[var(--muted)] text-lg italic leading-relaxed max-w-lg">
-              A yoga practice built for usable strength. Develop structure, joint capacity, balance and progressive
-              control without separating strength from breath or awareness.
-            </p>
-            <ul className="space-y-3">
-              {[
-                "Progressive loading inside familiar yoga shapes",
-                "Joint capacity, balance and controlled range",
-                "Breath as a structural tool, not decoration",
-                "Teaching methodology for movement educators",
-              ].map((d) => (
-                <li key={d} className="flex gap-3 text-[var(--muted)] text-base italic">
-                  <span className="text-[var(--gold)]">—</span>
-                  <span>{d}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="label-caps text-[var(--gold)]">₹40,000</p>
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <button
-                onClick={addYogaToCart}
-                className="px-8 py-3 bg-[var(--teal)] text-[var(--night)] label-caps text-[10px] hover:bg-[var(--gold)] transition-colors"
-              >
-                Add to cart
-              </button>
-              <button
-                onClick={() => setYogaOpen(!yogaOpen)}
-                aria-expanded={yogaOpen}
-                className="px-8 py-3 border border-[var(--gold)]/50 text-[var(--gold)] label-caps text-[10px] hover:bg-[var(--gold)] hover:text-[var(--night)] transition-colors"
-              >
-                {yogaOpen ? "Hide details" : "More details"}
-              </button>
-              <Link
-                to="/courses/yoga-for-strength"
-                className="label-caps text-[10px] text-[var(--gold)] border-b border-[var(--gold)]/30 hover:border-[var(--gold)] transition-colors self-center"
-              >
-                Dive deep into Yoga for Strength
-              </Link>
-            </div>
-
-            <AnimatePresence initial={false}>
-              {yogaOpen && (
-                <motion.div
-                  key="yoga-details"
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.45 }}
-                  className="overflow-hidden"
-                >
-                  <div className="pt-8 mt-4 border-t border-[var(--bone)] space-y-4 max-w-lg">
-                    <p className="label-caps text-[10px] text-[var(--gold)]">Who is it for</p>
-                    <p className="text-[var(--muted)] text-base italic">
-                      For yoga teachers and practitioners who want strength inside their practice — not as a separate
-                      gym session.
-                    </p>
-                    <p className="label-caps text-[10px] text-[var(--muted)]">
-                      Online module · self-paced with live sessions · includes GST
-                    </p>
-                    <p className="text-[var(--muted)] text-sm italic opacity-80">
-                      Join the live stream online, or write to us to practise the same module in person.
-                    </p>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        </div>
-      </section>
 
       <section className="py-20 md:py-32 bg-[var(--night)] px-6 text-center border-t border-[var(--bone)]">
         <div className="section-inner max-w-2xl space-y-10">
