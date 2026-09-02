@@ -1,4 +1,4 @@
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 
@@ -54,6 +54,7 @@ const fragmentShader = /* glsl */ `
 function FluidPlane() {
   const material = useRef<THREE.ShaderMaterial>(null);
   const target = useRef(new THREE.Vector2());
+  const viewport = useThree((s) => s.viewport);
 
   const uniforms = useMemo(
     () => ({
@@ -73,7 +74,7 @@ function FluidPlane() {
   });
 
   return (
-    <mesh scale={[2, 2, 1]}>
+    <mesh scale={[viewport.width, viewport.height, 1]}>
       <planeGeometry args={[1, 1, 1, 1]} />
       <shaderMaterial
         ref={material}
@@ -89,8 +90,7 @@ export default function HeroBackground() {
   return (
     <Canvas
       className="absolute inset-0"
-      orthographic
-      camera={{ position: [0, 0, 1], zoom: 1 }}
+      camera={{ position: [0, 0, 1], fov: 50 }}
       dpr={[1, 2]}
       gl={{ antialias: false }}
     >
