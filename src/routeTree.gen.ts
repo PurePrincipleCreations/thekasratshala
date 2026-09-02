@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as YogarambhaRouteImport } from './routes/yogarambha'
 import { Route as OneFlowRouteImport } from './routes/one-flow'
 import { Route as KineticRouteImport } from './routes/kinetic'
 import { Route as ConnectRouteImport } from './routes/connect'
@@ -21,6 +22,11 @@ import { Route as CoursesSteelMaceFlowRouteImport } from './routes/courses/steel
 import { Route as CoursesRecodeRouteImport } from './routes/courses/recode'
 import { Route as CoursesPranayamaRouteImport } from './routes/courses/pranayama'
 
+const YogarambhaRoute = YogarambhaRouteImport.update({
+  id: '/yogarambha',
+  path: '/yogarambha',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OneFlowRoute = OneFlowRouteImport.update({
   id: '/one-flow',
   path: '/one-flow',
@@ -84,6 +90,7 @@ export interface FileRoutesByFullPath {
   '/connect': typeof ConnectRoute
   '/kinetic': typeof KineticRoute
   '/one-flow': typeof OneFlowRoute
+  '/yogarambha': typeof YogarambhaRoute
   '/courses/pranayama': typeof CoursesPranayamaRoute
   '/courses/recode': typeof CoursesRecodeRoute
   '/courses/steel-mace-flow': typeof CoursesSteelMaceFlowRoute
@@ -97,6 +104,7 @@ export interface FileRoutesByTo {
   '/connect': typeof ConnectRoute
   '/kinetic': typeof KineticRoute
   '/one-flow': typeof OneFlowRoute
+  '/yogarambha': typeof YogarambhaRoute
   '/courses/pranayama': typeof CoursesPranayamaRoute
   '/courses/recode': typeof CoursesRecodeRoute
   '/courses/steel-mace-flow': typeof CoursesSteelMaceFlowRoute
@@ -111,6 +119,7 @@ export interface FileRoutesById {
   '/connect': typeof ConnectRoute
   '/kinetic': typeof KineticRoute
   '/one-flow': typeof OneFlowRoute
+  '/yogarambha': typeof YogarambhaRoute
   '/courses/pranayama': typeof CoursesPranayamaRoute
   '/courses/recode': typeof CoursesRecodeRoute
   '/courses/steel-mace-flow': typeof CoursesSteelMaceFlowRoute
@@ -126,6 +135,7 @@ export interface FileRouteTypes {
     | '/connect'
     | '/kinetic'
     | '/one-flow'
+    | '/yogarambha'
     | '/courses/pranayama'
     | '/courses/recode'
     | '/courses/steel-mace-flow'
@@ -139,6 +149,7 @@ export interface FileRouteTypes {
     | '/connect'
     | '/kinetic'
     | '/one-flow'
+    | '/yogarambha'
     | '/courses/pranayama'
     | '/courses/recode'
     | '/courses/steel-mace-flow'
@@ -152,6 +163,7 @@ export interface FileRouteTypes {
     | '/connect'
     | '/kinetic'
     | '/one-flow'
+    | '/yogarambha'
     | '/courses/pranayama'
     | '/courses/recode'
     | '/courses/steel-mace-flow'
@@ -166,6 +178,7 @@ export interface RootRouteChildren {
   ConnectRoute: typeof ConnectRoute
   KineticRoute: typeof KineticRoute
   OneFlowRoute: typeof OneFlowRoute
+  YogarambhaRoute: typeof YogarambhaRoute
   CoursesPranayamaRoute: typeof CoursesPranayamaRoute
   CoursesRecodeRoute: typeof CoursesRecodeRoute
   CoursesSteelMaceFlowRoute: typeof CoursesSteelMaceFlowRoute
@@ -175,6 +188,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/yogarambha': {
+      id: '/yogarambha'
+      path: '/yogarambha'
+      fullPath: '/yogarambha'
+      preLoaderRoute: typeof YogarambhaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/one-flow': {
       id: '/one-flow'
       path: '/one-flow'
@@ -262,6 +282,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConnectRoute: ConnectRoute,
   KineticRoute: KineticRoute,
   OneFlowRoute: OneFlowRoute,
+  YogarambhaRoute: YogarambhaRoute,
   CoursesPranayamaRoute: CoursesPranayamaRoute,
   CoursesRecodeRoute: CoursesRecodeRoute,
   CoursesSteelMaceFlowRoute: CoursesSteelMaceFlowRoute,
