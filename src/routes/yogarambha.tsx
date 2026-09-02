@@ -30,7 +30,10 @@ function Yogarambha() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] font-sans text-slate-800 [cursor:auto]">
+    <div
+      className="min-h-screen bg-[#FAFAFA] text-slate-800 [cursor:auto]"
+      style={{ fontFamily: '"Space Grotesk", ui-sans-serif, system-ui, sans-serif' }}
+    >
       <YogaNav isLoggedIn={isLoggedIn} onToggleLogin={() => setIsLoggedIn((v) => !v)} />
       <YogaHero />
     </div>
