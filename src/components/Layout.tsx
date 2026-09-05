@@ -31,6 +31,7 @@ export default function Layout({ children }: { children?: ReactNode }) {
       </AnimatePresence>
 
       <Footer />
+      <ScheduleDock />
       <ScrollRestoration />
     </div>
   );
