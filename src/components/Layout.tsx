@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import { useLocation } from "@tanstack/react-router";
 import Footer from "@/components/Footer";
 import DojoFrames from "@/components/DojoFrames";
+import ScheduleDock from "@/components/ScheduleDock";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Layout({ children }: { children?: ReactNode }) {
