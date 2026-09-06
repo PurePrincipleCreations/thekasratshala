@@ -82,7 +82,7 @@ export default function ScheduleDock() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setOpen(false)}
+            onClick={close}
             className="fixed inset-0 z-[110] bg-[var(--night)]/80 backdrop-blur-sm"
           />
         )}
@@ -286,7 +286,7 @@ export default function ScheduleDock() {
 
           <div className="flex justify-center">
             <motion.button
-              onClick={() => setOpen((v) => !v)}
+              onClick={() => (open ? close() : setOpen(true))}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center gap-3 rounded-full border border-[var(--bone)] bg-[var(--forest)]/90 px-5 py-3 md:px-7 backdrop-blur-xl shadow-[0_20px_50px_-20px_rgba(0,0,0,0.9)]"
