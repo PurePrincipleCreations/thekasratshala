@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /yogarambha
+
+Sitemap: https://thekasratshala.lovable.app/sitemap.xml
