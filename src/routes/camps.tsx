@@ -75,13 +75,15 @@ export const Route = createFileRoute("/camps")({
   component: CampsPage,
   head: () => ({
     meta: [
-      { title: "Camps — Kasratshala" },
-      { name: "description", content: "Residential movement immersions in Naggar, Himachal Pradesh." },
-      { property: "og:title", content: "Camps — Kasratshala" },
-      { property: "og:description", content: "Residential movement immersions in Naggar, Himachal Pradesh." },
+      { title: "Residential Movement Camps in Himachal — Kasratshala" },
+      { name: "description", content: "Residential movement immersions in Naggar, Himachal Pradesh: The Kasrat Camp, One Flow, Yoga for Strength and Steel Mace Flow." },
+      { property: "og:title", content: "Residential Movement Camps in Himachal — Kasratshala" },
+      { property: "og:description", content: "Residential movement immersions in Naggar, Himachal Pradesh: The Kasrat Camp, One Flow, Yoga for Strength and Steel Mace Flow." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://thekasratshala.lovable.app/camps" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://thekasratshala.lovable.app/camps" }],
   }),
 });
 

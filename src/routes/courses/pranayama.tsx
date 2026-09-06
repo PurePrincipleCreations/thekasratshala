@@ -13,9 +13,24 @@ export const Route = createFileRoute("/courses/pranayama")({
   component: PranayamaDetail,
   head: () => ({
     meta: [
-      { title: "Pranayama — Kasratshala" },
-      { name: "description", content: "Breath, understood through practice. A deeper study of capacity, regulation and attention." },
+      { title: "Pranayama Course — Kasratshala" },
+      { name: "description", content: "Breath understood through practice: capacity, regulation and attention studied over a structured pranayama curriculum." },
+      { property: "og:title", content: "Pranayama Course — Kasratshala" },
+      { property: "og:description", content: "Breath understood through practice: capacity, regulation and attention studied over a structured pranayama curriculum." },
+      { property: "og:type", content: "article" },
+      { property: "og:url", content: "https://thekasratshala.lovable.app/courses/pranayama" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://thekasratshala.lovable.app/courses/pranayama" }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(
+      {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        name: 'Pranayama',
+        description: 'Breath understood through practice: capacity, regulation and attention.',
+        provider: { "@type": "Organization", name: "Kasratshala", url: "https://thekasratshala.lovable.app" },
+      }
+    ) }],
   }),
 });
 

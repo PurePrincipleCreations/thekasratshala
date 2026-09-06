@@ -14,9 +14,24 @@ export const Route = createFileRoute("/courses/steel-mace-flow")({
   component: MaceDetail,
   head: () => ({
     meta: [
-      { title: "Steel Mace Flow — Kasratshala" },
-      { name: "description", content: "Learn to move through rotation. Rotational strength and shoulder integrity through the ancient gada." },
+      { title: "Steel Mace Flow Course — Kasratshala" },
+      { name: "description", content: "Rotational strength and shoulder integrity through the ancient gada. Learn steel mace flow online with in-person certification." },
+      { property: "og:title", content: "Steel Mace Flow Course — Kasratshala" },
+      { property: "og:description", content: "Rotational strength and shoulder integrity through the ancient gada. Learn steel mace flow online with in-person certification." },
+      { property: "og:type", content: "article" },
+      { property: "og:url", content: "https://thekasratshala.lovable.app/courses/steel-mace-flow" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://thekasratshala.lovable.app/courses/steel-mace-flow" }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(
+      {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        name: 'Steel Mace Flow',
+        description: 'Rotational strength and shoulder integrity through the ancient gada, taught online with in-person certification.',
+        provider: { "@type": "Organization", name: "Kasratshala", url: "https://thekasratshala.lovable.app" },
+      }
+    ) }],
   }),
 });
 

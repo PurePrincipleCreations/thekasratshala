@@ -21,9 +21,24 @@ export const Route = createFileRoute("/courses/yoga-for-strength")({
   component: YogaDetail,
   head: () => ({
     meta: [
-      { title: "Yoga for Strength — Kasratshala" },
-      { name: "description", content: "Strength that remains connected. Yoga as a practical system for resilient movement." },
+      { title: "Yoga for Strength Course — Kasratshala" },
+      { name: "description", content: "Yoga as a practical system for resilient movement: progressive loading, joint capacity and breath as structure." },
+      { property: "og:title", content: "Yoga for Strength Course — Kasratshala" },
+      { property: "og:description", content: "Yoga as a practical system for resilient movement: progressive loading, joint capacity and breath as structure." },
+      { property: "og:type", content: "article" },
+      { property: "og:url", content: "https://thekasratshala.lovable.app/courses/yoga-for-strength" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://thekasratshala.lovable.app/courses/yoga-for-strength" }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(
+      {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        name: 'Yoga for Strength',
+        description: 'Yoga as a practical system for resilient movement: progressive loading, joint capacity and breath as structure.',
+        provider: { "@type": "Organization", name: "Kasratshala", url: "https://thekasratshala.lovable.app" },
+      }
+    ) }],
   }),
 });
 

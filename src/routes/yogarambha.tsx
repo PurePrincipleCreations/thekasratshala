@@ -9,20 +9,15 @@ export const Route = createFileRoute("/yogarambha")({
   head: () => ({
     meta: [
       { title: "Yogarambha Academy — Yoga, Pranayama & Movement Studies" },
-      {
-        name: "description",
-        content:
-          "Yogarambha Academy trains movers and teachers in yoga, pranayama and movement arts — immersive programs, retreats and a philosophy-led curriculum.",
-      },
-      { property: "og:title", content: "Yogarambha Academy — Movement & Yoga Studies" },
-      {
-        property: "og:description",
-        content:
-          "Immersive yoga, pranayama and movement arts programs, retreats and teacher studies at Yogarambha Academy.",
-      },
+      { name: "description", content: "Immersive yoga, pranayama and movement arts programs, retreats and teacher studies at Yogarambha Academy." },
+      { property: "og:title", content: "Yogarambha Academy — Yoga, Pranayama & Movement Studies" },
+      { property: "og:description", content: "Immersive yoga, pranayama and movement arts programs, retreats and teacher studies at Yogarambha Academy." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://thekasratshala.lovable.app/yogarambha" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "robots", content: "noindex, nofollow" },
     ],
+    links: [{ rel: "canonical", href: "https://thekasratshala.lovable.app/yogarambha" }],
   }),
 });
 
