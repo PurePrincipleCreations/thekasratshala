@@ -56,6 +56,23 @@ const REGISTER_MAIL =
 
 export default function ScheduleDock() {
   const [open, setOpen] = useState(false);
+  const [step, setStep] = useState<"schedule" | "register">("schedule");
+  const [copied, setCopied] = useState(false);
+
+  const close = () => {
+    setOpen(false);
+    setTimeout(() => setStep("schedule"), 400);
+  };
+
+  const copyUpi = async () => {
+    try {
+      await navigator.clipboard.writeText(UPI_ID);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      /* clipboard unavailable */
+    }
+  };
 
   return (
     <>
