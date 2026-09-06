@@ -1,6 +1,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CalendarDays, X, ArrowRight } from "lucide-react";
+import { CalendarDays, X, ArrowRight, Phone, MessageCircle, Copy, Check, ArrowLeft } from "lucide-react";
+import upiQr from "@/assets/upi-qr.jpg";
+
+const PHONE_DISPLAY = "83079 29691";
+const PHONE_RAW = "918307929691";
+const UPI_ID = "karamdeshwal@okhdfcbank";
+const WHATSAPP =
+  `https://wa.me/${PHONE_RAW}?text=` +
+  encodeURIComponent(
+    "Hi Kasratshala, I'd like to join the October schedule at the Shala. Could you share the pricing and how to get started?",
+  );
 
 const slots = ["8:00 AM", "9:00 AM", "5:15 PM"] as const;
 
