@@ -8,11 +8,13 @@ export const Route = createFileRoute("/kinetic")({
     meta: [
       { title: "Kinetic — Kasratshala Movement Arts" },
       { name: "description", content: "Kinetic is the next chapter of practice at Kasratshala. Details coming soon." },
-      { property: "og:title", content: "Kinetic — Kasratshala" },
+      { property: "og:title", content: "Kinetic — Kasratshala Movement Arts" },
       { property: "og:description", content: "Kinetic is the next chapter of practice at Kasratshala. Details coming soon." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://thekasratshala.lovable.app/kinetic" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://thekasratshala.lovable.app/kinetic" }],
   }),
 });
 

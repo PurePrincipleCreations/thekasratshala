@@ -10,9 +10,15 @@ export const Route = createFileRoute("/courses/")({
   component: CoursesIndex,
   head: () => ({
     meta: [
-      { title: "Courses — Kasratshala" },
-      { name: "description", content: "Explore foundational movement, yoga for strength, and steel mace flow." },
+      { title: "Movement Courses — Kasratshala" },
+      { name: "description", content: "Explore foundational movement recoding, yoga for strength, pranayama and steel mace flow courses at Kasratshala." },
+      { property: "og:title", content: "Movement Courses — Kasratshala" },
+      { property: "og:description", content: "Explore foundational movement recoding, yoga for strength, pranayama and steel mace flow courses at Kasratshala." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://thekasratshala.lovable.app/courses" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://thekasratshala.lovable.app/courses" }],
   }),
 });
 

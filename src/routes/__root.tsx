@@ -20,7 +20,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#090a09" },
+      { property: "og:site_name", content: "Kasratshala" },
+      { property: "og:locale", content: "en_IN" },
+      { name: "robots", content: "index, follow" },
+      { name: "author", content: "Kasratshala" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Kasratshala",
+          alternateName: "The Kasratshala",
+          url: "https://thekasratshala.lovable.app",
+          logo: "https://thekasratshala.lovable.app/favicon.png",
+          telephone: "+918307929691",
+          sameAs: [
+            "https://www.instagram.com/thekasratshala/",
+            "https://www.youtube.com/@thekasratshala",
+          ],
+        }),
+      },
+    ],
+
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.png", type: "image/png" },

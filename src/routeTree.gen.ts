@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as YogarambhaRouteImport } from './routes/yogarambha'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as OneFlowRouteImport } from './routes/one-flow'
 import { Route as KineticRouteImport } from './routes/kinetic'
 import { Route as ConnectRouteImport } from './routes/connect'
@@ -25,6 +26,11 @@ import { Route as CoursesPranayamaRouteImport } from './routes/courses/pranayama
 const YogarambhaRoute = YogarambhaRouteImport.update({
   id: '/yogarambha',
   path: '/yogarambha',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OneFlowRoute = OneFlowRouteImport.update({
@@ -90,6 +96,7 @@ export interface FileRoutesByFullPath {
   '/connect': typeof ConnectRoute
   '/kinetic': typeof KineticRoute
   '/one-flow': typeof OneFlowRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yogarambha': typeof YogarambhaRoute
   '/courses/pranayama': typeof CoursesPranayamaRoute
   '/courses/recode': typeof CoursesRecodeRoute
@@ -104,6 +111,7 @@ export interface FileRoutesByTo {
   '/connect': typeof ConnectRoute
   '/kinetic': typeof KineticRoute
   '/one-flow': typeof OneFlowRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yogarambha': typeof YogarambhaRoute
   '/courses/pranayama': typeof CoursesPranayamaRoute
   '/courses/recode': typeof CoursesRecodeRoute
@@ -119,6 +127,7 @@ export interface FileRoutesById {
   '/connect': typeof ConnectRoute
   '/kinetic': typeof KineticRoute
   '/one-flow': typeof OneFlowRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yogarambha': typeof YogarambhaRoute
   '/courses/pranayama': typeof CoursesPranayamaRoute
   '/courses/recode': typeof CoursesRecodeRoute
@@ -135,6 +144,7 @@ export interface FileRouteTypes {
     | '/connect'
     | '/kinetic'
     | '/one-flow'
+    | '/sitemap.xml'
     | '/yogarambha'
     | '/courses/pranayama'
     | '/courses/recode'
@@ -149,6 +159,7 @@ export interface FileRouteTypes {
     | '/connect'
     | '/kinetic'
     | '/one-flow'
+    | '/sitemap.xml'
     | '/yogarambha'
     | '/courses/pranayama'
     | '/courses/recode'
@@ -163,6 +174,7 @@ export interface FileRouteTypes {
     | '/connect'
     | '/kinetic'
     | '/one-flow'
+    | '/sitemap.xml'
     | '/yogarambha'
     | '/courses/pranayama'
     | '/courses/recode'
@@ -178,6 +190,7 @@ export interface RootRouteChildren {
   ConnectRoute: typeof ConnectRoute
   KineticRoute: typeof KineticRoute
   OneFlowRoute: typeof OneFlowRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   YogarambhaRoute: typeof YogarambhaRoute
   CoursesPranayamaRoute: typeof CoursesPranayamaRoute
   CoursesRecodeRoute: typeof CoursesRecodeRoute
@@ -193,6 +206,13 @@ declare module '@tanstack/react-router' {
       path: '/yogarambha'
       fullPath: '/yogarambha'
       preLoaderRoute: typeof YogarambhaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/one-flow': {
@@ -282,6 +302,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConnectRoute: ConnectRoute,
   KineticRoute: KineticRoute,
   OneFlowRoute: OneFlowRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   YogarambhaRoute: YogarambhaRoute,
   CoursesPranayamaRoute: CoursesPranayamaRoute,
   CoursesRecodeRoute: CoursesRecodeRoute,

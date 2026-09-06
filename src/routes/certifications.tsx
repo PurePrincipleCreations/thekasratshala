@@ -9,13 +9,15 @@ export const Route = createFileRoute("/certifications")({
   component: CertificationsPage,
   head: () => ({
     meta: [
-      { title: "Certifications — Kasratshala Movement Arts" },
-      { name: "description", content: "Certification tracks in steel mace flow, yoga for strength, pranayama and foundational movement recoding — online and in person." },
-      { property: "og:title", content: "Certifications — Kasratshala" },
-      { property: "og:description", content: "Certification tracks in steel mace flow, yoga for strength, pranayama and foundational movement recoding." },
+      { title: "Movement Certifications — Kasratshala" },
+      { name: "description", content: "Certification tracks in steel mace flow, pranayama and foundational movement recoding — online study with in-person assessment at the Dojo." },
+      { property: "og:title", content: "Movement Certifications — Kasratshala" },
+      { property: "og:description", content: "Certification tracks in steel mace flow, pranayama and foundational movement recoding — online study with in-person assessment at the Dojo." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://thekasratshala.lovable.app/certifications" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://thekasratshala.lovable.app/certifications" }],
   }),
 });
 

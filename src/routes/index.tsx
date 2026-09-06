@@ -16,13 +16,35 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Kasratshala — Movement Arts Dojo · Naggar, Himachal" },
+      { title: "Kasratshala — Movement Arts Dojo in Naggar, Himachal" },
       { name: "description", content: "Ancient tools, yoga and modern movement science in one living practice. Certification tracks online and residential camps in Naggar, Himachal." },
-      { property: "og:title", content: "Kasratshala — Movement Arts Dojo" },
-      { property: "og:description", content: "Ancient tools. Modern movement science. One body. Online courses and residential camps in Naggar, Himachal Pradesh." },
+      { property: "og:title", content: "Kasratshala — Movement Arts Dojo in Naggar, Himachal" },
+      { property: "og:description", content: "Ancient tools, yoga and modern movement science in one living practice. Certification tracks online and residential camps in Naggar, Himachal." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://thekasratshala.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://thekasratshala.lovable.app/" }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(
+      {
+        "@context": "https://schema.org",
+        "@type": ["LocalBusiness", "SportsActivityLocation"],
+        name: "Kasratshala",
+        description: "Movement arts dojo in Naggar, Himachal Pradesh teaching steel mace flow, yoga for strength, pranayama and functional movement.",
+        url: "https://thekasratshala.lovable.app",
+        telephone: "+918307929691",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Naggar",
+          addressRegion: "Himachal Pradesh",
+          addressCountry: "IN",
+        },
+        sameAs: [
+          "https://www.instagram.com/thekasratshala/",
+          "https://www.youtube.com/@thekasratshala",
+        ],
+      }
+    ) }],
   }),
 });
 
