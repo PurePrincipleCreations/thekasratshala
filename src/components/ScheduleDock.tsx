@@ -255,19 +255,30 @@ export default function ScheduleDock() {
                     ))}
                   </div>
                 </div>
+                )}
 
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 px-5 py-4 md:px-7 border-t border-[var(--bone)] bg-[var(--night)]/50">
                   <p className="text-xs text-[var(--muted)] flex-1">
-                    Sessions run through October. Register to hold your spot — limited mats
-                    per slot.
+                    {step === "schedule"
+                      ? "Sessions run through October. Contact for pricing — limited mats per slot."
+                      : `Questions about a slot? Call or WhatsApp ${PHONE_DISPLAY}.`}
                   </p>
-                  <a
-                    href={REGISTER_MAIL}
-                    className="group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--gold)] px-6 py-3 text-[11px] tracking-[0.28em] uppercase font-semibold text-[var(--night)] hover:brightness-110 transition-all"
-                  >
-                    Register
-                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                  </a>
+                  {step === "schedule" ? (
+                    <button
+                      onClick={() => setStep("register")}
+                      className="group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--gold)] px-6 py-3 text-[11px] tracking-[0.28em] uppercase font-semibold text-[var(--night)] hover:brightness-110 transition-all"
+                    >
+                      Register
+                      <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => setStep("schedule")}
+                      className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--bone)] px-6 py-3 text-[11px] tracking-[0.28em] uppercase font-semibold text-[var(--cream)] hover:border-[var(--gold)] hover:text-[var(--gold)] transition-all"
+                    >
+                      <ArrowLeft size={14} /> Schedule
+                    </button>
+                  )}
                 </div>
               </motion.div>
             )}
