@@ -9,6 +9,7 @@ import { useEffect, type ReactNode } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import CartDrawer from "@/components/shop/CartDrawer";
 import { Provider } from "jotai";
+import ErrorBoundary, { ErrorFallback } from "@/components/ErrorBoundary";
 
 
 import appCss from "../styles.css?url";
@@ -55,6 +56,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
     ],
   }),
+  errorComponent: ({ reset }) => <ErrorFallback onReset={() => { reset(); window.location.reload(); }} />,
   shellComponent: RootShell,
   component: RootComponent,
 });
@@ -79,7 +81,9 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Provider>
-        <Outlet />
+        <ErrorBoundary>
+          <Outlet />
+        </ErrorBoundary>
         <CartDrawer />
         <Toaster theme="dark" position="bottom-right" />
       </Provider>
