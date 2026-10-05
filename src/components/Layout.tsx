@@ -12,7 +12,7 @@ export default function Layout({ children }: { children?: ReactNode }) {
   const isHomePage = location.pathname === "/";
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden selection:bg-[var(--gold)] selection:text-[var(--night)] bg-[var(--page)]">
+    <div className="relative min-h-screen overflow-x-clip selection:bg-[var(--gold)] selection:text-[var(--night)] bg-[var(--page)]">
       <div className="grain-overlay" />
       <Navigation />
       

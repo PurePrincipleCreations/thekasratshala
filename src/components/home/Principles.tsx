@@ -73,7 +73,7 @@ export default function Principles() {
   }, [springX, springY]);
 
   return (
-    <section ref={containerRef} className="relative md:h-[500vh] bg-[var(--night)]">
+    <section ref={containerRef} className="relative md:h-[350vh] bg-[var(--night)]">
       {/* Desktop View */}
       <div className="hidden md:block sticky top-0 h-screen overflow-hidden">
         <div className="section-inner h-full flex flex-col justify-center py-20">
@@ -87,8 +87,8 @@ export default function Principles() {
               <div className="relative h-64">
                 {principles.map((p, i) => {
                   const opacity = useTransform(scrollYProgress,
-                    [i * STEP, i * STEP + STEP * 0.4, (i + 1) * STEP - STEP * 0.4, (i + 1) * STEP],
-                    [0, 1, 1, 0]
+                    [i * STEP, i * STEP + STEP * 0.25, (i + 1) * STEP - STEP * 0.25, (i + 1) * STEP],
+                    [i === 0 ? 1 : 0, 1, 1, i === principles.length - 1 ? 1 : 0]
                   );
                   return (
                     <motion.div key={p.n} style={{ opacity }} className="absolute inset-0 space-y-4">
@@ -105,8 +105,8 @@ export default function Principles() {
               <div className="w-full aspect-square border border-[var(--bone)] rounded-sm overflow-hidden relative">
                 {principles.map((p, i) => {
                   const opacity = useTransform(scrollYProgress,
-                    [i * STEP, i * STEP + STEP * 0.4, (i + 1) * STEP - STEP * 0.4, (i + 1) * STEP],
-                    [0, 1, 1, 0]
+                    [i * STEP, i * STEP + STEP * 0.25, (i + 1) * STEP - STEP * 0.25, (i + 1) * STEP],
+                    [i === 0 ? 1 : 0, 1, 1, i === principles.length - 1 ? 1 : 0]
                   );
                   return (
                     <motion.div
