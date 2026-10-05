@@ -50,7 +50,7 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     cursor: crosshair;
-    overflow-x: hidden;
+    overflow-x: clip;
     max-width: 100%;
   }
   @media (max-width: 767px) {
@@ -124,3 +124,5 @@
     letter-spacing: -0.01em;
   }
 }
+
+#lovable-badge { display: none !important; visibility: hidden !important; pointer-events: none !important; }
