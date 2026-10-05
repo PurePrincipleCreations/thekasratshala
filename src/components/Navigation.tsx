@@ -11,6 +11,7 @@ import toriiGate from "@/assets/torii-gate.png.asset.json";
 const links = [
   { label: "Home", path: "/" },
   { label: "Certifications", path: "/certifications" },
+  { label: "Programs", path: "/programs" },
   { label: "Camps", path: "/camps" },
   { label: "Kinetic", path: "/kinetic" },
   { label: "Connect", path: "/connect" },

@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as YogarambhaRouteImport } from './routes/yogarambha'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as OneFlowRouteImport } from './routes/one-flow'
 import { Route as KineticRouteImport } from './routes/kinetic'
 import { Route as ConnectRouteImport } from './routes/connect'
@@ -18,6 +19,7 @@ import { Route as CertificationsRouteImport } from './routes/certifications'
 import { Route as CampsRouteImport } from './routes/camps'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CoursesIndexRouteImport } from './routes/courses/index'
+import { Route as LearnSlugRouteImport } from './routes/learn.$slug'
 import { Route as CoursesYogaForStrengthRouteImport } from './routes/courses/yoga-for-strength'
 import { Route as CoursesSteelMaceFlowRouteImport } from './routes/courses/steel-mace-flow'
 import { Route as CoursesRecodeRouteImport } from './routes/courses/recode'
@@ -31,6 +33,11 @@ const YogarambhaRoute = YogarambhaRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgramsRoute = ProgramsRouteImport.update({
+  id: '/programs',
+  path: '/programs',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OneFlowRoute = OneFlowRouteImport.update({
@@ -68,6 +75,11 @@ const CoursesIndexRoute = CoursesIndexRouteImport.update({
   path: '/courses/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LearnSlugRoute = LearnSlugRouteImport.update({
+  id: '/learn/$slug',
+  path: '/learn/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CoursesYogaForStrengthRoute = CoursesYogaForStrengthRouteImport.update({
   id: '/courses/yoga-for-strength',
   path: '/courses/yoga-for-strength',
@@ -96,12 +108,14 @@ export interface FileRoutesByFullPath {
   '/connect': typeof ConnectRoute
   '/kinetic': typeof KineticRoute
   '/one-flow': typeof OneFlowRoute
+  '/programs': typeof ProgramsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yogarambha': typeof YogarambhaRoute
   '/courses/pranayama': typeof CoursesPranayamaRoute
   '/courses/recode': typeof CoursesRecodeRoute
   '/courses/steel-mace-flow': typeof CoursesSteelMaceFlowRoute
   '/courses/yoga-for-strength': typeof CoursesYogaForStrengthRoute
+  '/learn/$slug': typeof LearnSlugRoute
   '/courses/': typeof CoursesIndexRoute
 }
 export interface FileRoutesByTo {
@@ -111,12 +125,14 @@ export interface FileRoutesByTo {
   '/connect': typeof ConnectRoute
   '/kinetic': typeof KineticRoute
   '/one-flow': typeof OneFlowRoute
+  '/programs': typeof ProgramsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yogarambha': typeof YogarambhaRoute
   '/courses/pranayama': typeof CoursesPranayamaRoute
   '/courses/recode': typeof CoursesRecodeRoute
   '/courses/steel-mace-flow': typeof CoursesSteelMaceFlowRoute
   '/courses/yoga-for-strength': typeof CoursesYogaForStrengthRoute
+  '/learn/$slug': typeof LearnSlugRoute
   '/courses': typeof CoursesIndexRoute
 }
 export interface FileRoutesById {
@@ -127,12 +143,14 @@ export interface FileRoutesById {
   '/connect': typeof ConnectRoute
   '/kinetic': typeof KineticRoute
   '/one-flow': typeof OneFlowRoute
+  '/programs': typeof ProgramsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yogarambha': typeof YogarambhaRoute
   '/courses/pranayama': typeof CoursesPranayamaRoute
   '/courses/recode': typeof CoursesRecodeRoute
   '/courses/steel-mace-flow': typeof CoursesSteelMaceFlowRoute
   '/courses/yoga-for-strength': typeof CoursesYogaForStrengthRoute
+  '/learn/$slug': typeof LearnSlugRoute
   '/courses/': typeof CoursesIndexRoute
 }
 export interface FileRouteTypes {
@@ -144,12 +162,14 @@ export interface FileRouteTypes {
     | '/connect'
     | '/kinetic'
     | '/one-flow'
+    | '/programs'
     | '/sitemap.xml'
     | '/yogarambha'
     | '/courses/pranayama'
     | '/courses/recode'
     | '/courses/steel-mace-flow'
     | '/courses/yoga-for-strength'
+    | '/learn/$slug'
     | '/courses/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -159,12 +179,14 @@ export interface FileRouteTypes {
     | '/connect'
     | '/kinetic'
     | '/one-flow'
+    | '/programs'
     | '/sitemap.xml'
     | '/yogarambha'
     | '/courses/pranayama'
     | '/courses/recode'
     | '/courses/steel-mace-flow'
     | '/courses/yoga-for-strength'
+    | '/learn/$slug'
     | '/courses'
   id:
     | '__root__'
@@ -174,12 +196,14 @@ export interface FileRouteTypes {
     | '/connect'
     | '/kinetic'
     | '/one-flow'
+    | '/programs'
     | '/sitemap.xml'
     | '/yogarambha'
     | '/courses/pranayama'
     | '/courses/recode'
     | '/courses/steel-mace-flow'
     | '/courses/yoga-for-strength'
+    | '/learn/$slug'
     | '/courses/'
   fileRoutesById: FileRoutesById
 }
@@ -190,12 +214,14 @@ export interface RootRouteChildren {
   ConnectRoute: typeof ConnectRoute
   KineticRoute: typeof KineticRoute
   OneFlowRoute: typeof OneFlowRoute
+  ProgramsRoute: typeof ProgramsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   YogarambhaRoute: typeof YogarambhaRoute
   CoursesPranayamaRoute: typeof CoursesPranayamaRoute
   CoursesRecodeRoute: typeof CoursesRecodeRoute
   CoursesSteelMaceFlowRoute: typeof CoursesSteelMaceFlowRoute
   CoursesYogaForStrengthRoute: typeof CoursesYogaForStrengthRoute
+  LearnSlugRoute: typeof LearnSlugRoute
   CoursesIndexRoute: typeof CoursesIndexRoute
 }
 
@@ -213,6 +239,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs': {
+      id: '/programs'
+      path: '/programs'
+      fullPath: '/programs'
+      preLoaderRoute: typeof ProgramsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/one-flow': {
@@ -264,6 +297,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CoursesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/learn/$slug': {
+      id: '/learn/$slug'
+      path: '/learn/$slug'
+      fullPath: '/learn/$slug'
+      preLoaderRoute: typeof LearnSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/courses/yoga-for-strength': {
       id: '/courses/yoga-for-strength'
       path: '/courses/yoga-for-strength'
@@ -302,12 +342,14 @@ const rootRouteChildren: RootRouteChildren = {
   ConnectRoute: ConnectRoute,
   KineticRoute: KineticRoute,
   OneFlowRoute: OneFlowRoute,
+  ProgramsRoute: ProgramsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   YogarambhaRoute: YogarambhaRoute,
   CoursesPranayamaRoute: CoursesPranayamaRoute,
   CoursesRecodeRoute: CoursesRecodeRoute,
   CoursesSteelMaceFlowRoute: CoursesSteelMaceFlowRoute,
   CoursesYogaForStrengthRoute: CoursesYogaForStrengthRoute,
+  LearnSlugRoute: LearnSlugRoute,
   CoursesIndexRoute: CoursesIndexRoute,
 }
 export const routeTree = rootRouteImport
