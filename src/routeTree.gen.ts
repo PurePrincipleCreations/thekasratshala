@@ -13,9 +13,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CampsRouteImport } from './routes/camps'
 import { Route as CertificationsRouteImport } from './routes/certifications'
 import { Route as ConnectRouteImport } from './routes/connect'
+import { Route as ImmersionsRouteImport } from './routes/immersions'
 import { Route as KineticRouteImport } from './routes/kinetic'
 import { Route as OneFlowRouteImport } from './routes/one-flow'
 import { Route as ProgramsRouteImport } from './routes/programs'
+import { Route as ScheduleRouteImport } from './routes/schedule'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as YogarambhaRouteImport } from './routes/yogarambha'
 import { Route as CoursesIndexRouteImport } from './routes/courses/index'
@@ -45,6 +47,11 @@ const ConnectRoute = ConnectRouteImport.update({
   path: '/connect',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ImmersionsRoute = ImmersionsRouteImport.update({
+  id: '/immersions',
+  path: '/immersions',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const KineticRoute = KineticRouteImport.update({
   id: '/kinetic',
   path: '/kinetic',
@@ -58,6 +65,11 @@ const OneFlowRoute = OneFlowRouteImport.update({
 const ProgramsRoute = ProgramsRouteImport.update({
   id: '/programs',
   path: '/programs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScheduleRoute = ScheduleRouteImport.update({
+  id: '/schedule',
+  path: '/schedule',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -106,9 +118,11 @@ export interface FileRoutesByFullPath {
   '/camps': typeof CampsRoute
   '/certifications': typeof CertificationsRoute
   '/connect': typeof ConnectRoute
+  '/immersions': typeof ImmersionsRoute
   '/kinetic': typeof KineticRoute
   '/one-flow': typeof OneFlowRoute
   '/programs': typeof ProgramsRoute
+  '/schedule': typeof ScheduleRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yogarambha': typeof YogarambhaRoute
   '/courses/pranayama': typeof CoursesPranayamaRoute
@@ -123,9 +137,11 @@ export interface FileRoutesByTo {
   '/camps': typeof CampsRoute
   '/certifications': typeof CertificationsRoute
   '/connect': typeof ConnectRoute
+  '/immersions': typeof ImmersionsRoute
   '/kinetic': typeof KineticRoute
   '/one-flow': typeof OneFlowRoute
   '/programs': typeof ProgramsRoute
+  '/schedule': typeof ScheduleRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yogarambha': typeof YogarambhaRoute
   '/courses/pranayama': typeof CoursesPranayamaRoute
@@ -141,9 +157,11 @@ export interface FileRoutesById {
   '/camps': typeof CampsRoute
   '/certifications': typeof CertificationsRoute
   '/connect': typeof ConnectRoute
+  '/immersions': typeof ImmersionsRoute
   '/kinetic': typeof KineticRoute
   '/one-flow': typeof OneFlowRoute
   '/programs': typeof ProgramsRoute
+  '/schedule': typeof ScheduleRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yogarambha': typeof YogarambhaRoute
   '/courses/pranayama': typeof CoursesPranayamaRoute
@@ -160,9 +178,11 @@ export interface FileRouteTypes {
     | '/camps'
     | '/certifications'
     | '/connect'
+    | '/immersions'
     | '/kinetic'
     | '/one-flow'
     | '/programs'
+    | '/schedule'
     | '/sitemap.xml'
     | '/yogarambha'
     | '/courses/pranayama'
@@ -177,9 +197,11 @@ export interface FileRouteTypes {
     | '/camps'
     | '/certifications'
     | '/connect'
+    | '/immersions'
     | '/kinetic'
     | '/one-flow'
     | '/programs'
+    | '/schedule'
     | '/sitemap.xml'
     | '/yogarambha'
     | '/courses/pranayama'
@@ -194,9 +216,11 @@ export interface FileRouteTypes {
     | '/camps'
     | '/certifications'
     | '/connect'
+    | '/immersions'
     | '/kinetic'
     | '/one-flow'
     | '/programs'
+    | '/schedule'
     | '/sitemap.xml'
     | '/yogarambha'
     | '/courses/pranayama'
@@ -212,9 +236,11 @@ export interface RootRouteChildren {
   CampsRoute: typeof CampsRoute
   CertificationsRoute: typeof CertificationsRoute
   ConnectRoute: typeof ConnectRoute
+  ImmersionsRoute: typeof ImmersionsRoute
   KineticRoute: typeof KineticRoute
   OneFlowRoute: typeof OneFlowRoute
   ProgramsRoute: typeof ProgramsRoute
+  ScheduleRoute: typeof ScheduleRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   YogarambhaRoute: typeof YogarambhaRoute
   CoursesPranayamaRoute: typeof CoursesPranayamaRoute
@@ -255,6 +281,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConnectRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/immersions': {
+      id: '/immersions'
+      path: '/immersions'
+      fullPath: '/immersions'
+      preLoaderRoute: typeof ImmersionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/kinetic': {
       id: '/kinetic'
       path: '/kinetic'
@@ -274,6 +307,13 @@ declare module '@tanstack/react-router' {
       path: '/programs'
       fullPath: '/programs'
       preLoaderRoute: typeof ProgramsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/schedule': {
+      id: '/schedule'
+      path: '/schedule'
+      fullPath: '/schedule'
+      preLoaderRoute: typeof ScheduleRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -340,9 +380,11 @@ const rootRouteChildren: RootRouteChildren = {
   CampsRoute: CampsRoute,
   CertificationsRoute: CertificationsRoute,
   ConnectRoute: ConnectRoute,
+  ImmersionsRoute: ImmersionsRoute,
   KineticRoute: KineticRoute,
   OneFlowRoute: OneFlowRoute,
   ProgramsRoute: ProgramsRoute,
+  ScheduleRoute: ScheduleRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   YogarambhaRoute: YogarambhaRoute,
   CoursesPranayamaRoute: CoursesPranayamaRoute,
