@@ -73,7 +73,7 @@ export default function Principles() {
   }, [springX, springY]);
 
   return (
-    <section ref={containerRef} className="relative md:h-[350vh] bg-[var(--night)]">
+    <section id="philosophy" ref={containerRef} className="relative md:h-[350vh] bg-[var(--night)]">
       {/* Desktop View */}
       <div className="hidden md:block sticky top-0 h-screen overflow-hidden">
         <div className="section-inner h-full flex flex-col justify-center py-20">
