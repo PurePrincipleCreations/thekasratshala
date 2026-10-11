@@ -1,14 +1,34 @@
 import { Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import dojoBuilding from "@/assets/dojo-building-clear.jpg.asset.json";
 
 const VIDEO_SRC =
   "https://player.mediadelivery.net/play/776265/7ca67b3c-581d-486e-b701-0507524a4abe?autoplay=true&loop=true&muted=true&preload=true&controls=false";
 
+// Change this to the exact video length in milliseconds
+const VIDEO_DURATION_MS = 30000;
+
 const trust = ["WeckMethod", "Landmine University", "Breakthrough", "Fullgrip", "Movement Science"];
 const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function Hero() {
+  const [textOpacity, setTextOpacity] = useState("opacity-0");
+
+  useEffect(() => {
+    const D = VIDEO_DURATION_MS;
+    const steps: [number, string][] = [
+      [50, "opacity-100"],
+      [D - 5000, "opacity-0"],
+      [D, "opacity-100"],
+      [D * 2 - 5000, "opacity-0"],
+      [D * 2, "opacity-100"],
+      [D * 3 - 5000, "opacity-0"],
+    ];
+    const timers = steps.map(([t, v]) => setTimeout(() => setTextOpacity(v), t));
+    return () => timers.forEach(clearTimeout);
+  }, []);
+
   return (
     <>
       <section className="relative isolate h-[100svh] min-h-[560px] flex items-center justify-center overflow-hidden bg-[var(--night)]">
@@ -35,7 +55,7 @@ export default function Hero() {
         {/* Legibility overlay + interaction shield */}
         <div className="absolute inset-0 z-10 bg-gradient-to-b from-[var(--night)]/60 via-[var(--night)]/40 to-[var(--night)]/85" aria-hidden="true" />
 
-        <div className="relative z-20 section-inner px-6 text-center max-w-4xl pt-20">
+        <div className={`relative z-20 section-inner px-6 text-center max-w-4xl pt-20 transition-opacity duration-[2000ms] ease-in-out ${textOpacity}`}>
           <motion.p
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease }}
