@@ -12,6 +12,8 @@ const links = [
   { label: "Home", path: "/" },
   { label: "Certifications", path: "/certifications" },
   { label: "Programs", path: "/programs" },
+  { label: "Schedule", path: "/schedule" },
+  { label: "Immersions", path: "/immersions" },
   { label: "Camps", path: "/camps" },
   { label: "Kinetic", path: "/kinetic" },
   { label: "Connect", path: "/connect" },
