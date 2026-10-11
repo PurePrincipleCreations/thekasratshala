@@ -74,22 +74,32 @@ function loadCashfree(): Promise<any> {
 }
 
 function SchedulePage() {
-  const [time, setTime] = useState("All");
-  const [days, setDays] = useState("All");
-  const [cls, setCls] = useState("All");
-  const [selectedClasses, setSelectedClasses] = useState<ScheduleClass[]>([]);
+  const [time, setTime] = useState("Both");
+  const [freq, setFreq] = useState("3 Days a week");
+  const [program, setProgram] = useState("All Programs");
+  const [selectedClasses, setSelectedClasses] = useState<SelectedClass[]>([]);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [fallback, setFallback] = useState(false);
   const [form, setForm] = useState({ name: "", phone: "", email: "" });
-  const classOptions = ["All", ...Array.from(new Set(mockSchedule.map((c) => c.type)))];
-  const list = useMemo(() => filterSchedule(mockSchedule, { time, days, cls }), [time, days, cls]);
-  const isAdded = (id: number) => selectedClasses.some((c) => c.id === id);
 
-  const toggle = (c: ScheduleClass) =>
-    setSelectedClasses((s) => (s.some((x) => x.id === c.id) ? s.filter((x) => x.id !== c.id) : [...s, c]));
+  const days = useMemo(
+    () =>
+      weeklySchedule
+        .map((d) => ({ ...d, classes: d.classes.filter((c) => matchesFilters(c, time, program)) }))
+        .filter((d) => d.classes.length > 0),
+    [time, program],
+  );
+  const isAdded = (id: string) => selectedClasses.some((c) => c.id === id);
+  const distinctDays = new Set(selectedClasses.map((c) => c.day)).size;
+  const limit = frequencyLimit(freq);
+  const overLimit = distinctDays > limit;
+
+  const toggle = (c: DayClass, day: string) =>
+    setSelectedClasses((s) => (s.some((x) => x.id === c.id) ? s.filter((x) => x.id !== c.id) : [...s, { ...c, day }]));
 
   const handlePayment = async () => {
+    if (overLimit) return toast.error(`Your pass covers ${limit} day${limit > 1 ? "s" : ""} a week`);
     if (form.phone.replace(/\D/g, "").length < 10) return toast.error("Enter a valid phone number");
     setIsProcessing(true);
     setFallback(false);
@@ -115,8 +125,8 @@ function SchedulePage() {
     }
   };
 
-  const summary = selectedClasses.map((c) => `${c.type} (${c.days}, ${c.time})`).join("; ");
-  const waMsg = encodeURIComponent(`Hi Kasratshala, I've paid for: ${summary}. Name: ${form.name}`);
+  const summary = selectedClasses.map((c) => `${c.name} (${c.day}, ${c.time})`).join("; ");
+  const waMsg = encodeURIComponent(`Hi Kasratshala, I've paid for (${freq}): ${summary}. Name: ${form.name}`);
 
   return (
     <Layout>
@@ -124,59 +134,68 @@ function SchedulePage() {
         <p className="label-caps text-[var(--gold)] mb-4">Weekly batches</p>
         <h1 className="editorial-heading text-4xl md:text-6xl text-[var(--cream)] mb-4">The Schedule</h1>
         <p className="text-[var(--muted)] max-w-xl mb-10">
-          Find the batch that fits your week. Add your classes and complete registration in one place.
+          Choose your pass, then pick your classes day by day.
         </p>
 
-        <div className="flex flex-wrap gap-4 mb-10">
-          <Select label="Time" value={time} onChange={setTime} options={["All", "Morning", "Evening"]} />
-          <Select label="Days" value={days} onChange={setDays} options={["All", "Mon/Wed/Fri", "Tue/Thu/Sat", "Sunday"]} />
-          <Select label="Class" value={cls} onChange={setCls} options={classOptions} />
+        <div className="flex flex-wrap gap-4 mb-6">
+          <Select label="Time Preference" value={time} onChange={setTime} options={TIME_OPTIONS} />
+          <Select label="Frequency Pass" value={freq} onChange={setFreq} options={FREQUENCY_OPTIONS} />
+          <Select label="Program" value={program} onChange={setProgram} options={PROGRAM_OPTIONS} />
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-5">
-          <AnimatePresence mode="popLayout">
-            {list.map((c) => (
-              <motion.article
-                key={c.id}
-                layout
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.4 }}
-                className="rounded-[24px] border border-[var(--bone)] bg-[var(--cream)]/5 backdrop-blur-md p-6 md:p-7 flex flex-col gap-5"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="label-caps text-[var(--muted)] mb-2">{c.timeSlot}</p>
-                    <h2 className="editorial-heading text-2xl text-[var(--cream)]">{c.type}</h2>
-                  </div>
-                  <span
-                    className={`label-caps rounded-full px-3 py-1 border ${
-                      c.status === "Open" ? "border-[var(--gold)] text-[var(--gold)]" : "border-[var(--bone)] text-[var(--muted)]"
-                    }`}
-                  >
-                    {c.status}
-                  </span>
-                </div>
-                <div className="flex gap-8 text-[var(--cream)]">
-                  <div><p className="label-caps text-[var(--muted)] mb-1">Days</p><p>{c.days}</p></div>
-                  <div><p className="label-caps text-[var(--muted)] mb-1">Time</p><p>{c.time}</p></div>
-                </div>
-                <button
-                  onClick={() => toggle(c)}
-                  className={`mt-auto rounded-full px-5 py-3 text-[11px] tracking-[0.24em] uppercase font-semibold transition-all ${
-                    isAdded(c.id)
-                      ? "bg-[var(--gold)] text-[var(--night)] ring-2 ring-[var(--gold)]/50"
-                      : "border border-[var(--gold)] text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--night)]"
-                  }`}
-                >
-                  {isAdded(c.id) ? "Added ✓" : c.status === "Waitlist" ? "Join Waitlist" : "Book Batch"}
-                </button>
-              </motion.article>
-            ))}
-          </AnimatePresence>
+        {overLimit && (
+          <p role="alert" className="mb-8 rounded-2xl border border-[var(--clay)] bg-[var(--clay)]/10 px-5 py-3 text-sm text-[var(--cream)]">
+            You've picked classes on {distinctDays} days, but the "{freq}" pass covers {limit} day{limit > 1 ? "s" : ""}. Remove some days or choose a bigger pass.
+          </p>
+        )}
+
+        <div className="space-y-12 mt-10">
+          {days.map((d) => (
+            <div key={d.day}>
+              <div className="flex items-center gap-5 mb-5">
+                <h2 className="editorial-heading text-3xl md:text-5xl uppercase tracking-[0.08em] text-[var(--cream)] font-semibold">{d.day}</h2>
+                <span className="h-px flex-1 bg-[var(--bone)]" />
+              </div>
+              <div className="space-y-3">
+                <AnimatePresence mode="popLayout">
+                  {d.classes.map((c) => (
+                    <motion.div
+                      key={c.id}
+                      layout
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0 }}
+                      className={`rounded-[20px] border bg-[var(--cream)]/5 backdrop-blur-md p-5 md:px-7 flex flex-col md:flex-row md:items-center gap-4 md:gap-8 transition-colors ${
+                        isAdded(c.id) ? "border-[var(--gold)]" : "border-[var(--bone)]"
+                      }`}
+                    >
+                      <div className="md:w-44 shrink-0">
+                        <p className="label-caps text-[var(--muted)] mb-1">{c.timeSlot}</p>
+                        <p className="text-[var(--gold)] font-semibold">{c.time}</p>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="editorial-heading text-2xl text-[var(--cream)]">{c.name}</h3>
+                        <p className="text-sm text-[var(--muted)] mt-1">{c.desc}</p>
+                      </div>
+                      <button
+                        onClick={() => toggle(c, d.day)}
+                        aria-pressed={isAdded(c.id)}
+                        className={`shrink-0 rounded-full px-5 py-3 text-[11px] tracking-[0.24em] uppercase font-semibold transition-all ${
+                          isAdded(c.id)
+                            ? "bg-[var(--gold)] text-[var(--night)]"
+                            : "border border-[var(--gold)] text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--night)]"
+                        }`}
+                      >
+                        {isAdded(c.id) ? "Selected ✓" : "Select Class"}
+                      </button>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </div>
+            </div>
+          ))}
         </div>
-        {list.length === 0 && <p className="text-[var(--muted)] text-center py-16">No batches match these filters.</p>}
+        {days.length === 0 && <p className="text-[var(--muted)] text-center py-16">No classes match these filters.</p>}
       </section>
 
       <AnimatePresence>
