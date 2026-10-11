@@ -2,7 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 
 const PRICE_PER_CLASS_INR = 1500;
 
-type Input = { classIds: number[]; customer: { name: string; phone: string; email: string } };
+type Input = { classIds: string[]; customer: { name: string; phone: string; email: string } };
 
 export const createCashfreeOrder = createServerFn({ method: "POST" })
   .inputValidator((d: Input) => {
@@ -10,7 +10,7 @@ export const createCashfreeOrder = createServerFn({ method: "POST" })
     const phone = String(d.customer?.phone ?? "").replace(/\D/g, "").slice(-10);
     if (phone.length !== 10) throw new Error("Enter a valid 10-digit phone number");
     return {
-      classIds: d.classIds.map(Number).filter(Number.isFinite),
+      classIds: d.classIds.map((x) => String(x).replace(/[^a-z0-9]/gi, "").slice(0, 8)).filter(Boolean),
       customer: {
         name: String(d.customer?.name ?? "").slice(0, 80) || "Kasratshala Student",
         phone,
