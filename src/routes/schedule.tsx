@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 import Layout from "@/components/Layout";
-import { mockSchedule, filterSchedule, type ScheduleClass } from "@/data/scheduleData";
+import { weeklySchedule, matchesFilters, frequencyLimit, TIME_OPTIONS, FREQUENCY_OPTIONS, PROGRAM_OPTIONS, type DayClass, type SelectedClass } from "@/data/scheduleData";
 import { createCashfreeOrder } from "@/lib/cashfree.functions";
 import upiQr from "@/assets/upi-qr.jpg";
 
@@ -212,7 +212,7 @@ function SchedulePage() {
               onClick={() => setIsCheckoutOpen(true)}
               className="rounded-full bg-[var(--gold)] px-6 py-3 text-[11px] tracking-[0.24em] uppercase font-semibold text-[var(--night)] hover:brightness-110"
             >
-              Proceed to Payment
+              Proceed to Checkout
             </button>
           </motion.div>
         )}
@@ -238,7 +238,7 @@ function SchedulePage() {
               <ul className="mt-6 space-y-2 text-sm text-[var(--cream)]/85">
                 {selectedClasses.map((c) => (
                   <li key={c.id} className="flex justify-between border-b border-[var(--bone)] pb-2">
-                    <span>{c.type} · {c.days} {c.time}</span><span>₹{PRICE}</span>
+                    <span>{c.name} · {c.day} {c.time}</span><span>₹{PRICE}</span>
                   </li>
                 ))}
                 <li className="flex justify-between font-semibold text-[var(--gold)] pt-1">
