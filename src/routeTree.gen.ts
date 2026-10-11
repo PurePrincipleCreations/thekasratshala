@@ -9,55 +9,27 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as YogarambhaRouteImport } from './routes/yogarambha'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ProgramsRouteImport } from './routes/programs'
-import { Route as OneFlowRouteImport } from './routes/one-flow'
-import { Route as KineticRouteImport } from './routes/kinetic'
-import { Route as ConnectRouteImport } from './routes/connect'
-import { Route as CertificationsRouteImport } from './routes/certifications'
-import { Route as CampsRouteImport } from './routes/camps'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CampsRouteImport } from './routes/camps'
+import { Route as CertificationsRouteImport } from './routes/certifications'
+import { Route as ConnectRouteImport } from './routes/connect'
+import { Route as ImmersionsRouteImport } from './routes/immersions'
+import { Route as KineticRouteImport } from './routes/kinetic'
+import { Route as OneFlowRouteImport } from './routes/one-flow'
+import { Route as ProgramsRouteImport } from './routes/programs'
+import { Route as ScheduleRouteImport } from './routes/schedule'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as YogarambhaRouteImport } from './routes/yogarambha'
 import { Route as CoursesIndexRouteImport } from './routes/courses/index'
-import { Route as LearnSlugRouteImport } from './routes/learn.$slug'
-import { Route as CoursesYogaForStrengthRouteImport } from './routes/courses/yoga-for-strength'
-import { Route as CoursesSteelMaceFlowRouteImport } from './routes/courses/steel-mace-flow'
-import { Route as CoursesRecodeRouteImport } from './routes/courses/recode'
 import { Route as CoursesPranayamaRouteImport } from './routes/courses/pranayama'
+import { Route as CoursesRecodeRouteImport } from './routes/courses/recode'
+import { Route as CoursesSteelMaceFlowRouteImport } from './routes/courses/steel-mace-flow'
+import { Route as CoursesYogaForStrengthRouteImport } from './routes/courses/yoga-for-strength'
+import { Route as LearnSlugRouteImport } from './routes/learn.$slug'
 
-const YogarambhaRoute = YogarambhaRouteImport.update({
-  id: '/yogarambha',
-  path: '/yogarambha',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProgramsRoute = ProgramsRouteImport.update({
-  id: '/programs',
-  path: '/programs',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const OneFlowRoute = OneFlowRouteImport.update({
-  id: '/one-flow',
-  path: '/one-flow',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const KineticRoute = KineticRouteImport.update({
-  id: '/kinetic',
-  path: '/kinetic',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ConnectRoute = ConnectRouteImport.update({
-  id: '/connect',
-  path: '/connect',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CertificationsRoute = CertificationsRouteImport.update({
-  id: '/certifications',
-  path: '/certifications',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CampsRoute = CampsRouteImport.update({
@@ -65,9 +37,49 @@ const CampsRoute = CampsRouteImport.update({
   path: '/camps',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const CertificationsRoute = CertificationsRouteImport.update({
+  id: '/certifications',
+  path: '/certifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConnectRoute = ConnectRouteImport.update({
+  id: '/connect',
+  path: '/connect',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImmersionsRoute = ImmersionsRouteImport.update({
+  id: '/immersions',
+  path: '/immersions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KineticRoute = KineticRouteImport.update({
+  id: '/kinetic',
+  path: '/kinetic',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OneFlowRoute = OneFlowRouteImport.update({
+  id: '/one-flow',
+  path: '/one-flow',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgramsRoute = ProgramsRouteImport.update({
+  id: '/programs',
+  path: '/programs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScheduleRoute = ScheduleRouteImport.update({
+  id: '/schedule',
+  path: '/schedule',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const YogarambhaRoute = YogarambhaRouteImport.update({
+  id: '/yogarambha',
+  path: '/yogarambha',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CoursesIndexRoute = CoursesIndexRouteImport.update({
@@ -75,19 +87,9 @@ const CoursesIndexRoute = CoursesIndexRouteImport.update({
   path: '/courses/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LearnSlugRoute = LearnSlugRouteImport.update({
-  id: '/learn/$slug',
-  path: '/learn/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CoursesYogaForStrengthRoute = CoursesYogaForStrengthRouteImport.update({
-  id: '/courses/yoga-for-strength',
-  path: '/courses/yoga-for-strength',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CoursesSteelMaceFlowRoute = CoursesSteelMaceFlowRouteImport.update({
-  id: '/courses/steel-mace-flow',
-  path: '/courses/steel-mace-flow',
+const CoursesPranayamaRoute = CoursesPranayamaRouteImport.update({
+  id: '/courses/pranayama',
+  path: '/courses/pranayama',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CoursesRecodeRoute = CoursesRecodeRouteImport.update({
@@ -95,9 +97,19 @@ const CoursesRecodeRoute = CoursesRecodeRouteImport.update({
   path: '/courses/recode',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CoursesPranayamaRoute = CoursesPranayamaRouteImport.update({
-  id: '/courses/pranayama',
-  path: '/courses/pranayama',
+const CoursesSteelMaceFlowRoute = CoursesSteelMaceFlowRouteImport.update({
+  id: '/courses/steel-mace-flow',
+  path: '/courses/steel-mace-flow',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesYogaForStrengthRoute = CoursesYogaForStrengthRouteImport.update({
+  id: '/courses/yoga-for-strength',
+  path: '/courses/yoga-for-strength',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnSlugRoute = LearnSlugRouteImport.update({
+  id: '/learn/$slug',
+  path: '/learn/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -106,9 +118,11 @@ export interface FileRoutesByFullPath {
   '/camps': typeof CampsRoute
   '/certifications': typeof CertificationsRoute
   '/connect': typeof ConnectRoute
+  '/immersions': typeof ImmersionsRoute
   '/kinetic': typeof KineticRoute
   '/one-flow': typeof OneFlowRoute
   '/programs': typeof ProgramsRoute
+  '/schedule': typeof ScheduleRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yogarambha': typeof YogarambhaRoute
   '/courses/pranayama': typeof CoursesPranayamaRoute
@@ -123,9 +137,11 @@ export interface FileRoutesByTo {
   '/camps': typeof CampsRoute
   '/certifications': typeof CertificationsRoute
   '/connect': typeof ConnectRoute
+  '/immersions': typeof ImmersionsRoute
   '/kinetic': typeof KineticRoute
   '/one-flow': typeof OneFlowRoute
   '/programs': typeof ProgramsRoute
+  '/schedule': typeof ScheduleRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yogarambha': typeof YogarambhaRoute
   '/courses/pranayama': typeof CoursesPranayamaRoute
@@ -141,9 +157,11 @@ export interface FileRoutesById {
   '/camps': typeof CampsRoute
   '/certifications': typeof CertificationsRoute
   '/connect': typeof ConnectRoute
+  '/immersions': typeof ImmersionsRoute
   '/kinetic': typeof KineticRoute
   '/one-flow': typeof OneFlowRoute
   '/programs': typeof ProgramsRoute
+  '/schedule': typeof ScheduleRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yogarambha': typeof YogarambhaRoute
   '/courses/pranayama': typeof CoursesPranayamaRoute
@@ -160,9 +178,11 @@ export interface FileRouteTypes {
     | '/camps'
     | '/certifications'
     | '/connect'
+    | '/immersions'
     | '/kinetic'
     | '/one-flow'
     | '/programs'
+    | '/schedule'
     | '/sitemap.xml'
     | '/yogarambha'
     | '/courses/pranayama'
@@ -177,9 +197,11 @@ export interface FileRouteTypes {
     | '/camps'
     | '/certifications'
     | '/connect'
+    | '/immersions'
     | '/kinetic'
     | '/one-flow'
     | '/programs'
+    | '/schedule'
     | '/sitemap.xml'
     | '/yogarambha'
     | '/courses/pranayama'
@@ -194,9 +216,11 @@ export interface FileRouteTypes {
     | '/camps'
     | '/certifications'
     | '/connect'
+    | '/immersions'
     | '/kinetic'
     | '/one-flow'
     | '/programs'
+    | '/schedule'
     | '/sitemap.xml'
     | '/yogarambha'
     | '/courses/pranayama'
@@ -212,9 +236,11 @@ export interface RootRouteChildren {
   CampsRoute: typeof CampsRoute
   CertificationsRoute: typeof CertificationsRoute
   ConnectRoute: typeof ConnectRoute
+  ImmersionsRoute: typeof ImmersionsRoute
   KineticRoute: typeof KineticRoute
   OneFlowRoute: typeof OneFlowRoute
   ProgramsRoute: typeof ProgramsRoute
+  ScheduleRoute: typeof ScheduleRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   YogarambhaRoute: typeof YogarambhaRoute
   CoursesPranayamaRoute: typeof CoursesPranayamaRoute
@@ -227,53 +253,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/yogarambha': {
-      id: '/yogarambha'
-      path: '/yogarambha'
-      fullPath: '/yogarambha'
-      preLoaderRoute: typeof YogarambhaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/programs': {
-      id: '/programs'
-      path: '/programs'
-      fullPath: '/programs'
-      preLoaderRoute: typeof ProgramsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/one-flow': {
-      id: '/one-flow'
-      path: '/one-flow'
-      fullPath: '/one-flow'
-      preLoaderRoute: typeof OneFlowRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/kinetic': {
-      id: '/kinetic'
-      path: '/kinetic'
-      fullPath: '/kinetic'
-      preLoaderRoute: typeof KineticRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/connect': {
-      id: '/connect'
-      path: '/connect'
-      fullPath: '/connect'
-      preLoaderRoute: typeof ConnectRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/certifications': {
-      id: '/certifications'
-      path: '/certifications'
-      fullPath: '/certifications'
-      preLoaderRoute: typeof CertificationsRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/camps': {
@@ -283,11 +267,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CampsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/certifications': {
+      id: '/certifications'
+      path: '/certifications'
+      fullPath: '/certifications'
+      preLoaderRoute: typeof CertificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/connect': {
+      id: '/connect'
+      path: '/connect'
+      fullPath: '/connect'
+      preLoaderRoute: typeof ConnectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/immersions': {
+      id: '/immersions'
+      path: '/immersions'
+      fullPath: '/immersions'
+      preLoaderRoute: typeof ImmersionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kinetic': {
+      id: '/kinetic'
+      path: '/kinetic'
+      fullPath: '/kinetic'
+      preLoaderRoute: typeof KineticRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/one-flow': {
+      id: '/one-flow'
+      path: '/one-flow'
+      fullPath: '/one-flow'
+      preLoaderRoute: typeof OneFlowRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs': {
+      id: '/programs'
+      path: '/programs'
+      fullPath: '/programs'
+      preLoaderRoute: typeof ProgramsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/schedule': {
+      id: '/schedule'
+      path: '/schedule'
+      fullPath: '/schedule'
+      preLoaderRoute: typeof ScheduleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/yogarambha': {
+      id: '/yogarambha'
+      path: '/yogarambha'
+      fullPath: '/yogarambha'
+      preLoaderRoute: typeof YogarambhaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/courses/': {
@@ -297,25 +337,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CoursesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/learn/$slug': {
-      id: '/learn/$slug'
-      path: '/learn/$slug'
-      fullPath: '/learn/$slug'
-      preLoaderRoute: typeof LearnSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/courses/yoga-for-strength': {
-      id: '/courses/yoga-for-strength'
-      path: '/courses/yoga-for-strength'
-      fullPath: '/courses/yoga-for-strength'
-      preLoaderRoute: typeof CoursesYogaForStrengthRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/courses/steel-mace-flow': {
-      id: '/courses/steel-mace-flow'
-      path: '/courses/steel-mace-flow'
-      fullPath: '/courses/steel-mace-flow'
-      preLoaderRoute: typeof CoursesSteelMaceFlowRouteImport
+    '/courses/pranayama': {
+      id: '/courses/pranayama'
+      path: '/courses/pranayama'
+      fullPath: '/courses/pranayama'
+      preLoaderRoute: typeof CoursesPranayamaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/courses/recode': {
@@ -325,11 +351,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CoursesRecodeRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/courses/pranayama': {
-      id: '/courses/pranayama'
-      path: '/courses/pranayama'
-      fullPath: '/courses/pranayama'
-      preLoaderRoute: typeof CoursesPranayamaRouteImport
+    '/courses/steel-mace-flow': {
+      id: '/courses/steel-mace-flow'
+      path: '/courses/steel-mace-flow'
+      fullPath: '/courses/steel-mace-flow'
+      preLoaderRoute: typeof CoursesSteelMaceFlowRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses/yoga-for-strength': {
+      id: '/courses/yoga-for-strength'
+      path: '/courses/yoga-for-strength'
+      fullPath: '/courses/yoga-for-strength'
+      preLoaderRoute: typeof CoursesYogaForStrengthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/$slug': {
+      id: '/learn/$slug'
+      path: '/learn/$slug'
+      fullPath: '/learn/$slug'
+      preLoaderRoute: typeof LearnSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -340,9 +380,11 @@ const rootRouteChildren: RootRouteChildren = {
   CampsRoute: CampsRoute,
   CertificationsRoute: CertificationsRoute,
   ConnectRoute: ConnectRoute,
+  ImmersionsRoute: ImmersionsRoute,
   KineticRoute: KineticRoute,
   OneFlowRoute: OneFlowRoute,
   ProgramsRoute: ProgramsRoute,
+  ScheduleRoute: ScheduleRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   YogarambhaRoute: YogarambhaRoute,
   CoursesPranayamaRoute: CoursesPranayamaRoute,
