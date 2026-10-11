@@ -2,24 +2,20 @@ import { Link } from "@tanstack/react-router";
 
 export default function HomeFinalCTA() {
   return (
-    <section className="py-20 md:py-32 bg-[var(--night)] px-6 text-center border-t border-[var(--bone)]">
+    <section id="contact" className="py-20 md:py-32 bg-[var(--night)] px-6 text-center border-t border-[var(--bone)]">
       <div className="section-inner max-w-3xl space-y-12">
         <div className="space-y-6">
           <h2 className="editorial-heading text-6xl md:text-8xl">
-            Come for the practice.<br />
-            <span className="italic text-[var(--gold)]">Stay for the shift.</span>
+            Join the <span className="italic text-[var(--gold)]">Daily Practice.</span>
           </h2>
-          <p className="text-[var(--muted)] text-xl leading-relaxed">
-            Join online from wherever you are, &amp; write to us to do the same certifications in person.
-          </p>
         </div>
 
         <div className="flex flex-wrap justify-center gap-6">
           <Link
-            to={"/certifications" as any}
+            to="/schedule"
             className="px-10 py-5 bg-[var(--teal)] text-[var(--night)] font-hand text-xl hover:bg-[var(--gold)] transition-all"
           >
-            Explore Certifications
+            Select Your Batch &amp; Schedule
           </Link>
           <Link
             to={"/connect" as any}
@@ -28,6 +24,13 @@ export default function HomeFinalCTA() {
             Write to Us
           </Link>
         </div>
+
+        <p className="text-[var(--muted)] text-base md:text-lg leading-relaxed border-t border-[var(--bone)] pt-10">
+          Looking for Certifications (Steel Mace Flow, Yoga Alliance) or Residential Camps?{" "}
+          <Link to="/immersions" className="text-[var(--gold)] border-b border-[var(--gold)]/40 hover:border-[var(--gold)]">
+            Explore our Immersions.
+          </Link>
+        </p>
       </div>
     </section>
   );

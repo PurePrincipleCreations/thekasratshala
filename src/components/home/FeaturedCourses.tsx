@@ -2,49 +2,28 @@ import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import yogaPose from "@/assets/yoga_pose.png.asset.json";
 import macePose from "@/assets/mace_pose.png.asset.json";
+import suspensionStrength from "@/assets/suspension-strength.jpg.asset.json";
 import handsContact from "@/assets/hands_contact.png.asset.json";
 import MovementGeometry from "../biomechanical/MovementGeometry";
 
 const featured = [
-  {
-    title: "RECODE",
-    category: "Foundational movement recoding",
-    description: "A four-part process for modern bodies ready to realign how they move.",
-    image: handsContact,
-    type: "recode" as const,
-    cta: "Explore RECODE",
-    to: "/courses/recode" as any
-  },
-  {
-    title: "Yoga for Strength",
-    category: "Yoga Arts · Teacher Training Course module",
-    description: "Build strength, structure and capacity without separating movement from breath.",
-    image: yogaPose,
-    type: "strength" as const,
-    cta: "Explore Yoga for Strength",
-    to: "/courses/yoga-for-strength" as any
-  },
-  {
-    title: "Steel Mace Flow",
-    category: "Strength Arts + Movement Arts",
-    description: "Rotational strength, shoulder integrity and fluid movement through the ancient gada.",
-    image: macePose,
-    type: "mace" as const,
-    cta: "View Steel Mace Flow",
-    to: "/courses/steel-mace-flow" as any
-  }
-];
+  { title: "Kinetic Conditioning", category: "Structure · Load", description: "Focus on structural integrity and load.", image: suspensionStrength, type: "strength" as const },
+  { title: "Steel Mace Flow", category: "Rotation · Flow", description: "Rotational strength and fluid movement.", image: macePose, type: "mace" as const },
+  { title: "Landmine Athletics", category: "Ground-based power", description: "Explosive, ground-based power.", image: handsContact, type: "recode" as const },
+  { title: "Mace Vinyasa & Yoga Kali", category: "Ancient disciplines · Breath", description: "Ancient disciplines fused with breath mechanics.", image: yogaPose, type: "strength" as const },
+].map((c) => ({ ...c, cta: "See batches", to: "/schedule" as any }));
 
 export default function FeaturedCourses() {
   return (
     <section className="py-12 md:py-24 bg-[var(--night)] px-6">
       <div className="section-inner">
         <div className="space-y-6 mb-20 text-center">
-          <p className="label-caps text-[var(--gold)] text-xs md:text-sm tracking-[0.3em] opacity-60">Start where your body is.</p>
-          <h2 className="editorial-heading text-7xl md:text-[8rem] leading-[0.9] tracking-tighter">CERTIFICATIONS.</h2>
+          <p className="label-caps text-[var(--gold)] text-xs md:text-sm tracking-[0.3em] opacity-60">Daily Practice</p>
+          <h2 className="editorial-heading text-5xl md:text-7xl leading-[0.95] tracking-tight">Train the Way You Were Meant To.</h2>
+          <p className="text-[var(--muted)] text-base md:text-lg leading-relaxed max-w-2xl mx-auto">Whether you are loading steel, flowing with a mace, or mastering your own mass, our schedule is built for progressive mastery. We offer structured morning and evening sessions.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {featured.map((item) => (
             <Link 
               key={item.title} 
@@ -83,10 +62,10 @@ export default function FeaturedCourses() {
 
         <div className="mt-20 text-center">
           <Link 
-            to={"/certifications" as any}
+            to="/schedule"
             className="inline-block px-10 py-4 border border-[var(--bone)] text-[var(--cream)] font-hand text-xl hover:bg-[var(--bone)] transition-all"
           >
-            View all certifications
+            View the full schedule
           </Link>
         </div>
       </div>

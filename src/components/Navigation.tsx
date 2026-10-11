@@ -9,14 +9,10 @@ import ksLogo from "@/assets/ks-logo-new.png.asset.json";
 import toriiGate from "@/assets/torii-gate.png.asset.json";
 
 const links = [
-  { label: "Home", path: "/" },
-  { label: "Certifications", path: "/certifications" },
-  { label: "Programs", path: "/programs" },
+  { label: "The Way", path: "/", hash: "philosophy" },
   { label: "Schedule", path: "/schedule" },
   { label: "Immersions", path: "/immersions" },
-  { label: "Camps", path: "/camps" },
-  { label: "Kinetic", path: "/kinetic" },
-  { label: "Connect", path: "/connect" },
+  { label: "Contact", path: "/", hash: "contact" },
 ] as const;
 
 export default function Navigation() {
@@ -57,7 +53,7 @@ export default function Navigation() {
           <AnimatePresence mode="wait">
             {!open && links.map((l, i) => (
               <motion.div
-                key={l.path}
+                key={l.label}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
@@ -65,6 +61,7 @@ export default function Navigation() {
               >
                 <Link
                   to={l.path as any}
+                  hash={(l as any).hash}
                   className="label-caps text-[20px] tracking-[0.25em] text-[#A3E635] hover:text-[#C7F274] transition-colors relative group font-black px-4 py-2 rounded-full bg-[rgba(9,10,9,0.35)] hover:bg-[rgba(93,74,62,0.45)] [text-shadow:0_2px_10px_rgba(0,0,0,0.85)]"
                 >
                   {l.label}
@@ -75,6 +72,12 @@ export default function Navigation() {
         </div>
 
         <div className="flex items-center gap-6 relative z-[101]">
+          <Link
+            to="/schedule"
+            className="hidden sm:inline-flex label-caps text-[13px] tracking-[0.2em] font-black px-5 py-2.5 rounded-full bg-[#A3E635] text-[var(--night)] hover:bg-[#C7F274] transition-colors"
+          >
+            Book a Session
+          </Link>
           <button
             onClick={() => setIsCartOpen(true)}
             className="relative p-2 text-[var(--muted)] hover:text-[var(--gold)] transition-colors"
@@ -133,13 +136,14 @@ export default function Navigation() {
             <div className="section-inner flex flex-col gap-10 md:gap-14">
               {(links as any).map((l: any, i: number) => (
                 <motion.div
-                  key={l.path}
+                  key={l.label}
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 + i * 0.1, duration: 0.5 }}
                 >
                   <Link
                     to={l.path as any}
+                  hash={(l as any).hash}
                     onClick={() => setOpen(false)}
                     className="editorial-heading text-6xl md:text-8xl text-[var(--cream)] hover:text-[var(--gold)] transition-colors flex items-center justify-between group"
                   >
