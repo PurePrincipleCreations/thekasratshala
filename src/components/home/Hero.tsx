@@ -48,7 +48,7 @@ export default function Hero() {
             transition={{ duration: 1.1, delay: 0.15, ease }}
             className="editorial-heading text-5xl md:text-8xl leading-[0.95] text-[var(--cream)] mt-5"
           >
-            Master the Art of <span className="italic text-[var(--gold)]">Real Strength.</span>
+            Master the Art of<br /><span className="italic text-[var(--gold)]">Real Strength.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}

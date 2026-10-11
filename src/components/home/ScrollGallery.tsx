@@ -1,91 +1,52 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import outdoorMace1 from "@/assets/outdoor_mace_1.png.asset.json";
-import outdoorMace2 from "@/assets/outdoor_mace_2.png.asset.json";
-import outdoorTraining from "@/assets/outdoor_training.png.asset.json";
-import stickDrill from "@/assets/stick_drill.png.asset.json";
-import feetDetail from "@/assets/feet_detail.png.asset.json";
-import handMudra from "@/assets/hand_mudra.png.asset.json";
-import prayerBreath from "@/assets/prayer_breath.png.asset.json";
+import { motion } from "framer-motion";
 
-type Frame = { src: string; alt: string; caption: string };
-
-const columns: Frame[][] = [
-  [
-    { src: outdoorMace1.url, alt: "Mace training outdoors", caption: "Gada · open ground" },
-    { src: feetDetail.url, alt: "Feet and ground contact", caption: "Contact · base" },
-    { src: prayerBreath.url, alt: "Breath practice", caption: "Breath · stillness" },
-  ],
-  [
-    { src: outdoorTraining.url, alt: "Outdoor training session", caption: "Session · Naggar" },
-    { src: handMudra.url, alt: "Hand mudra detail", caption: "Detail · intention" },
-  ],
-  [
-    { src: stickDrill.url, alt: "Stick drill practice", caption: "Drill · timing" },
-    { src: outdoorMace2.url, alt: "Mace swing in the hills", caption: "Swing · rotation" },
-  ],
+const roster = [
+  { day: "Mondays", time: "8:00 AM", classes: "Grounding", note: "Foot-to-core and ankle resilience." },
+  { day: "Tuesdays", time: "8:00 AM · 9:00 AM · 5:15 PM", classes: "Kinetic Conditioning | Steel Mace Flow | Landmine University", note: "Conditioning, rotational flow and power mechanics." },
+  { day: "Wednesdays", time: "9:00 AM · Evening", classes: "Vinyasa Waves | Rotational Club & Mace", note: "Morning flow, evening rotational coiling." },
+  { day: "Thursdays", time: "8:00–10:00 AM · 5:15 PM", classes: "Deep Practice | Kali-PTK", note: "Long-form practice and stick work." },
+  { day: "Fridays", time: "9:00 AM", classes: "Friday Flyday", note: "Vinyasa Armplay and inversion mechanics." },
+  { day: "Saturdays", time: "5:15 PM", classes: "Breakthrough", note: "Strength & Conditioning." },
 ];
-
-function Column({ frames, speed }: { frames: Frame[]; speed: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [speed, -speed]);
-
-  return (
-    <motion.div ref={ref} style={{ y }} className="space-y-8 md:space-y-12">
-      {frames.map((frame, i) => (
-        <motion.figure
-          key={frame.src}
-          initial={{ clipPath: "inset(100% 0% 0% 0%)", opacity: 0 }}
-          whileInView={{ clipPath: "inset(0% 0% 0% 0%)", opacity: 1 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 1.2, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-          className="group relative overflow-hidden rounded-sm border border-[var(--bone)]"
-        >
-          <img
-            src={frame.src}
-            alt={frame.alt}
-            loading="lazy"
-            className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-90 group-hover:scale-[1.04] transition-all duration-[1400ms] ease-out"
-          />
-          <figcaption className="absolute bottom-0 left-0 right-0 p-4 flex items-center justify-between bg-gradient-to-t from-[var(--night)] to-transparent">
-            <span className="label-caps text-[8px] text-[var(--cream)]/70">{frame.caption}</span>
-            <span className="font-hand text-sm text-[var(--gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              in practice
-            </span>
-          </figcaption>
-        </motion.figure>
-      ))}
-    </motion.div>
-  );
-}
 
 export default function ScrollGallery() {
   return (
     <section className="relative py-12 md:py-24 px-6 bg-[var(--night)] overflow-hidden">
       <div className="section-inner">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10 md:mb-20">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10 md:mb-16">
           <div className="space-y-4 max-w-xl">
-            <p className="label-caps text-[var(--gold)]">The Dojo, in frames</p>
+            <p className="label-caps text-[var(--gold)]">Live Broadcast</p>
             <h2 className="editorial-heading text-4xl md:text-7xl leading-[0.9]">
-              Practice happens<br />
-              <span className="italic text-[var(--gold)]">outdoors.</span>
+              Practice Happens<br />
+              <span className="italic text-[var(--gold)]">Wherever You Stand.</span>
             </h2>
           </div>
-          <p className="text-[var(--muted)] text-lg italic max-w-sm leading-relaxed">
-            Stone, soil, breath and steel. Every frame here is a real session — no staging, no studio light.
+          <p className="text-[var(--muted)] text-lg italic max-w-md leading-relaxed">
+            The Dojo is not just a physical location; it is a standard of work. Our core sessions are broadcast live to our distributed community. You clear the floor, you bring the discipline, and we will tell you exactly which tools to source along the way. No studio lights, no staging—just honest mechanics and deep practice in your own space.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-12 items-start">
-          <Column frames={columns[0]} speed={40} />
-          <div className="hidden md:block">
-            <Column frames={columns[1]} speed={-40} />
-          </div>
-          <Column frames={columns[2]} speed={60} />
+        <div className="space-y-4">
+          <h3 className="editorial-heading text-3xl md:text-4xl">The Live Roster</h3>
+          <ul className="border-t border-[var(--bone)]">
+            {roster.map((r, i) => (
+              <motion.li
+                key={r.day}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+                className="grid grid-cols-1 md:grid-cols-[180px_220px_1fr] gap-1 md:gap-6 py-5 border-b border-[var(--bone)]"
+              >
+                <span className="label-caps text-[var(--gold)] text-xs tracking-[0.25em]">{r.day}</span>
+                <span className="text-[var(--cream)]/70 text-sm">{r.time}</span>
+                <div>
+                  <p className="text-[var(--cream)] text-base md:text-lg">{r.classes}</p>
+                  <p className="text-[var(--muted)] text-sm">{r.note}</p>
+                </div>
+              </motion.li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
