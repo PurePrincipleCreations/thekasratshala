@@ -19,6 +19,7 @@ export default function Navigation() {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
   const [open, setOpen] = useState(false);
+  const [isStoreOpen, setIsStoreOpen] = useState(false);
   const [cart] = useAtom(cartAtom);
   const [, setIsCartOpen] = useAtom(isCartOpenAtom);
   const cursorX = useSpring(0, { damping: 30, stiffness: 250, mass: 0.4 });
@@ -68,6 +69,19 @@ export default function Navigation() {
                 </Link>
               </motion.div>
             ))}
+            {!open && (
+              <motion.button
+                key="store"
+                type="button"
+                onClick={() => setIsStoreOpen(true)}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="label-caps text-[20px] tracking-[0.25em] text-[#A3E635] hover:text-[#C7F274] transition-colors font-black px-4 py-2 rounded-full bg-[rgba(9,10,9,0.35)] hover:bg-[rgba(93,74,62,0.45)] [text-shadow:0_2px_10px_rgba(0,0,0,0.85)]"
+              >
+                Store
+              </motion.button>
+            )}
           </AnimatePresence>
         </div>
 
@@ -76,7 +90,7 @@ export default function Navigation() {
             to="/schedule"
             className="hidden sm:inline-flex label-caps text-[13px] tracking-[0.2em] font-black px-5 py-2.5 rounded-full bg-[#A3E635] text-[var(--night)] hover:bg-[#C7F274] transition-colors"
           >
-            Book a Session
+            Join a Program
           </Link>
           <button
             onClick={() => setIsCartOpen(true)}
@@ -152,7 +166,50 @@ export default function Navigation() {
                   </Link>
                 </motion.div>
               ))}
+              <button
+                type="button"
+                onClick={() => { setOpen(false); setIsStoreOpen(true); }}
+                className="editorial-heading text-6xl md:text-8xl text-left text-[var(--cream)] hover:text-[var(--gold)] transition-colors"
+              >
+                Store
+              </button>
             </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {isStoreOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsStoreOpen(false)}
+            className="fixed inset-0 z-[200] flex items-center justify-center bg-[var(--night)]/60 backdrop-blur-md p-6 pointer-events-auto"
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 10 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 10 }}
+              onClick={(e) => e.stopPropagation()}
+              role="dialog"
+              aria-modal="true"
+              className="relative bg-[var(--night)]/80 border border-[var(--cream)]/10 rounded-2xl p-10 max-w-md w-full text-center shadow-2xl"
+            >
+              <button
+                type="button"
+                aria-label="Close"
+                onClick={() => setIsStoreOpen(false)}
+                className="absolute top-4 right-4 p-2 text-[var(--muted)] hover:text-[var(--cream)] transition-colors"
+              >
+                <X size={20} />
+              </button>
+              <p className="label-caps text-[10px] tracking-widest text-[var(--muted)]">Equipment &amp; Gear</p>
+              <h3 className="editorial-heading text-4xl text-[var(--cream)] mt-4">Store Coming Soon.</h3>
+              <p className="text-[var(--muted)] mt-4 leading-relaxed">
+                We are currently sourcing the highest grade tools for the distributed practice. Check back soon.
+              </p>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

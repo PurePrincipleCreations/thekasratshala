@@ -40,10 +40,10 @@ export default function DojoFrames() {
     <section className="relative py-12 md:py-24 px-6 bg-[var(--night)] border-t border-[var(--bone)]">
       <div className="section-inner space-y-12">
         <div className="space-y-3">
-          <p className="label-caps text-[var(--gold)] tracking-widest text-[10px]">The Dojo, in frames</p>
           <h2 className="editorial-heading text-3xl md:text-5xl leading-tight">
-            The Living Space
+            The Dojo &amp; The Discipline
           </h2>
+          <p className="text-[var(--muted)] italic">Real sessions. Real students. No staging.</p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3 md:gap-4">
