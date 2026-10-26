@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import type { NeonBatchResult } from "@/lib/neon.server";
 
 // Public, read-only health endpoint: proves the app's Neon path works end to
 // end through the running app. Returns no PII and performs no writes; the
@@ -10,7 +11,7 @@ export const Route = createFileRoute("/api/public/health")({
         const started = Date.now();
         try {
           const { neonQuery } = await import("@/lib/neon.server");
-          const { results } = await neonQuery(
+          const { results } = await neonQuery<NeonBatchResult>(
             [
               { query: "select current_database() as db, current_user as usr" },
               { query: "select count(*)::int as app_tables from information_schema.tables where table_schema = 'public'" },
