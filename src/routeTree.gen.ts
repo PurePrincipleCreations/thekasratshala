@@ -26,6 +26,7 @@ import { Route as CoursesRecodeRouteImport } from './routes/courses/recode'
 import { Route as CoursesSteelMaceFlowRouteImport } from './routes/courses/steel-mace-flow'
 import { Route as CoursesYogaForStrengthRouteImport } from './routes/courses/yoga-for-strength'
 import { Route as LearnSlugRouteImport } from './routes/learn.$slug'
+import { Route as ApiPublicHealthRouteImport } from './routes/api/public/health'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -112,6 +113,11 @@ const LearnSlugRoute = LearnSlugRouteImport.update({
   path: '/learn/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicHealthRoute = ApiPublicHealthRouteImport.update({
+  id: '/api/public/health',
+  path: '/api/public/health',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -131,6 +137,7 @@ export interface FileRoutesByFullPath {
   '/courses/yoga-for-strength': typeof CoursesYogaForStrengthRoute
   '/learn/$slug': typeof LearnSlugRoute
   '/courses/': typeof CoursesIndexRoute
+  '/api/public/health': typeof ApiPublicHealthRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -150,6 +157,7 @@ export interface FileRoutesByTo {
   '/courses/yoga-for-strength': typeof CoursesYogaForStrengthRoute
   '/learn/$slug': typeof LearnSlugRoute
   '/courses': typeof CoursesIndexRoute
+  '/api/public/health': typeof ApiPublicHealthRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -170,6 +178,7 @@ export interface FileRoutesById {
   '/courses/yoga-for-strength': typeof CoursesYogaForStrengthRoute
   '/learn/$slug': typeof LearnSlugRoute
   '/courses/': typeof CoursesIndexRoute
+  '/api/public/health': typeof ApiPublicHealthRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -191,6 +200,7 @@ export interface FileRouteTypes {
     | '/courses/yoga-for-strength'
     | '/learn/$slug'
     | '/courses/'
+    | '/api/public/health'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -210,6 +220,7 @@ export interface FileRouteTypes {
     | '/courses/yoga-for-strength'
     | '/learn/$slug'
     | '/courses'
+    | '/api/public/health'
   id:
     | '__root__'
     | '/'
@@ -229,6 +240,7 @@ export interface FileRouteTypes {
     | '/courses/yoga-for-strength'
     | '/learn/$slug'
     | '/courses/'
+    | '/api/public/health'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -249,6 +261,7 @@ export interface RootRouteChildren {
   CoursesYogaForStrengthRoute: typeof CoursesYogaForStrengthRoute
   LearnSlugRoute: typeof LearnSlugRoute
   CoursesIndexRoute: typeof CoursesIndexRoute
+  ApiPublicHealthRoute: typeof ApiPublicHealthRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -372,6 +385,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LearnSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/health': {
+      id: '/api/public/health'
+      path: '/api/public/health'
+      fullPath: '/api/public/health'
+      preLoaderRoute: typeof ApiPublicHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -393,6 +413,7 @@ const rootRouteChildren: RootRouteChildren = {
   CoursesYogaForStrengthRoute: CoursesYogaForStrengthRoute,
   LearnSlugRoute: LearnSlugRoute,
   CoursesIndexRoute: CoursesIndexRoute,
+  ApiPublicHealthRoute: ApiPublicHealthRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
