@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CalendarDays, X, ArrowRight, Phone, MessageCircle, Copy, Check, ArrowLeft } from "lucide-react";
 import upiQr from "@/assets/upi-qr.jpg";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useLocation } from "@tanstack/react-router";
 
 const PHONE_DISPLAY = "83079 29691";
 const PHONE_RAW = "918307929691";
@@ -61,6 +62,10 @@ export default function ScheduleDock() {
   const [copied, setCopied] = useState(false);
   const [minimized, setMinimized] = useState(false);
   const isMobile = useIsMobile();
+  const { pathname } = useLocation();
+  // The Schedule page already carries the full timetable and checkout —
+  // the floating dock would duplicate it and block its bottom bar.
+  if (pathname === "/schedule") return null;
 
   const close = () => {
     setOpen(false);
