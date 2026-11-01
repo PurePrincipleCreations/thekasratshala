@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CalendarDays, X, ArrowRight, Phone, MessageCircle, Copy, Check, ArrowLeft } from "lucide-react";
 import upiQr from "@/assets/upi-qr.jpg";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const PHONE_DISPLAY = "83079 29691";
 const PHONE_RAW = "918307929691";
@@ -58,6 +59,8 @@ export default function ScheduleDock() {
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState<"schedule" | "register">("schedule");
   const [copied, setCopied] = useState(false);
+  const [minimized, setMinimized] = useState(false);
+  const isMobile = useIsMobile();
 
   const close = () => {
     setOpen(false);
