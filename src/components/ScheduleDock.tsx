@@ -86,12 +86,12 @@ export default function ScheduleDock() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={close}
-            className="fixed inset-0 z-[110] bg-[var(--night)]/80 backdrop-blur-sm"
+            className="fixed inset-0 z-[85] bg-[var(--night)]/80 backdrop-blur-sm"
           />
         )}
       </AnimatePresence>
 
-      <div className="fixed bottom-4 left-0 right-0 z-[120] flex justify-center px-4 pointer-events-none">
+      <div className="fixed bottom-[calc(1rem+env(safe-area-inset-bottom))] left-0 right-0 z-[90] flex justify-center px-4 pointer-events-none">
         <div className="w-full max-w-3xl pointer-events-auto">
           <AnimatePresence>
             {open && (
@@ -287,19 +287,41 @@ export default function ScheduleDock() {
             )}
           </AnimatePresence>
 
-          <div className="flex justify-center">
-            <motion.button
-              onClick={() => (open ? close() : setOpen(true))}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-3 rounded-full border border-[var(--bone)] bg-[var(--forest)]/90 px-5 py-3 md:px-7 backdrop-blur-xl shadow-[0_20px_50px_-20px_rgba(0,0,0,0.9)]"
-            >
-              <CalendarDays size={18} className="text-[var(--gold)]" />
-              <span className="label-caps text-[var(--cream)]">October Schedule</span>
-              <span className="hidden sm:inline text-[10px] tracking-[0.22em] uppercase text-[var(--muted)]">
-                {open ? "Close" : "Register"}
-              </span>
-            </motion.button>
+          <div className="flex items-center justify-center gap-2">
+            {isMobile && minimized && !open ? (
+              <motion.button
+                onClick={() => setMinimized(false)}
+                whileTap={{ scale: 0.94 }}
+                aria-label="Show October schedule button"
+                className="grid h-12 w-12 place-items-center rounded-full border border-[var(--bone)] bg-[var(--forest)]/90 backdrop-blur-xl shadow-[0_20px_50px_-20px_rgba(0,0,0,0.9)]"
+              >
+                <CalendarDays size={20} className="text-[var(--gold)]" />
+              </motion.button>
+            ) : (
+              <>
+                <motion.button
+                  onClick={() => (open ? close() : setOpen(true))}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="inline-flex items-center gap-3 rounded-full border border-[var(--bone)] bg-[var(--forest)]/90 px-5 py-3 md:px-7 backdrop-blur-xl shadow-[0_20px_50px_-20px_rgba(0,0,0,0.9)]"
+                >
+                  <CalendarDays size={18} className="text-[var(--gold)]" />
+                  <span className="label-caps text-[var(--cream)]">October Schedule</span>
+                  <span className="hidden sm:inline text-[10px] tracking-[0.22em] uppercase text-[var(--muted)]">
+                    {open ? "Close" : "Register"}
+                  </span>
+                </motion.button>
+                {isMobile && (
+                  <button
+                    onClick={() => { setMinimized(true); setOpen(false); }}
+                    aria-label="Hide October schedule button"
+                    className="grid h-9 w-9 place-items-center rounded-full border border-[var(--bone)] bg-[var(--forest)]/90 backdrop-blur-xl text-[var(--muted)]"
+                  >
+                    <X size={15} />
+                  </button>
+                )}
+              </>
+            )}
           </div>
         </div>
       </div>
