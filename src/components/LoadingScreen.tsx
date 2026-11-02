@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import ksLogo from "@/assets/ks-logo.png.asset.json";
+import ksLogo from "@/assets/ks-logo-vector.svg";
 
 export default function LoadingScreen() {
   const [show, setShow] = useState(true);

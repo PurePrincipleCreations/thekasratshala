@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import ksLogo from "@/assets/ks-logo.png.asset.json";
+import ksLogo from "@/assets/ks-logo-vector.svg";
 import { EASE } from "@/lib/motion";
 
 const markers = [

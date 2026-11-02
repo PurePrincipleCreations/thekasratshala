@@ -1,4 +1,4 @@
-import ksLogo from "@/assets/ks-logo.png.asset.json";
+import ksLogo from "@/assets/ks-logo-vector.svg";
 import { Link } from "@tanstack/react-router";
 
 export default function Footer() {
@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="section-inner">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2 space-y-8">
-            <img src={ksLogo.url} alt="Kasratshala" className="h-12 w-auto invert opacity-80" />
+            <img src={ksLogo} alt="Kasratshala" className="h-12 w-auto opacity-90" />
             <p className="editorial-heading text-3xl max-w-md italic text-[var(--muted)]">
               "Ancient tools. Modern movement science. One body."
             </p>

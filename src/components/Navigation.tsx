@@ -5,7 +5,7 @@ import { Menu, X, ArrowRight, ShoppingBag } from "lucide-react";
 import { useAtom } from "jotai";
 import { cartAtom, isCartOpenAtom } from "@/lib/store";
 
-import ksLogo from "@/assets/ks-logo-new.png.asset.json";
+import ksLogo from "@/assets/ks-logo-vector.svg";
 import toriiGate from "@/assets/torii-gate.png.asset.json";
 
 const links = [
