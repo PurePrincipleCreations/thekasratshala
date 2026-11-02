@@ -42,3 +42,9 @@ Created 2026-11-01. Append new context below; never delete prior entries — mar
 - 2026-11-02 (third pass): prompt8067.txt re-sent the same asset-migration + badge spec. Remaining gap closed: WorkshopsSection.tsx Unsplash hotlinks replaced with Lovable CDN asset pointers (yoga-for-strength-new, outdoor_mace_1, mace_pose). `rg` confirms zero external hotlinks in src (only legit links: canonical/OG, social, hero Bunny player, Cashfree API, Maps embed). Stale error reports: src/main.tsx, src/pages/Index.tsx, src/lib/utils.ts — none exist / file is 6 lines.
 - 2026-11-02 (fourth pass): request1664.txt re-sent the Netlify/CORS asset-migration spec. Nothing to change: all asset URLs are already absolute (/__l5e/assets-v1/...), permanent, no CORS, lowercase names; no relative ./ paths or external background-image URLs found. /tmp/observability wiped by sandbox restart — logs rebuilt on next build. Stale error: src/pages/Index.tsx(16,15) — file doesn't exist.
 - Cashfree keys, real prices, real class photos per card, real batch timetable for Immersions/Schedule — all placeholders.
+
+## Stale errors (NOT real — do not chase) [continued]
+- 2026-11-02 (fifth pass): reported `src/main.tsx(4,18) TS2741 Property 'variant' missing` — src/main.tsx does not exist (TanStack project, no entry-client/main files); also re-verified src/lib/utils.ts is 6 lines (clsx + twMerge only, no React import). Dismissed as stale.
+
+## Uploaded files
+- message6478.txt (2026-11-02): generic "feature specifications" header only — contains no actual feature list or spec content (ends with "lets do what its necessary to make it happen"). Nothing implementable inside; asked user for the real feature list.
