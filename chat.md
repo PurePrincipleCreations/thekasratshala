@@ -37,4 +37,6 @@ Created 2026-11-01. Append new context below; never delete prior entries — mar
 ## Remaining / open
 - Footer nav links still read Practice / Camps / One Flow / Connect (older naming) — flagged, awaiting user decision.
 - ScheduleDock's October table still shows the October times (older schedule), while /schedule shows the new weekly roster — user asked to be told if they want it aligned.
+- 2026-11-02 (second pass): uploaded context5371.txt re-requested local-asset migration + badge removal. Verified already satisfied: all displayed images/videos use permanent Lovable CDN asset pointers; badge-hiding CSS block already in styles.css. Remaining external URLs are legitimate (canonical/OG links, social links, hero Bunny video player, Cashfree API, Google Maps embed). Only unused WorkshopsSection.tsx still has Unsplash hotlinks — left untouched (not imported anywhere). Stale error reports this turn: src/pages/Index.tsx, src/main.tsx, src/App.tsx — none exist. Build log clean.
+- 2026-11-02: user uploaded KS_Vector_logo.svg (vector logo, no instructions). Awaiting decision on whether to swap it in as the site logo.
 - Cashfree keys, real prices, real class photos per card, real batch timetable for Immersions/Schedule — all placeholders.
