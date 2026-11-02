@@ -1,3 +1,19 @@
+# ============= Full file contents =============
 [build]
   command = "bun run build"
   publish = "dist"
+
+# Proxy Lovable CDN assets (all site photos/videos live there) to the published app.
+# Without this, every <img>/<video> 404s on Netlify — the build bundles only the logo.
+[[redirects]]
+  from = "/__l5e/*"
+  to = "https://thekasratshala.lovable.app/__l5e/:splat"
+  status = 200
+  force = true
+
+# SPA fallback: client-rendered TanStack Router needs index.html served on deep links (/schedule, /immersions, ...).
+# force=false so real files (favicon, robots.txt, bundled assets) always win.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
