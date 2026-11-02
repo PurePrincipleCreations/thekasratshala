@@ -5,7 +5,7 @@ import { Menu, X, ArrowRight, ShoppingBag } from "lucide-react";
 import { useAtom } from "jotai";
 import { cartAtom, isCartOpenAtom } from "@/lib/store";
 
-import ksLogo from "@/assets/ks-logo-new.png.asset.json";
+import ksLogo from "@/assets/ks-logo-vector.svg";
 import toriiGate from "@/assets/torii-gate.png.asset.json";
 
 const links = [
@@ -46,7 +46,7 @@ export default function Navigation() {
           className="relative z-[101] group flex items-center outline-none py-1"
         >
           <div className="flex flex-col">
-            <img src={ksLogo.url} alt="Kasratshala" className="h-10 sm:h-14 md:h-20 lg:h-24 w-auto group-hover:scale-105 transition-transform" />
+            <img src={ksLogo} alt="Kasratshala" className="h-10 sm:h-14 md:h-20 lg:h-24 w-auto group-hover:scale-105 transition-transform" />
           </div>
         </button>
 

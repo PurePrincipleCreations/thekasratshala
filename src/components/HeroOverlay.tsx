@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import ksLogo from "@/assets/ks-logo.png.asset.json";
+import ksLogo from "@/assets/ks-logo-vector.svg";
 import { EASE } from "@/lib/motion";
 
 const markers = [
@@ -112,7 +112,7 @@ export default function HeroOverlay() {
       {/* Foreground */}
       <motion.div className="relative z-10 text-center px-6 py-28" style={{ ...layer(4), scale, opacity: fade }}>
         <motion.img
-          src={ksLogo.url}
+          src={ksLogo}
           alt="The Kasrat Shala logo — a tree with a monkey"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
