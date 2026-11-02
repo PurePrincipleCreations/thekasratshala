@@ -32,6 +32,7 @@ Created 2026-11-01. Append new context below; never delete prior entries — mar
 ## Deployment notes
 - No Netlify: publish via Lovable; custom domain connects to the Lovable publish. Domain not yet named by user; site not yet published with latest work.
 - Yogarambha is a separate /yogarambha route (mock auth, GSAP + R3F), not in search.
+- 2026-11-02: user shared external advice about Netlify/external image URLs. Reviewed: app images already use permanent Lovable CDN assets (/__l5e/assets-v1/...), not expiring temp URLs — no src rewrite needed. Fixed the only real external hotlinks (unused VideoTransition.tsx: Unsplash poster → dojo-building-clear asset, coverr.co video → drone-footage.mp4 asset). styles.css badge-hiding block extended to cover Netlify badge selectors. [Chat.md now includes the project state; original one-line summary superseded.]
 
 ## Remaining / open
 - Footer nav links still read Practice / Camps / One Flow / Connect (older naming) — flagged, awaiting user decision.
