@@ -125,4 +125,18 @@
   }
 }
 
-#lovable-badge { display: none !important; visibility: hidden !important; pointer-events: none !important; }
+/* Eradicate Hosting & Builder Badges */
+#lovable-badge,
+.lovable-badge,
+#netlify-badge,
+.netlify-badge,
+a[href*="netlify.com/utm_campaign=badge"],
+a[href*="netlify.com/?utm_campaign="] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: -9999 !important;
+  width: 0 !important;
+  height: 0 !important;
+}

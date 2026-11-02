@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Play, Pause, ChevronDown } from "lucide-react";
+import droneFootage from "@/assets/drone-footage.mp4.asset.json";
+import dojoBuilding from "@/assets/dojo-building-clear.jpg.asset.json";
 
 export default function VideoTransition() {
   const ref = useRef<HTMLDivElement>(null);
@@ -23,9 +25,9 @@ export default function VideoTransition() {
             ref={videoRef}
             className="absolute inset-0 w-full h-full object-cover"
             autoPlay muted loop playsInline
-            poster="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600&q=80"
+            poster={dojoBuilding.url}
           >
-            <source src="https://cdn.coverr.co/videos/coverr-a-drone-view-of-the-mountains-1584/1080p.mp4" type="video/mp4" />
+            <source src={droneFootage.url} type="video/mp4" />
           </video>
           <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(8,10,12,0.4), rgba(8,10,12,0.7))" }} />
 
